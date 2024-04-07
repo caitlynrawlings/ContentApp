@@ -2,7 +2,31 @@ import 'package:flutter/material.dart';
 import 'page.dart';
 import 'page_content.dart';
 
+var pageToContent = {
+  "What are my options?": <PageContent>[
+    PageContent(
+      contentType: 'header',
+      value: 'Content of Page options page',
+    ),
+    PageContent(
+      contentType: 'image',
+      value: 'img',
+    ),
+  ],
+  "What will happen to my period?": <PageContent>[
+    PageContent(
+      contentType: 'header',
+      value: 'Content of Page period page',
+    ),
+    PageContent(
+      contentType: 'image',
+      value: 'img2',
+    ),
+  ],
+};
+
 const pages = ["What are my options?", "What will happen to my period?"];
+const languages = ["Kiswahili", "Dholuo", "English"];
 
 void main() {
   runApp(const MyApp());
@@ -35,6 +59,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int selectedIndex = 0;
+  String selectedLanguage = languages[0]; // Variable to store the selected language
 
   @override
   Widget build(BuildContext context) {
@@ -50,14 +75,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 });
               },
             ),
-            title: const Text('Family Planning Guide'),
+            title: Text('Family Planning Guide in: $selectedLanguage'),
           ),
           body: Column(
             children: [
+              LanguageDropdown(
+                selectedLanguage: selectedLanguage,
+                onChanged: (String newValue) {
+                  setState(() {
+                    selectedLanguage = newValue;
+                  });
+                },
+              ),
               Expanded(
                 child: selectedIndex == 0
                     ? Center(
-                        child: MyMenuPage(
+                        child: MenuPage(
                           pages: pages,
                           onSelectPage: (index) {
                             setState(() {
@@ -67,10 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       )
                     : CustomPage(
-                        content: [
-                          PageContent(contentType: 'header', value: 'Content of Page $selectedIndex'),
-                          PageContent(contentType: 'image', value: 'img'),
-                        ],
+                        content: pageToContent[pages[selectedIndex]] ?? [],
                       ),
               ),
             ],
@@ -81,11 +111,11 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class MyMenuPage extends StatelessWidget {
+class MenuPage extends StatelessWidget {
   final List<String> pages;
   final Function(int) onSelectPage;
 
-  const MyMenuPage({
+  const MenuPage({
     Key? key,
     required this.pages,
     required this.onSelectPage,
@@ -135,6 +165,40 @@ class PageButton extends StatelessWidget {
         ),
         const SizedBox(height: 12.0),
       ],
+    );
+  }
+}
+
+class LanguageDropdown extends StatefulWidget {
+  final String selectedLanguage;
+  final ValueChanged<String> onChanged;
+
+  const LanguageDropdown({
+    Key? key,
+    required this.selectedLanguage,
+    required this.onChanged,
+  }) : super(key: key);
+
+  @override
+  _LanguageDropdownState createState() => _LanguageDropdownState();
+}
+
+class _LanguageDropdownState extends State<LanguageDropdown> {
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton<String>(
+      value: widget.selectedLanguage,
+      onChanged: (String? newValue) {
+        widget.onChanged(newValue ?? languages[0]);
+      },
+      items: languages
+          .map<DropdownMenuItem<String>>((String value) {
+            return DropdownMenuItem<String>(
+              value: value,
+              child: Text(value),
+            );
+          })
+          .toList(),
     );
   }
 }

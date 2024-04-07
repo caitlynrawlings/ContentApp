@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'page.dart';
+import 'page_content.dart';
 
 const pages = ["What are my options?", "What will happen to my period?"];
 
@@ -66,7 +67,10 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       )
                     : CustomPage(
-                        content: ['Content of Page $selectedIndex'],
+                        content: [
+                          PageContent(contentType: 'header', value: 'Content of Page $selectedIndex'),
+                          PageContent(contentType: 'image', value: 'img'),
+                        ],
                       ),
               ),
             ],

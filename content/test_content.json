@@ -1,0 +1,51 @@
+{
+    "languages": ["english", "dholuo", "kiswahili"],
+    "pages": [
+        {
+            "title": {
+                "english": "Page 1 (eng)",
+                "dholuo": "Page 1 (dholuo) and the translation is really really really long",
+                "kiswahili": "Page 1 (kiswahili)"
+            },
+            "content": [
+                {
+                    "content-type": "subtitle",
+                    "content": {
+                        "english": "one",
+                        "dholuo": "two",
+                        "kiswahili": "three"
+                    }    
+                },
+                {
+                    "content-type": "image",
+                    "content": {
+                        "english": "/path/to/images/page1-english.png",
+                        "dholuo": "/path/to/images/page1-dholuo.png",
+                        "kiswahili": "/path/to/images/page1-kiswahili.png"
+                    }
+                },
+                {
+                    "content-type": "text",
+                    "content": {
+                        "english": "Hello",
+                        "dholuo": "Misawa",
+                        "kiswahili": "Habari"
+                    }
+                }
+            ]
+        },
+        {
+            "title": ["Page 2 (eng)", "Page 2 (dholuo) and the translation is really really really long", "Page 2 (kiswahili)"],
+            "content": [
+                {
+                    "content-type": "text",
+                    "content": {
+                        "english": "Hello",
+                        "dholuo": "Misawa",
+                        "kiswahili": "Habari"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'page.dart';
 import 'page_content.dart';
+import 'dart:convert';
+import 'package:flutter/services.dart' show rootBundle;
+import 'dart:developer' as developer;
+
+var languages = [];
 
 var pageToContent = {
   "What are my options?": <PageContent>[
@@ -26,9 +31,24 @@ var pageToContent = {
 };
 
 const pages = ["What are my options?", "What will happen to my period?"];
-const languages = ["Kiswahili", "Dholuo", "English"];
 
-void main() {
+Future<void> loadJsonData() async {
+    // Load the JSON file
+    String jsonData = await rootBundle.loadString('content/test_content.json');
+      
+    // Parse the JSON string
+    Map<String, dynamic> data = json.decode(jsonData);
+      
+    // Use the data as needed
+    for (var language in data["languages"]) {
+      developer.log(language, name: 'my.app.category');
+      languages.add(language.toString());
+    }
+  }
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await loadJsonData();
   runApp(const MyApp());
 }
 
@@ -192,13 +212,12 @@ class _LanguageDropdownState extends State<LanguageDropdown> {
         widget.onChanged(newValue ?? languages[0]);
       },
       items: languages
-          .map<DropdownMenuItem<String>>((String value) {
+          .map<DropdownMenuItem<String>>((dynamic value) {
             return DropdownMenuItem<String>(
               value: value,
               child: Text(value),
             );
-          })
-          .toList(),
+          }).toList(),
     );
   }
 }

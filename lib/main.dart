@@ -7,6 +7,9 @@ import 'dart:developer' as developer;
 
 var languages = [];
 
+int selectedIndex = 0;
+String selectedLanguage = "";
+
 var pageToContent = {
   "What are my options?": <PageContent>[
     PageContent(
@@ -30,7 +33,7 @@ var pageToContent = {
   ],
 };
 
-const pages = ["What are my options?", "What will happen to my period?"];
+var page_titles = <Map<String, String>>[];
 
 Future<void> loadJsonData() async {
     // Load the JSON file
@@ -41,10 +44,31 @@ Future<void> loadJsonData() async {
       
     // Use the data as needed
     for (var language in data["languages"]) {
-      developer.log(language, name: 'my.app.category');
       languages.add(language.toString());
     }
-  }
+    selectedLanguage = languages[0];
+
+    for (var page in data["pages"]) {
+      Map<String, dynamic> page_info = page as Map<String, dynamic>;  // title and content as keys
+
+      // Check if 'title' is a list or a map
+      dynamic titleData = page_info["title"];
+
+      if (titleData is List) {
+        // Handle if 'title' is a list
+        Map<String, String> titleMap = {};
+        for (int i = 0; i < languages.length && i < titleData.length; i++) {
+          if (titleData[i] is String) {
+            titleMap[languages[i]] = titleData[i] as String;
+          }
+        }
+        page_titles.add(titleMap);
+      } else if (titleData is Map<String, dynamic>) {
+        // Handle if 'title' is a map
+        page_titles.add(titleData.cast<String, String>());
+      }
+    }
+}
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -78,8 +102,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int selectedIndex = 0;
-  String selectedLanguage = languages[0]; // Variable to store the selected language
 
   @override
   Widget build(BuildContext context) {
@@ -111,7 +133,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: selectedIndex == 0
                     ? Center(
                         child: MenuPage(
-                          pages: pages,
+                          page_titles: page_titles,
                           onSelectPage: (index) {
                             setState(() {
                               selectedIndex = index + 1;
@@ -120,7 +142,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       )
                     : CustomPage(
-                        content: pageToContent[pages[selectedIndex]] ?? [],
+                        content: pageToContent[page_titles[selectedIndex][selectedLanguage]] ?? [],
                       ),
               ),
             ],
@@ -132,22 +154,22 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class MenuPage extends StatelessWidget {
-  final List<String> pages;
+  final List<Map<String, String>> page_titles;
   final Function(int) onSelectPage;
 
   const MenuPage({
     Key? key,
-    required this.pages,
+    required this.page_titles,
     required this.onSelectPage,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: pages.length,
+      itemCount: page_titles.length,
       itemBuilder: (context, index) {
         return PageButton(
-          pageLabel: pages[index],
+          pageLabel: page_titles[index][selectedLanguage] ?? "Not available",
           onPressed: () {
             onSelectPage(index);
           },

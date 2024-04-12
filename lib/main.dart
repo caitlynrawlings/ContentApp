@@ -34,6 +34,7 @@ var pageToContent = {
 };
 
 var page_titles = <Map<String, String>>[];
+var pages_contents = <List<Map<String, PageContent>>>[];
 
 Future<void> loadJsonData() async {
     // Load the JSON file
@@ -67,6 +68,44 @@ Future<void> loadJsonData() async {
         // Handle if 'title' is a map
         page_titles.add(titleData.cast<String, String>());
       }
+
+      // Check if 'title' is a list or a map
+      dynamic contentData = page_info["content"];  // content data on one page
+
+      if (contentData is List) {
+        // Handle if 'content' is a list
+        List<Map<String, PageContent>> onePageContents = [];
+        for (int i = 0; i < contentData.length && i < contentData.length; i++) {
+          Map<String, dynamic> peiceOfContent = contentData[i] as Map<String, dynamic>;
+          dynamic contentType = peiceOfContent["content-type"] as String;
+          Map<String, dynamic> contentValue = peiceOfContent["content"];
+          Map<String, String> parsedContentValue = {}; // language to content value in that language map
+
+          if (contentValue != null) {
+            // Check if contentValue is not null
+            // Convert dynamic values to strings
+            parsedContentValue = contentValue.map((key, value) => MapEntry(key, value.toString()));
+          } else {
+            // Handle the case where contentValue is null
+            // You can throw an exception, return a default value, or handle it in another way based on your requirements
+            throw Exception("Content value is null");
+          }
+
+          Map<String, PageContent> pageContentsEntry = {};
+          for (var item in parsedContentValue.entries) {
+            String language = item.key;
+            String contentTranslation = item.value;
+            pageContentsEntry[language] = PageContent(contentType: contentType, value: contentTranslation);
+          }
+          onePageContents += [pageContentsEntry];
+        }
+        pages_contents += [onePageContents];
+      } else if (contentData is Map<String, dynamic>) {
+        // Handle if 'title' is a map
+        break;
+      }
+
+
     }
 }
 
@@ -142,7 +181,9 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       )
                     : CustomPage(
-                        content: pageToContent[page_titles[selectedIndex][selectedLanguage]] ?? [],
+                        content: pages_contents[selectedIndex] ?? [],
+                        title: page_titles[selectedIndex],
+                        language: selectedLanguage,
                       ),
               ),
             ],

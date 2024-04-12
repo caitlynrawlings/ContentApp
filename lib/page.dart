@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 import 'page_content.dart';
 
 class CustomPage extends StatefulWidget {
-  final List<PageContent> content;
+  final List<Map<String, PageContent>> content;
+  final Map<String, String> title;
+  String language;
 
-  const CustomPage({
+  CustomPage({
     Key? key,
     required this.content,
+    required this.title,
+    required this.language,
   }) : super(key: key);
 
   @override
@@ -25,13 +29,18 @@ class _CustomPageState extends State<CustomPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Page'),
+        title: Text(widget.title[widget.language] ?? "No title translation found"),
       ),
       body: Column(
-        children: [
-          for (final item in widget.content)
-            _buildContentWidget(item.contentType, item.value),
-        ]
+        children: widget.content.map((item) {
+          var contentTranslation = item[widget.language];
+          if (contentTranslation != null) {
+            return _buildContentWidget(contentTranslation.contentType, contentTranslation.value);
+          } else {
+            // Handle the case where contentTranslation is null
+            return SizedBox(); // or any other widget or null
+          }
+        }).toList(),
       ),
     );
   }

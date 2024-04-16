@@ -35,7 +35,11 @@
             ]
         },
         {
-            "title": ["Page 2 (eng)", "Page 2 (dholuo) and the translation is really really really long", "Page 2 (kiswahili)"],
+            "title": {
+                "english": "Page 2 (eng)",
+                "dholuo": "Page 2 (dholuo) and the translation is really really really long",
+                "kiswahili": "Page 2 (kiswahili)"
+            },
             "content": [
                 {
                     "content-type": "text",

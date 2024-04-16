@@ -7,23 +7,17 @@ class CustomPage extends StatefulWidget {
   String language;
 
   CustomPage({
-    Key? key,
+    super.key,
     required this.content,
     required this.title,
     required this.language,
-  }) : super(key: key);
+  });
 
   @override
   State<CustomPage> createState() => _CustomPageState();
 }
 
 class _CustomPageState extends State<CustomPage> {
-  bool overrideIndex = false;
-  int selectedButtonIndex = 0; // Default value
-
-  List<List<String>> languages = List.generate(3, (_) => <String>[]);
-  // Change value to set aspect ratio
-  final double _aspectRatio = 16 / 10;
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +31,7 @@ class _CustomPageState extends State<CustomPage> {
           if (contentTranslation != null) {
             return _buildContentWidget(contentTranslation.contentType, contentTranslation.value);
           } else {
-            // Handle the case where contentTranslation is null
-            return SizedBox(); // or any other widget or null
+            return const SizedBox();
           }
         }).toList(),
       ),
@@ -49,7 +42,7 @@ class _CustomPageState extends State<CustomPage> {
     switch (contentType) {
       case 'header':
         return Text(value);
-      case 'body':
+      case 'text':
         return Text(value);
       case 'image':
         return const Text('Image not supported yet');

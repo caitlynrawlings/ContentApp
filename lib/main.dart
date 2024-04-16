@@ -1,41 +1,19 @@
 import 'package:flutter/material.dart';
-import 'page.dart';
+import 'custom_page.dart';
 import 'page_content.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
-import 'dart:developer' as developer;
 
+
+int selectedIndex = 0;  // tracks which page is being displayed
+String selectedLanguage = "";  // tracks current language
+
+// for storing data once parsed from json
 var languages = [];
+var pageTitles = <Map<String, String>>[];
+var pagesContents = <List<Map<String, PageContent>>>[];
 
-int selectedIndex = 0;
-String selectedLanguage = "";
-
-var pageToContent = {
-  "What are my options?": <PageContent>[
-    PageContent(
-      contentType: 'header',
-      value: 'Content of Page options page',
-    ),
-    PageContent(
-      contentType: 'image',
-      value: 'img',
-    ),
-  ],
-  "What will happen to my period?": <PageContent>[
-    PageContent(
-      contentType: 'header',
-      value: 'Content of Page period page',
-    ),
-    PageContent(
-      contentType: 'image',
-      value: 'img2',
-    ),
-  ],
-};
-
-var page_titles = <Map<String, String>>[];
-var pages_contents = <List<Map<String, PageContent>>>[];
-
+// loads the app content data from the json file into data structures
 Future<void> loadJsonData() async {
     // Load the JSON file
     String jsonData = await rootBundle.loadString('content/test_content.json');
@@ -43,17 +21,17 @@ Future<void> loadJsonData() async {
     // Parse the JSON string
     Map<String, dynamic> data = json.decode(jsonData);
       
-    // Use the data as needed
+    // Get language options for the app and sets current language
     for (var language in data["languages"]) {
       languages.add(language.toString());
     }
     selectedLanguage = languages[0];
 
     for (var page in data["pages"]) {
-      Map<String, dynamic> page_info = page as Map<String, dynamic>;  // title and content as keys
+      Map<String, dynamic> pageInfo = page as Map<String, dynamic>;  // title and content as keys
 
       // Check if 'title' is a list or a map
-      dynamic titleData = page_info["title"];
+      dynamic titleData = pageInfo["title"];
 
       if (titleData is List) {
         // Handle if 'title' is a list
@@ -63,14 +41,14 @@ Future<void> loadJsonData() async {
             titleMap[languages[i]] = titleData[i] as String;
           }
         }
-        page_titles.add(titleMap);
+        pageTitles.add(titleMap);
       } else if (titleData is Map<String, dynamic>) {
         // Handle if 'title' is a map
-        page_titles.add(titleData.cast<String, String>());
+        pageTitles.add(titleData.cast<String, String>());
       }
 
       // Check if 'title' is a list or a map
-      dynamic contentData = page_info["content"];  // content data on one page
+      dynamic contentData = pageInfo["content"];  // content data on one page
 
       if (contentData is List) {
         // Handle if 'content' is a list
@@ -80,17 +58,7 @@ Future<void> loadJsonData() async {
           dynamic contentType = peiceOfContent["content-type"] as String;
           Map<String, dynamic> contentValue = peiceOfContent["content"];
           Map<String, String> parsedContentValue = {}; // language to content value in that language map
-
-          if (contentValue != null) {
-            // Check if contentValue is not null
-            // Convert dynamic values to strings
-            parsedContentValue = contentValue.map((key, value) => MapEntry(key, value.toString()));
-          } else {
-            // Handle the case where contentValue is null
-            // You can throw an exception, return a default value, or handle it in another way based on your requirements
-            throw Exception("Content value is null");
-          }
-
+          parsedContentValue = contentValue.map((key, value) => MapEntry(key, value.toString()));
           Map<String, PageContent> pageContentsEntry = {};
           for (var item in parsedContentValue.entries) {
             String language = item.key;
@@ -99,7 +67,7 @@ Future<void> loadJsonData() async {
           }
           onePageContents += [pageContentsEntry];
         }
-        pages_contents += [onePageContents];
+        pagesContents += [onePageContents];
       } else if (contentData is Map<String, dynamic>) {
         // Handle if 'title' is a map
         break;
@@ -116,14 +84,14 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 70, 70, 70)),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
@@ -134,7 +102,7 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   final String title;
 
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+  const MyHomePage({super.key, required this.title});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -172,7 +140,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: selectedIndex == 0
                     ? Center(
                         child: MenuPage(
-                          page_titles: page_titles,
+                          pageTitles: pageTitles,
                           onSelectPage: (index) {
                             setState(() {
                               selectedIndex = index + 1;
@@ -181,8 +149,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       )
                     : CustomPage(
-                        content: pages_contents[selectedIndex] ?? [],
-                        title: page_titles[selectedIndex],
+                        content: pagesContents[selectedIndex - 1],
+                        title: pageTitles[selectedIndex - 1],
                         language: selectedLanguage,
                       ),
               ),
@@ -195,22 +163,22 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class MenuPage extends StatelessWidget {
-  final List<Map<String, String>> page_titles;
+  final List<Map<String, String>> pageTitles;
   final Function(int) onSelectPage;
 
   const MenuPage({
-    Key? key,
-    required this.page_titles,
+    super.key,
+    required this.pageTitles,
     required this.onSelectPage,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: page_titles.length,
+      itemCount: pageTitles.length,
       itemBuilder: (context, index) {
         return PageButton(
-          pageLabel: page_titles[index][selectedLanguage] ?? "Not available",
+          pageLabel: pageTitles[index][selectedLanguage] ?? "Not available",
           onPressed: () {
             onSelectPage(index);
           },
@@ -225,10 +193,10 @@ class PageButton extends StatelessWidget {
   final VoidCallback onPressed;
 
   const PageButton({
-    Key? key,
+    super.key,
     required this.pageLabel,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -241,6 +209,9 @@ class PageButton extends StatelessWidget {
       children: [
         ElevatedButton(
           onPressed: onPressed,
+          style: ElevatedButton.styleFrom(
+              backgroundColor: theme.primaryColor,
+          ),
           child: Text(
             pageLabel,
             style: style,
@@ -257,16 +228,16 @@ class LanguageDropdown extends StatefulWidget {
   final ValueChanged<String> onChanged;
 
   const LanguageDropdown({
-    Key? key,
+    super.key,
     required this.selectedLanguage,
     required this.onChanged,
-  }) : super(key: key);
+  });
 
   @override
-  _LanguageDropdownState createState() => _LanguageDropdownState();
+  LanguageDropdownState createState() => LanguageDropdownState();
 }
 
-class _LanguageDropdownState extends State<LanguageDropdown> {
+class LanguageDropdownState extends State<LanguageDropdown> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(

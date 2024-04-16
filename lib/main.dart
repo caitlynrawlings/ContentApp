@@ -5,7 +5,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 
 
-int selectedIndex = 0;  // tracks which page is being displayed
+int selectedPageIndex = 0;  // tracks which page is being displayed. 0 is menu page and increments from that in order of pages added
 String selectedLanguage = "";  // tracks current language
 
 // for storing data once parsed from json
@@ -89,12 +89,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Content App',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 70, 70, 70)),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Content App Home Page'),
     );
   }
 }
@@ -120,37 +120,37 @@ class _MyHomePageState extends State<MyHomePage> {
               icon: const Icon(Icons.home),
               onPressed: () {
                 setState(() {
-                  selectedIndex = 0;
+                  selectedPageIndex = 0;
                 });
               },
             ),
-            title: Text('Family Planning Guide in: $selectedLanguage'),
+            title: const Text('Content App'),
           ),
           body: Column(
             children: [
               LanguageDropdown(
                 selectedLanguage: selectedLanguage,
-                onChanged: (String newValue) {
+                onChanged: (String newLanguage) {
                   setState(() {
-                    selectedLanguage = newValue;
+                    selectedLanguage = newLanguage;
                   });
                 },
               ),
               Expanded(
-                child: selectedIndex == 0
+                child: selectedPageIndex == 0
                     ? Center(
                         child: MenuPage(
                           pageTitles: pageTitles,
                           onSelectPage: (index) {
                             setState(() {
-                              selectedIndex = index + 1;
+                              selectedPageIndex = index + 1;
                             });
                           },
                         ),
                       )
                     : CustomPage(
-                        content: pagesContents[selectedIndex - 1],
-                        title: pageTitles[selectedIndex - 1],
+                        content: pagesContents[selectedPageIndex - 1],
+                        title: pageTitles[selectedPageIndex - 1],
                         language: selectedLanguage,
                       ),
               ),
@@ -178,7 +178,7 @@ class MenuPage extends StatelessWidget {
       itemCount: pageTitles.length,
       itemBuilder: (context, index) {
         return PageButton(
-          pageLabel: pageTitles[index][selectedLanguage] ?? "Not available",
+          pageLabel: pageTitles[index][selectedLanguage] ?? "Page not available in $selectedLanguage",
           onPressed: () {
             onSelectPage(index);
           },
@@ -201,7 +201,7 @@ class PageButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final style = theme.textTheme.displayMedium!.copyWith(
+    final textStyle = theme.textTheme.displaySmall!.copyWith(
       color: theme.colorScheme.onPrimary,
     );
 
@@ -214,7 +214,7 @@ class PageButton extends StatelessWidget {
           ),
           child: Text(
             pageLabel,
-            style: style,
+            style: textStyle,
           ),
         ),
         const SizedBox(height: 12.0),
@@ -242,14 +242,14 @@ class LanguageDropdownState extends State<LanguageDropdown> {
   Widget build(BuildContext context) {
     return DropdownButton<String>(
       value: widget.selectedLanguage,
-      onChanged: (String? newValue) {
-        widget.onChanged(newValue ?? languages[0]);
+      onChanged: (String? newLanguage) {
+        widget.onChanged(newLanguage ?? languages[0]);
       },
       items: languages
-          .map<DropdownMenuItem<String>>((dynamic value) {
+          .map<DropdownMenuItem<String>>((dynamic language) {
             return DropdownMenuItem<String>(
-              value: value,
-              child: Text(value),
+              value: language,
+              child: Text(language),
             );
           }).toList(),
     );

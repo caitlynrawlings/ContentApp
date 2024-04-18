@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// import 'package:flutter/widgets.dart';
 import 'custom_page.dart';
 import 'page_content.dart';
 import 'dart:convert';
@@ -136,6 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
       builder: (context, constraints) {
         return Scaffold(
           appBar: AppBar(
+            backgroundColor: Theme.of(context).primaryColor,
             leading: IconButton(
               icon: const Icon(Icons.home),
               onPressed: () {
@@ -144,18 +146,30 @@ class _MyHomePageState extends State<MyHomePage> {
                 });
               },
             ),
-            title: Text('Content App: $selectedLanguage'),
+            title: Row(
+              children: [
+                Text('Content App: $selectedLanguage'),
+              ],
+            ),
           ),
           body: Column(
             children: [
-              LanguageDropdown(
-                key: const ValueKey('languageDropdown'),
-                selectedLanguage: selectedLanguage,
-                onChanged: (String newLanguage) {
-                  setState(() {
-                    selectedLanguage = newLanguage;
-                  });
-                },
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    LanguageDropdown(
+                      key: const ValueKey('languageDropdown'),
+                      selectedLanguage: selectedLanguage,
+                      onChanged: (String newLanguage) {
+                        setState(() {
+                          selectedLanguage = newLanguage;
+                        });
+                      },
+                    ),
+                  ],
+                ),
               ),
               Expanded(
                 child: selectedPageIndex == 0

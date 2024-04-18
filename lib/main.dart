@@ -16,7 +16,7 @@ var pagesContents = <List<Map<String, PageContent>>>[];
 // loads the app content data from the json file into data structures
 Future<void> loadJsonData() async {
     // Load the JSON file
-    String jsonData = await rootBundle.loadString('content/test_content.json');
+    String jsonData = await rootBundle.loadString('assets/test_content.json');
       
     // Parse the JSON string
     Map<String, dynamic> data = json.decode(jsonData);
@@ -124,11 +124,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 });
               },
             ),
-            title: const Text('Content App'),
+            title: Text('Content App: $selectedLanguage'),
           ),
           body: Column(
             children: [
               LanguageDropdown(
+                key: const ValueKey('languageDropdown'),
                 selectedLanguage: selectedLanguage,
                 onChanged: (String newLanguage) {
                   setState(() {
@@ -248,6 +249,7 @@ class LanguageDropdownState extends State<LanguageDropdown> {
       items: languages
           .map<DropdownMenuItem<String>>((dynamic language) {
             return DropdownMenuItem<String>(
+              key: ValueKey(language),
               value: language,
               child: Text(language),
             );

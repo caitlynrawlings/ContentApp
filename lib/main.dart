@@ -93,6 +93,26 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 70, 70, 70)),
         useMaterial3: true,
+        textTheme: const TextTheme(
+          displayLarge: TextStyle(
+            fontSize: 72,
+            fontWeight: FontWeight.bold,
+          ),
+          // ···
+          titleLarge: TextStyle(
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+          ),
+          headlineLarge: TextStyle(
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+          ),
+          headlineMedium: TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.bold,
+          ),
+          
+        ),
       ),
       home: const MyHomePage(title: 'Content App Home Page'),
     );

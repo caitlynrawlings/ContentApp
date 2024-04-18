@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'page_content.dart';
+import 'heading.dart';
+import 'subheading.dart';
 
 class CustomPage extends StatefulWidget {
   final List<Map<String, PageContent>> content;
@@ -22,18 +24,21 @@ class _CustomPageState extends State<CustomPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title[widget.language] ?? "No title translation found"),
-      ),
       body: Column(
-        children: widget.content.map((item) {
-          var contentTranslation = item[widget.language];
-          if (contentTranslation != null) {
-            return _buildContentWidget(contentTranslation.contentType, contentTranslation.value);
-          } else {
-            return const SizedBox();
-          }
-        }).toList(),
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            widget.title[widget.language] ?? "No title translation found",
+            style: Theme.of(context).textTheme.displaySmall,
+          ),
+          ...widget.content.map((item) {
+            var contentTranslation = item[widget.language];
+            if (contentTranslation != null) {
+              return _buildContentWidget(contentTranslation.contentType, contentTranslation.value);
+            } else {
+              return const SizedBox();
+            }
+          })],
       ),
     );
   }
@@ -41,13 +46,13 @@ class _CustomPageState extends State<CustomPage> {
   Widget _buildContentWidget(String contentType, dynamic value) {
     switch (contentType) {
       case 'Heading':
-        return Text(value);
+        return Heading(text: value);
       case 'Subheading':
-        return Text(value);
+        return Subheading(text: value);
       case 'Text':
-        return const Text('Image not supported yet');
+        return Text(value);
       case 'Image':
-        return const Text('Video not supported yet');
+        return const Text('Image not supported yet');
       case 'Audio':
         return const Text('Audio not supported yet');
       default:

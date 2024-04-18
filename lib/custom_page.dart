@@ -40,15 +40,15 @@ class _CustomPageState extends State<CustomPage> {
 
   Widget _buildContentWidget(String contentType, dynamic value) {
     switch (contentType) {
-      case 'header':
+      case 'Heading':
         return Text(value);
-      case 'text':
+      case 'Subheading':
         return Text(value);
-      case 'image':
+      case 'Text':
         return const Text('Image not supported yet');
-      case 'video':
+      case 'Image':
         return const Text('Video not supported yet');
-      case 'audio':
+      case 'Audio':
         return const Text('Audio not supported yet');
       default:
         return Text('Unsupported content type: $contentType');

@@ -71,13 +71,37 @@
                         "dholuo": "Dholuo translation of this body text.",
                         "kiswahili": "Kiswahili translation of this body text."
                     }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "english": "English translation of body text. This is body text. This is were a paragraph could be written. A long paragraph. Or a very very very very long paragraph.",
+                        "dholuo": "Dholuo translation of this body text.",
+                        "kiswahili": "Kiswahili translation of this body text."
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "english": "English translation of body text. This is body text. This is were a paragraph could be written. A long paragraph. Or a very very very very long paragraph.",
+                        "dholuo": "Dholuo translation of this body text.",
+                        "kiswahili": "Kiswahili translation of this body text."
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "english": "English translation of body text. This is body text. This is were a paragraph could be written. A long paragraph. Or a very very very very long paragraph.",
+                        "dholuo": "Dholuo translation of this body text.",
+                        "kiswahili": "Kiswahili translation of this body text."
+                    }
                 }
             ]
         },
         {
             "title": {
                 "english": "Page 2 (eng)",
-                "dholuo": "Page 2 (dholuo) and the translation is really really really long",
+                "dholuo": "Page 2 (dholuo)",
                 "kiswahili": "Page 2 (kiswahili)"
             },
             "content": [

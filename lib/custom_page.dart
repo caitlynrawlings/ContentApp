@@ -31,11 +31,11 @@ class _CustomPageState extends State<CustomPage> {
               padding: const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 8.0),
               child: Text(
                 widget.title[widget.language] ?? "No title translation found",
-                style: Theme.of(context).textTheme.displaySmall,
+                style: Theme.of(context).textTheme.headlineSmall,
               ),
             ),
             const Padding(
-              padding: EdgeInsets.only(left: 8.0, right: 8.0),
+              padding: EdgeInsets.only(left: 8.0, right: 8.0, bottom: 8.0),
               child: Divider(
                 color: Color.fromARGB(255, 205, 205, 205), // Customize divider color as needed
                 height: 1, // Customize divider height as needed

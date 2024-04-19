@@ -236,23 +236,39 @@ class PageButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final textStyle = theme.textTheme.displaySmall!.copyWith(
-      color: theme.colorScheme.onPrimary,
+    final textStyle = theme.textTheme.headlineSmall!.copyWith(
+      color: const Color.fromARGB(255, 0, 0, 0), // theme.colorScheme.onPrimary,
     );
 
     return Column(
       children: [
-        ElevatedButton(
-          onPressed: onPressed,
-          style: ElevatedButton.styleFrom(
-              backgroundColor: theme.primaryColor,
+        Container(
+          width: double.infinity,
+          decoration: const BoxDecoration(
+            border: Border(
+              bottom: BorderSide(
+                color: Color.fromARGB(255, 205, 205, 205), // Specify border color here
+                width: 1.0, // Specify border width here
+              ),
+            ),
           ),
-          child: Text(
-            pageLabel,
-            style: textStyle,
+          child: TextButton(
+            onPressed: onPressed,
+            style: TextButton.styleFrom(
+                backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(0), // Adjust the value as needed
+                ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 4.0, right: 4.0, top: 8.0, bottom: 10.0),
+              child: Text(
+                pageLabel,
+                style: textStyle,
+              ),
+            ),
           ),
         ),
-        const SizedBox(height: 12.0),
       ],
     );
   }

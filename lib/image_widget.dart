@@ -12,17 +12,20 @@ class ImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // all imgs should be in assets folder then 
     String fullPath = 'assets/$imagePath';
-    return Image.asset(
-      fullPath,
-      key: Key(fullPath),
-      semanticLabel: altText,
-      width: double.infinity, // size should be adjusted depending???
-      fit: BoxFit.cover, // size should be adjusted depending???
-      errorBuilder: (BuildContext context, Object error, StackTrace? stackTrace) {
-        return Text(altText.isNotEmpty ? altText : 'Image could not be loaded');
-      },
+    return AspectRatio(
+      aspectRatio: 16 / 9, // Adjust the aspect ratio according to your needs
+      child: Image.asset(
+        fullPath,
+        key: Key(fullPath),
+        semanticLabel: altText,
+        width: double.infinity,
+        fit: BoxFit.contain,  // Changed to contain to see entire image
+        errorBuilder: (BuildContext context, Object error, StackTrace? stackTrace) {
+          return Text(altText.isNotEmpty ? altText : 'Image could not be loaded');
+        },
+      ),
     );
   }
 }
+

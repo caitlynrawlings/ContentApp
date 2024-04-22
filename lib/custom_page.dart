@@ -2,81 +2,68 @@ import 'package:flutter/material.dart';
 import 'page_content.dart';
 import 'heading.dart';
 import 'subheading.dart';
+import 'image_widget.dart';
+import 'lang_dropdown.dart'; 
 
 class CustomPage extends StatefulWidget {
-  final List<Map<String, PageContent>> content;
+  final List<dynamic> content;
   final Map<String, String> title;
-  String language;
+  final String language;
+  final Function(String) onLanguageChanged;
+  final List<String> languages;
 
   CustomPage({
-    super.key,
+    Key? key,
     required this.content,
     required this.title,
     required this.language,
-  });
+    required this.onLanguageChanged,
+    required this.languages,
+  }) : super(key: key);
 
   @override
   State<CustomPage> createState() => _CustomPageState();
 }
 
 class _CustomPageState extends State<CustomPage> {
-
   @override
   Widget build(BuildContext context) {
-  return Scaffold(
-    body: 
-        Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 8.0),
-              child: Text(
-                widget.title[widget.language] ?? "No title translation found",
-                style: Theme.of(context).textTheme.headlineSmall,
-              ),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(left: 8.0, right: 8.0, bottom: 8.0),
-              child: Divider(
-                color: Color.fromARGB(255, 205, 205, 205), // Customize divider color as needed
-                height: 1, // Customize divider height as needed
-                thickness: 1, // Customize divider thickness as needed
-              ),
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                child: ListView(
-                  children: widget.content.map((item) {
-                    var contentTranslation = item[widget.language];
-                    if (contentTranslation != null) {
-                      return _buildContentWidget(contentTranslation.contentType, contentTranslation.value);
-                    } else {
-                      return const SizedBox();
-                    }
-                  }).toList(),
-                ),
-              ),
-            )
-          ],
-        )
-  );
-}
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.home),
+          onPressed: () => Navigator.of(context).popUntil((route) => route.isFirst),
+        ),
+        title: Text(widget.title[widget.language] ?? "No title translation found"),
+        actions: [
+          LanguageDropdown(
+            selectedLanguage: widget.language,
+            onLanguageChanged: widget.onLanguageChanged,
+            languages: widget.languages,
+          ),
+        ],
+      ),
+      body: ListView(
+        children: widget.content.map<Widget>((item) {
+          return _buildContentWidget(item['content-type'], item['content'][widget.language]);
+        }).toList(),
+      ),
+    );
+  }
 
-
-  Widget _buildContentWidget(String contentType, dynamic value) {
-    switch (contentType) {
-      case 'Heading':
-        return Heading(text: value);
-      case 'Subheading':
-        return Subheading(text: value);
-      case 'Text':
-        return Text(value);
-      case 'Image':
-        return const Text('Image not supported yet');
-      case 'Audio':
-        return const Text('Audio not supported yet');
+  Widget _buildContentWidget(String contentType, dynamic content) {
+    switch (contentType.toLowerCase()) {
+      case 'heading':
+        return Heading(text: content);
+      case 'subheading':
+        return Subheading(text: content);
+      case 'text':
+        return Text(content);
+      case 'image':
+        return ImageWidget(imagePath: content['path'], altText: content['alt'] ?? 'No alt text provided');
       default:
         return Text('Unsupported content type: $contentType');
     }
   }
 }
+

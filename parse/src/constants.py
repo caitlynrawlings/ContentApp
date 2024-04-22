@@ -6,7 +6,7 @@ DOWNLOADS_DIR = os.path.join(STORAGE_DIR, 'downloads')
 UPDATE_DIR = os.path.join(STORAGE_DIR, 'update')
 
 # TODO: Update to use environment variable
-CREDENTIALS_FILE = os.path.join(STORAGE_DIR, 'credentials.json')
+ENVIRONMENT_API_KEY = "SHEETS_API"
 PARSED_JSON = os.path.join(STORAGE_DIR, "pages.json")
 
 # Sheets stuff

@@ -1,17 +1,23 @@
 import shutil
+import json
+import os
 
 from google.oauth2 import service_account
 
 from src.drive import Drive
 from src.sheets import Sheets
 from src.constants import (
-    CREDENTIALS_FILE, UPDATE_DIR
+    ENVIRONMENT_API_KEY, UPDATE_DIR
 )
 
 
 def load_credentials(scopes):
-    return service_account.Credentials.from_service_account_file(
-        CREDENTIALS_FILE,
+    credentials_dict = json.loads(json.loads(
+        os.environ.get(ENVIRONMENT_API_KEY)
+    ))
+    
+    return service_account.Credentials.from_service_account_info(
+        credentials_dict,
         scopes=scopes
     )
 

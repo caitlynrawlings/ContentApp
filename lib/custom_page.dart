@@ -65,13 +65,12 @@ class _CustomPageState extends State<CustomPage> {
         
 
         return Container(
-        margin: const EdgeInsets.symmetric(horizontal: 16.0), 
-        child: CalloutWidget(
-          text: content['text'],
-          icon: Icons.lightbulb_outline,
-          iconColor: Colors.amber,
-        ),
-      );
+            margin: const EdgeInsets.symmetric(horizontal: 16.0), 
+            child: CalloutWidget(
+            text: content['text'],
+            iconPath: 'assets/' + content['path'], 
+            ),
+        );
       default:
         return Text('Unsupported content type: $contentType');
     }

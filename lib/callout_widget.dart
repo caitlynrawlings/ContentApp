@@ -1,14 +1,15 @@
+
 import 'package:flutter/material.dart';
 
 class CalloutWidget extends StatelessWidget {
   final String text;
-  final IconData icon;
+  final String? iconPath; // Path to the icon image
   final Color iconColor;
 
   const CalloutWidget({
     Key? key,
     required this.text,
-    this.icon = Icons.lightbulb_outline,
+    this.iconPath, 
     this.iconColor = Colors.amber,
   }) : super(key: key);
 
@@ -24,8 +25,19 @@ class CalloutWidget extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(icon, color: iconColor, size: 24.0),
-          const SizedBox(width: 10.0),
+          if (iconPath != null)
+            Container(
+              margin: const EdgeInsets.only(right: 10.0),
+              child: ColorFiltered(
+                colorFilter: ColorFilter.mode(
+                  iconColor, 
+                  BlendMode.srcIn, 
+                ),
+                child: Image.asset(iconPath!, width: 24, height: 24),
+              ),
+            )
+          else
+            Icon(Icons.lightbulb_outline, color: iconColor, size: 24.0), 
           Expanded(
             child: Text(
               text,

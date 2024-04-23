@@ -60,6 +60,8 @@ flutter:
 
   assets:
     - assets/test_content.json
+    - assets/pages.json
+    - assets/earth.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

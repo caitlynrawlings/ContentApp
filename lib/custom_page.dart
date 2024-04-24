@@ -61,9 +61,18 @@ class _CustomPageState extends State<CustomPage> {
         return Text(content);
       case 'image':
         return ImageWidget(imagePath: content['path'], altText: content['alt'] ?? 'No alt text provided');
+      case 'callout':
+        
+
+        return Container(
+            margin: const EdgeInsets.symmetric(horizontal: 16.0), 
+            child: CalloutWidget(
+            text: content['text'],
+            iconPath: 'assets/' + content['path'], 
+            ),
+        );
       default:
         return Text('Unsupported content type: $contentType');
     }
   }
 }
-

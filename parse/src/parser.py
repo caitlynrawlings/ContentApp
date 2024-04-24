@@ -51,3 +51,33 @@ class Parser:
             "alt": newlines[1].strip(),
             "caption": newlines[2].strip() if len(newlines) > 2 else ""
         }
+
+    @staticmethod
+    def _parse_spacer(cell, _, __, ___):
+        return cell
+
+    @staticmethod
+    def _parse_iconsubheading(cell, language, title, i):
+        newlines = cell.split('\n')
+        name = Drive.get_file_name(link=newlines[0])
+        file_name = f"{title}-{i}-{language}-{name}"
+        path = os.path.join(UPDATE_DIR, file_name)
+
+        Drive.download_file_link(newlines[0], path)
+        return {
+            "path": file_name,
+            "subheading": newlines[1].strip()
+        }
+
+    @staticmethod
+    def _parse_callout(cell, language, title, i):
+        newlines = cell.split('\n')
+        name = Drive.get_file_name(link=newlines[0])
+        file_name = f"{title}-{i}-{language}-{name}"
+        path = os.path.join(UPDATE_DIR, file_name)
+
+        Drive.download_file_link(newlines[0], path)
+        return {
+            "path": file_name,
+            "text": newlines[1].strip()
+        }

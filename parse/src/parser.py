@@ -40,13 +40,14 @@ class Parser:
 
     @staticmethod
     def _parse_image(cell, language, title, i):
-        [link, follow] = (cell + '\n').split('\n', 1)
-        name = Drive.get_file_name(link=link)
+        newlines = cell.split('\n')
+        name = Drive.get_file_name(link=newlines[0])
         file_name = f"{title}-{i}-{language}-{name}"
         path = os.path.join(UPDATE_DIR, file_name)
 
-        Drive.download_file_link(link, path)
+        Drive.download_file_link(newlines[0], path)
         return {
-            "path": path,
-            "alt": follow.strip()
+            "path": file_name,
+            "alt": newlines[1].strip(),
+            "caption": newlines[2].strip() if len(newlines) > 2 else ""
         }

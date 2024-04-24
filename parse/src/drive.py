@@ -8,9 +8,6 @@ from googleapiclient.errors import HttpError
 from .constants import (
     DOWNLOADS_DIR
 )
-from .exceptions import (
-    ImproperFormat, InvalidCredentials
-)
 
 
 class Drive:
@@ -82,9 +79,9 @@ class Drive:
         except HttpError as e:
             error_content = e.content.decode("utf-8")
             if "Invalid Credentials" in error_content:
-                raise InvalidCredentials("No download permissions for link")
+                raise Exception("No download permissions for link")
             elif "File not found" in error_content:
-                raise ImproperFormat("Invalid file link")
+                raise Exception("Invalid file link")
             else:
                 raise e
 

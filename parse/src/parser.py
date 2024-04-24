@@ -1,6 +1,5 @@
 import os
 
-from .exceptions import ImproperFormat
 from .constants import (
     VALID_CONTENT_TYPES, UPDATE_DIR
 )
@@ -12,7 +11,7 @@ class Parser:
     def parse(languages, row, title):
         content_type = row[0]
         if content_type not in VALID_CONTENT_TYPES:
-            raise ImproperFormat(f"Type {content_type} not parseable")
+            raise Exception(f"Type {content_type} not parseable")
 
         parser_method = getattr(Parser, f"_parse_{content_type.lower()}", None)
         if parser_method is None or not callable(parser_method):

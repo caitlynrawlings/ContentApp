@@ -8,9 +8,6 @@ from googleapiclient.errors import HttpError
 from src.constants import (
     SKIPPED_SHEETS, MAX_ROWS, PARSED_JSON, DOWNLOADS_DIR, UPDATE_DIR
 )
-from src.exceptions import (
-    ImproperFormat
-)
 from src.parser import Parser
 
 
@@ -75,7 +72,7 @@ class Sheets:
         # 1. Get all sheets
         sheets = self.get_sheets(spreadsheet_id)
         if "Languages" not in sheets:
-            raise ImproperFormat("Google Sheet misssing 'Languages' page")
+            raise Exception("Google Sheet misssing 'Languages' page")
 
         # 2. Get expected languages
         languages = self.get_values(spreadsheet_id, "Languages!1:1")[0]
@@ -91,11 +88,11 @@ class Sheets:
 
             data = self.get_values(spreadsheet_id, f"{sheet}!1:{MAX_ROWS}")
             if data[0][1:] != languages:
-                raise ImproperFormat(f"Provided sheet [{sheet}] doesn't include all languages: {data[0][1:]} != {languages}")
+                raise Exception(f"Provided sheet [{sheet}] doesn't include all languages: {data[0][1:]} != {languages}")
 
             # Make sure every page has a title in every language (do we want to require this?)
             if len(data[1][1:]) != len(languages):
-                raise ImproperFormat(f"Provided sheet [{sheet}] doesn't include a title in all languages: {data[1][1:]} != {len(languages)} element(s)")
+                raise Exception(f"Provided sheet [{sheet}] doesn't include a title in all languages: {data[1][1:]} != {len(languages)} element(s)")
 
             json_data['pages'].append(
                 Sheets.convert_page_data(data, sheet)

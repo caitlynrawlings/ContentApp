@@ -11,6 +11,7 @@ from src.constants import (
 from src.exceptions import (
     ImproperFormat
 )
+from src.parser import Parser
 
 
 class Sheets:
@@ -51,7 +52,7 @@ class Sheets:
             return None
 
     @staticmethod
-    def convert_page_data(drive, data, title):
+    def convert_page_data(data, title):
         """
         TODO
         """
@@ -60,16 +61,14 @@ class Sheets:
             "title": {
                 languages[i]: data[1][1+i] for i in range(len(languages))
             },
-            "content": [{
-                "content-type": data[2:][row_i][0],
-                "content": drive.copy_content_and_download(
-                    languages, data[2:][row_i], title, row_i
-                )
-            } for row_i in range(len(data[2:]))]
+            "content": [
+                Parser.parse(languages, data[2:][row_i], title)
+                for row_i in range(len(data[2:]))
+            ]
         }
         return page_info
 
-    def parse_to_json(self, drive, spreadsheet_id):
+    def parse_to_json(self, spreadsheet_id):
         """
         TODO
         """
@@ -99,7 +98,7 @@ class Sheets:
                 raise ImproperFormat(f"Provided sheet [{sheet}] doesn't include a title in all languages: {data[1][1:]} != {len(languages)} element(s)")
 
             json_data['pages'].append(
-                Sheets.convert_page_data(drive, data, sheet)
+                Sheets.convert_page_data(data, sheet)
             )
 
         # 4. Save to file

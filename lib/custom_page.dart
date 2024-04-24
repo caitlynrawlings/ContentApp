@@ -4,6 +4,7 @@ import 'heading.dart';
 import 'subheading.dart';
 import 'image_widget.dart';
 import 'lang_dropdown.dart'; 
+import 'callout_widget.dart';
 
 class CustomPage extends StatefulWidget {
   final List<dynamic> content;

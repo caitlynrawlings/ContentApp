@@ -50,15 +50,6 @@ class Parser:
         }
 
     @staticmethod
-    def __download_file(link, language, title):
-        name = Drive.get_file_name(link=link)
-        file_name = f"{title}-{language}-{name}"
-        path = os.path.join(UPDATE_DIR, file_name)
-        Drive.download_file_link(link, path)
-
-        return file_name
-
-    @staticmethod
     def _parse_spacer(cell, _, __):
         return int(cell)
 
@@ -81,3 +72,12 @@ class Parser:
             "path": file_name,
             "text": newlines[1].strip()
         }
+
+    @staticmethod
+    def __download_file(link, language, title):
+        name = Drive.get_file_name(link=link)
+        file_name = f"{title}-{language}-{name}"
+        path = os.path.join(UPDATE_DIR, file_name)
+        Drive.download_file_link(link, path)
+
+        return file_name

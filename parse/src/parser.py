@@ -41,11 +41,8 @@ class Parser:
     @staticmethod
     def _parse_image(cell, language, title):
         newlines = cell.split('\n')
-        name = Drive.get_file_name(link=newlines[0])
-        file_name = f"{title}-{language}-{name}"
-        path = os.path.join(UPDATE_DIR, file_name)
+        file_name = Parser.__download_file(newlines[0], language, title)
 
-        Drive.download_file_link(newlines[0], path)
         return {
             "path": file_name,
             "alt": newlines[1].strip(),
@@ -53,29 +50,34 @@ class Parser:
         }
 
     @staticmethod
+    def __download_file(link, language, title):
+        name = Drive.get_file_name(link=link)
+        file_name = f"{title}-{language}-{name}"
+        path = os.path.join(UPDATE_DIR, file_name)
+        Drive.download_file_link(link, path)
+
+        return file_name
+
+    @staticmethod
     def _parse_spacer(cell, _, __):
         return int(cell)
 
     @staticmethod
-    def _parse_iconsubheading(cell, _, __):
+    def _parse_iconsubheading(cell, language, title):
         newlines = cell.split('\n')
-        name = Drive.get_file_name(link=newlines[0])
-        path = os.path.join(UPDATE_DIR, name)
+        file_name = Parser.__download_file(newlines[0], language, title)
 
-        Drive.download_file_link(newlines[0], path)
         return {
-            "path": name,
+            "path": file_name,
             "subheading": newlines[1].strip()
         }
 
     @staticmethod
-    def _parse_callout(cell, _, __):
+    def _parse_callout(cell, language, title):
         newlines = cell.split('\n')
-        name = Drive.get_file_name(link=newlines[0])
-        path = os.path.join(UPDATE_DIR, name)
+        file_name = Parser.__download_file(newlines[0], language, title)
 
-        Drive.download_file_link(newlines[0], path)
         return {
-            "path": name,
+            "path": file_name,
             "text": newlines[1].strip()
         }

@@ -54,7 +54,7 @@ class Parser:
 
     @staticmethod
     def _parse_spacer(cell, _, __, ___):
-        return cell
+        return int(cell)
 
     @staticmethod
     def _parse_iconsubheading(cell, _, __, ___):

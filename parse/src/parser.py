@@ -21,28 +21,28 @@ class Parser:
         return {
             "content-type": content_type,
             "content": {
-                languages[i]: parser_method(row[1:][i], languages[i], title, i) if i < len(row[1:]) else ""
+                languages[i]: parser_method(row[1:][i], languages[i], title) if i < len(row[1:]) else ""
                 for i in range(len(languages))
             }
         }
 
     @staticmethod
-    def _parse_text(cell, _, __, ___):
+    def _parse_text(cell, _, __):
         return cell
 
     @staticmethod
-    def _parse_heading(cell, _, __, ___):
+    def _parse_heading(cell, _, __):
         return cell
 
     @staticmethod
-    def _parse_subheading(cell, _, __, ___):
+    def _parse_subheading(cell, _, __):
         return cell
 
     @staticmethod
-    def _parse_image(cell, language, title, i):
+    def _parse_image(cell, language, title):
         newlines = cell.split('\n')
         name = Drive.get_file_name(link=newlines[0])
-        file_name = f"{title}-{i}-{language}-{name}"
+        file_name = f"{title}-{language}-{name}"
         path = os.path.join(UPDATE_DIR, file_name)
 
         Drive.download_file_link(newlines[0], path)
@@ -53,11 +53,11 @@ class Parser:
         }
 
     @staticmethod
-    def _parse_spacer(cell, _, __, ___):
+    def _parse_spacer(cell, _, __):
         return int(cell)
 
     @staticmethod
-    def _parse_iconsubheading(cell, _, __, ___):
+    def _parse_iconsubheading(cell, _, __):
         newlines = cell.split('\n')
         name = Drive.get_file_name(link=newlines[0])
         path = os.path.join(UPDATE_DIR, name)
@@ -69,7 +69,7 @@ class Parser:
         }
 
     @staticmethod
-    def _parse_callout(cell, _, __, ___):
+    def _parse_callout(cell, _, __):
         newlines = cell.split('\n')
         name = Drive.get_file_name(link=newlines[0])
         path = os.path.join(UPDATE_DIR, name)

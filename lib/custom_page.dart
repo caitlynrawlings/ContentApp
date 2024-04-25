@@ -3,6 +3,8 @@ import 'heading.dart';
 import 'subheading.dart';
 import 'image_widget.dart';
 
+import 'callout_widget.dart';
+
 class CustomPage extends StatefulWidget {
   final List<dynamic> content;
   final Map<dynamic, dynamic> title;
@@ -78,6 +80,16 @@ class _CustomPageState extends State<CustomPage> {
         return ImageWidget(imagePath: value['path'], altText: value['alt'] ?? 'No alt text provided');
       case 'Audio':
         return const Text('Audio not supported yet');
+      case 'Callout':
+        
+
+        return Container(
+            margin: const EdgeInsets.symmetric(horizontal: 16.0), 
+            child: CalloutWidget(
+            text: value['text'],
+            iconPath: 'assets/downloads/' + value['path'], 
+            ),
+        );
       default:
         return Text('Unsupported content type: $contentType');
     }

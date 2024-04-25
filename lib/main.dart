@@ -19,6 +19,25 @@ class MyApp extends StatelessWidget {
       title: 'Content App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        textTheme: const TextTheme(
+          displayLarge: TextStyle(
+            fontSize: 40,
+            fontWeight: FontWeight.bold,
+          ),
+          // ···
+          titleLarge: TextStyle(
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+          ),
+          headlineLarge: TextStyle(
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+          ),
+          headlineMedium: TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       home: const MyHomePage(),
     );
@@ -83,6 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             title: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 LanguageDropdown(
                   key: const ValueKey('languageDropdown'),

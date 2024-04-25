@@ -7,11 +7,11 @@ class CalloutWidget extends StatelessWidget {
   final Color iconColor;
 
   const CalloutWidget({
-    Key? key,
+    super.key,
     required this.text,
     this.iconPath, 
     this.iconColor = Colors.amber,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

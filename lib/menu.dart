@@ -1,3 +1,4 @@
+// ignore_for_file: file_names
 import 'package:flutter/material.dart';
 
 class Menu extends StatelessWidget {
@@ -66,7 +67,7 @@ class PageButton extends StatelessWidget {
                 ),
             ),
             child: Padding(
-              padding: const EdgeInsets.only(left: 4.0, right: 4.0, top: 8.0, bottom: 10.0),
+              padding: const EdgeInsets.only(left: 4.0, right: 4.0, top: 8.0, bottom: 8.0),
               child: Text(
                 pageLabel,
                 style: textStyle,

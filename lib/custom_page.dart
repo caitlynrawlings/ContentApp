@@ -30,14 +30,14 @@ class _CustomPageState extends State<CustomPage> {
         Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 8.0),
+              padding: const EdgeInsets.all(10.0),
               child: Text(
                 widget.title[widget.language] ?? "No title translation found",
-                style: Theme.of(context).textTheme.headlineSmall,
+                style: Theme.of(context).textTheme.displayLarge,
               ),
             ),
             const Padding(
-              padding: EdgeInsets.only(left: 8.0, right: 8.0, bottom: 8.0),
+              padding: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 8.0),
               child: Divider(
                 color: Color.fromARGB(255, 205, 205, 205), // Customize divider color as needed
                 height: 1, // Customize divider height as needed
@@ -48,16 +48,10 @@ class _CustomPageState extends State<CustomPage> {
               child: Padding(
                 padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                 child: ListView(
-                  children: widget.content.map((item) {//return Text(item.toString());
+                  children: widget.content.map((item) {
                     dynamic contentType = item["content-type"];
                     dynamic content = item["content"];
-                    //return Text(contentType + content[widget.language].toString());
                     return _buildContentWidget(contentType, content[widget.language]);
-                    // if (contentTranslation != null) {
-                    //   return _buildContentWidget(contentTranslation.contentType, contentTranslation.value);
-                    // } else {
-                    //   return const SizedBox();
-                    // }
                   }).toList(),
                 ),
               ),
@@ -87,7 +81,7 @@ class _CustomPageState extends State<CustomPage> {
             margin: const EdgeInsets.symmetric(horizontal: 16.0), 
             child: CalloutWidget(
             text: value['text'],
-            iconPath: 'assets/downloads/' + value['path'], 
+            iconPath: 'assets/downloads/${value['path']}', 
             ),
         );
       default:

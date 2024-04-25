@@ -6,6 +6,11 @@ name: Sync Google Sheet Page Info
 # events but only for the master branch
 on:
   workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        default: 'preview'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:

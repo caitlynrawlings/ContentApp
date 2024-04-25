@@ -55,6 +55,7 @@ class Sheets:
         """
         languages = data[0][2:]
         page_info = {
+            "id" : title,
             "title": {
                 languages[i]: data[1][2+i] for i in range(len(languages))
             },

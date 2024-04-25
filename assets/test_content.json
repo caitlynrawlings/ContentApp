@@ -17,11 +17,20 @@
                     }    
                 },
                 {
-                    "content-type": "image",
+                    "content-type": "Image",
                     "content": {
-                        "english": "/path/to/images/page1-english.png",
-                        "dholuo": "/path/to/images/page1-dholuo.png",
-                        "kiswahili": "/path/to/images/page1-kiswahili.png"
+						"english": {
+							"path": "earth.png",
+							"alt": "English alt text"
+						},
+						"dholuo": {
+							"path": "earth.png",
+							"alt": ""
+						},
+						"kiswahili": {
+							"path": "earth.png",
+							"alt": ""
+						}
                     }
                 },
                 {
@@ -106,7 +115,7 @@
             },
             "content": [
                 {
-                    "content-type": "text",
+                    "content-type": "Text",
                     "content": {
                         "english": "Hello",
                         "dholuo": "Misawa",

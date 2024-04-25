@@ -1,30 +1,37 @@
 import 'package:flutter/material.dart';
-class LanguageDropdown extends StatelessWidget {
+
+class LanguageDropdown extends StatefulWidget {
   final String selectedLanguage;
-  final Function(String) onLanguageChanged;
   final List<String> languages;
+  final ValueChanged<String> onChanged;
 
   const LanguageDropdown({
-    Key? key,
+    super.key,
     required this.selectedLanguage,
-    required this.onLanguageChanged,
+    required this.onChanged, 
     required this.languages,
-  }) : super(key: key);
+  });
 
+  @override
+  LanguageDropdownState createState() => LanguageDropdownState();
+}
+
+class LanguageDropdownState extends State<LanguageDropdown> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
-      value: selectedLanguage,
-      underline: Container(height: 2, color: Colors.deepPurpleAccent),
-      onChanged: (String? newValue) {
-        onLanguageChanged(newValue!);
+      value: widget.selectedLanguage,
+      onChanged: (String? newLanguage) {
+        widget.onChanged(newLanguage ?? widget.languages[0]);
       },
-      items: languages.map<DropdownMenuItem<String>>((String language) {
-        return DropdownMenuItem<String>(
-          value: language,
-          child: Text(language),
-        );
-      }).toList(),
+      items: widget.languages
+          .map<DropdownMenuItem<String>>((dynamic language) {
+            return DropdownMenuItem<String>(
+              key: ValueKey(language),
+              value: language,
+              child: Text(language),
+            );
+          }).toList(),
     );
   }
 }

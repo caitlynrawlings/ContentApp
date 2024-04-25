@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ImageWidget extends StatelessWidget {
-  final String imagePath;
-  final String altText;
+  final dynamic imagePath;
+  final dynamic altText;
 
   const ImageWidget({
     super.key,
@@ -12,7 +12,7 @@ class ImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String fullPath = 'assets/$imagePath';
+    String fullPath = 'assets/downloads/$imagePath';
     return AspectRatio(
       aspectRatio: 16 / 9, // Adjust the aspect ratio according to your needs
       child: Image.asset(

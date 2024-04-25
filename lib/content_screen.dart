@@ -5,7 +5,7 @@ class ContentScreen extends StatelessWidget {
   final Map<String, dynamic> contentData;
   final String language;
 
-  const ContentScreen({Key? key, required this.contentData, required this.language}) : super(key: key);
+  const ContentScreen({super.key, required this.contentData, required this.language});
 
   @override
   Widget build(BuildContext context) {

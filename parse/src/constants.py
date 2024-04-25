@@ -13,7 +13,7 @@ PARSED_JSON = os.path.join(STORAGE_DIR, "pages.json")
 ALT_CONTENT = {"Image"}
 DOWNLOADABLE = {"Video"}.union(ALT_CONTENT)
 VALID_CONTENT_TYPES = {"Text", "Heading", "Subheading", "IconSubheading",
-                       "Callout", "Spacer"}.union(DOWNLOADABLE)
+                       "Callout", "Spacer", "Audio", "Toggle", "Link"}.union(DOWNLOADABLE)
 
 SKIPPED_SHEETS = {"Languages", "Base", "Demo"}
 MAX_ROWS = 1000

@@ -84,6 +84,8 @@ class _CustomPageState extends State<CustomPage> {
             iconPath: 'assets/downloads/${value['path']}', 
             ),
         );
+      case 'Spacer':
+        return SizedBox(height: value,);
       default:
         return Text('Unsupported content type: $contentType');
     }

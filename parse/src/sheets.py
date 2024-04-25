@@ -53,10 +53,10 @@ class Sheets:
         """
         TODO
         """
-        languages = data[0][1:]
+        languages = data[0][2:]
         page_info = {
             "title": {
-                languages[i]: data[1][1+i] for i in range(len(languages))
+                languages[i]: data[1][2+i] for i in range(len(languages))
             },
             "content": [
                 Parser.parse(languages, data[2:][row_i], title)
@@ -87,12 +87,12 @@ class Sheets:
                 continue
 
             data = self.get_values(spreadsheet_id, f"{sheet}!1:{MAX_ROWS}")
-            if data[0][1:] != languages:
-                raise Exception(f"Provided sheet [{sheet}] doesn't include all languages: {data[0][1:]} != {languages}")
+            if data[0][2:] != languages:
+                raise Exception(f"Provided sheet [{sheet}] doesn't include all languages: {data[0][2:]} != {languages}")
 
-            # Make sure every page has a title in every language (do we want to require this?)
-            if len(data[1][1:]) != len(languages):
-                raise Exception(f"Provided sheet [{sheet}] doesn't include a title in all languages: {data[1][1:]} != {len(languages)} element(s)")
+            # Make sure every page has a title in every language
+            if len(data[1][2:]) != len(languages):
+                raise Exception(f"Provided sheet [{sheet}] doesn't include a title in all languages: {data[1][2:]} != {len(languages)} element(s)")
 
             json_data['pages'].append(
                 Sheets.convert_page_data(data, sheet)

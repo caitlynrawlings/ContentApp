@@ -20,8 +20,8 @@ class Parser:
         return {
             "content-type": content_type,
             "content": {
-                languages[i]: "" if i >= len(row[1:]) else
-                              parser_method(row[1:][i], languages[i], title)
+                languages[i]: "" if i >= len(row[2:]) else
+                              parser_method(row[2:][i], languages[i], title)
                 for i in range(len(languages))
             }
         }

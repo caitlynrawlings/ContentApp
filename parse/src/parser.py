@@ -74,6 +74,34 @@ class Parser:
         }
 
     @staticmethod
+    def _parse_audio(cell, language, title):
+        newlines = cell.split('\n', 1)
+        file_name = Parser.__download_file(newlines[0], language, title)
+
+        return {
+            "path" : file_name,
+            "caption" : newlines[1].strip()
+        }
+
+    @staticmethod
+    def _parse_toggle(cell, _, __):
+        newlines = cell.split('\n', 1)
+
+        return {
+            "title": newlines[0],
+            "body" : newlines[1].strip()
+        }
+
+    @staticmethod
+    def _parse_link(cell, _, __):
+        newlines = cell.split('\n')
+
+        return {
+            "displayText" : newlines[0],
+            "page" : newlines[1]
+        }
+
+    @staticmethod
     def __download_file(link, language, title):
         name = Drive.get_file_name(link=link)
         file_name = f"{title}-{language}-{name}"

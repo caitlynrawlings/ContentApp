@@ -11,6 +11,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
+    if: github.ref == 'refs/heads/preview'  # Only run when the base ref is 'test'
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -37,6 +38,8 @@ jobs:
       run: |
         git config --local user.name  ${{ github.actor }}        
         git config --local user.email "${{ github.actor }}@users.noreply.github.com"
+        git fetch origin
+        git rebase origin/master
         git add ./assets
         git commit -m "Updating downloaded files"
     - name: Push changes  # push the output folder to your repo

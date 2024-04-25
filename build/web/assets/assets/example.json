@@ -1,0 +1,179 @@
+{
+  "languages": [
+    "English",
+    "Dholuo",
+    "Kiswahili"
+  ],
+  "pages": [
+    {
+      "title": {
+        "English": "English Title",
+        "Dholuo": "Dholuo Title",
+        "Kiswahili": "Kiswahili Title"
+      },
+      "content": [
+        {
+          "content-type": "Heading",
+          "content": {
+            "English": "The Heading Text",
+            "Dholuo": "",
+            "Kiswahili": ""
+          }
+        },
+        {
+          "content-type": "Subheading",
+          "content": {
+            "English": "The Subheading Text",
+            "Dholuo": "",
+            "Kiswahili": ""
+          }
+        },
+        {
+          "content-type": "Text",
+          "content": {
+            "English": "Your period will most likely become lighter, and might not come on a usual schedule. You might stop having periods all together while you are using depo. This is normal and healthy while using depo, because of the way the method works with your body. If your periods are usually heavy, this might be a good thing.",
+            "Dholuo": "Rembi mar dwe biro bedo matin, kendo samoro ok bi biro kaka ochan. Inyalo weyo bedo gi remb dwe chutho ekinde ma itiyo gi Depo. Ma en gima timore kendo gima ber ekinde ma itiyo gi Depo, nikech kaka yor komo nyuol tiyo e dendi. Ka rembi mar dwe biro ga mang'eny, ma nyalo bedo gima ber.",
+            "Kiswahili": "Kuna uwezekano mkubwa kwamba damu yako ya hedhi kitapungua, na huenda kisije kwa ratiba ya kawaida. Unaweza kuacha kupata hedhi wakati unatumia depo. Hii ni kawaida na yenye afya wakati wa kutumia depo, kwa sababu ya jinsi njia inavyofanya kazi na mwili wako. Ikiwa hedhi yako ni nzito, hii inaweza kuwa jambo zuri."
+          }
+        },
+        {
+          "content-type": "Image",
+          "content": {
+            "English": {
+              "path": "earth.png",
+              "alt": "alt text",
+              "caption": "caption"
+            },
+            "Dholuo": {
+              "path": "earth.png",
+              "alt": "",
+              "caption": "caption"
+            },
+            "Kiswahili": {
+              "path": "earth.png",
+              "alt": "",
+              "caption": ""
+            }
+          }
+        },
+        {
+          "content-type": "IconSubheading",
+          "content": {
+            "English": {
+              "path": "icon.png",
+              "subheading": "text"
+            },
+            "Dholuo": {
+              "path": "icon.png",
+              "subheading": "text"
+            },
+            "Kiswahili": {
+              "path": "icon.png",
+              "subheading": "text"
+            }
+          }
+        },
+        {
+          "content-type": "Callout",
+          "content": {
+            "English": {
+              "path": "icon.png",
+              "text": "text"
+            },
+            "Dholuo": {
+              "path": "icon.png",
+              "text": "text"
+            },
+            "Kiswahili": {
+              "path": "icon.png",
+              "text": "text"
+            }
+          }
+        },
+        {
+          "content-type": "Spacer",
+          "content": {
+            "English": 1,
+            "Dholuo": 10,
+            "Kiswahili": 1
+          }
+        },
+        {
+          "content-type": "Audio",
+          "content": {
+            "English": {
+              "path": "audio.mp4",
+              "caption": "caption"
+            },
+            "Dholuo": {
+              "path": "audio.mp4",
+              "caption": "caption"
+            },
+            "Kiswahili": {
+              "path": "audio.mp4",
+              "caption": "caption"
+            }
+          }
+        },
+        {
+          "content-type": "Toggle",
+          "content": {
+            "English": {
+              "title": "Learn More",
+              "body": "dropdown contents"
+            },
+            "Dholuo": {
+              "title": "",
+              "body": ""
+            },
+            "Kiswahili": {
+              "title": "",
+              "body": ""
+            }
+          }
+        },
+        {
+          "content-type": "TwoImages",
+          "content": {
+            "English": [
+              {
+                "path": "earth.png",
+                "alt": "",
+                "caption": ""
+              },
+              {
+                "path": "earth.png",
+                "alt": "",
+                "caption": ""
+              }
+            ],
+            "Dholuo": [
+              {
+                "path": "earth.png",
+                "alt": "",
+                "caption": ""
+              },
+              {
+                "path": "earth.png",
+                "alt": "",
+                "caption": ""
+              }
+            ],
+            "Kiswahili": [
+              {
+                "path": "earth.png",
+                "alt": "",
+                "caption": ""
+              },
+              {
+                "path": "earth.png",
+                "alt": "",
+                "caption": ""
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -18,14 +18,19 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
 
     # Runs commands using the runners shell
-    - name: Merge with main
+    - name: Config git user
       run: |
         git config --local user.name  ${{ github.actor }}        
         git config --local user.email "${{ github.actor }}@users.noreply.github.com"
+    - name: Merge with main
+      run: |
         git fetch origin
-        git rebase origin/master
+        git pull
+        git rebase origin/main
     - name: Set up Python 3.8
       uses: actions/setup-python@v2
       with:

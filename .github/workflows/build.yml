@@ -30,7 +30,7 @@ jobs:
       run: |
         git fetch origin
         git pull
-        git merge origin/main
+        git merge --strategy-option=theirs origin/main
     - name: Set up Python 3.8
       uses: actions/setup-python@v2
       with:

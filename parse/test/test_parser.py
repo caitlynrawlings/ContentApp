@@ -3,11 +3,11 @@ from src.parser import Parser
 
 standard_text_args = (
     'languages, row, expected', [
-        (['one'], ['a'], {'one': 'a'}),
-        (['one', 'two'], [], {'one': '', 'two': ''}),
-        (['one', 'two'], ['a'], {'one': 'a', 'two': ''}),
-        (['one', 'two'], ['a', 'b'], {'one': 'a', 'two': 'b'}),
-        (['one', 'two', 'three'], ['', 'b', ''], {'one': '', 'two': 'b', 'three': ''}),
+        (['one'], ['example', 'a'], {'one': 'a'}),
+        (['one', 'two'], ['example', ], {'one': '', 'two': ''}),
+        (['one', 'two'], ['example', 'a'], {'one': 'a', 'two': ''}),
+        (['one', 'two'], ['example', 'a', 'b'], {'one': 'a', 'two': 'b'}),
+        (['one', 'two', 'three'], ['example', '', 'b', ''], {'one': '', 'two': 'b', 'three': ''}),
     ]
 )
 

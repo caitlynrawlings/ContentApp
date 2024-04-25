@@ -6,6 +6,7 @@
   ],
   "pages": [
     {
+      "id" : "Page 1",
       "title": {
         "English": "English Title",
         "Dholuo": "Dholuo Title",
@@ -129,6 +130,23 @@
             "Kiswahili": {
               "title": "",
               "body": ""
+            }
+          }
+        },
+        {
+          "content-type": "Link",
+          "content": {
+            "English": {
+              "displayText": "next page",
+              "page": "Page 1"
+            },
+            "Dholuo": {
+              "displayText": "",
+              "page": ""
+            },
+            "Kiswahili": {
+              "displayText": "",
+              "page": ""
             }
           }
         },

@@ -20,8 +20,8 @@ class Parser:
         return {
             "content-type": content_type,
             "content": {
-                languages[i]: "" if i >= len(row[1:]) else
-                              parser_method(row[1:][i], languages[i], title)
+                languages[i]: "" if i >= len(row[2:]) else
+                              parser_method(row[2:][i], languages[i], title)
                 for i in range(len(languages))
             }
         }
@@ -71,6 +71,34 @@ class Parser:
         return {
             "path": file_name,
             "text": newlines[1].strip()
+        }
+
+    @staticmethod
+    def _parse_audio(cell, language, title):
+        newlines = cell.split('\n', 1)
+        file_name = Parser.__download_file(newlines[0], language, title)
+
+        return {
+            "path" : file_name,
+            "caption" : newlines[1].strip()
+        }
+
+    @staticmethod
+    def _parse_toggle(cell, _, __):
+        newlines = cell.split('\n', 1)
+
+        return {
+            "title": newlines[0],
+            "body" : newlines[1].strip()
+        }
+
+    @staticmethod
+    def _parse_link(cell, _, __):
+        newlines = cell.split('\n')
+
+        return {
+            "displayText" : newlines[0],
+            "page" : newlines[1]
         }
 
     @staticmethod

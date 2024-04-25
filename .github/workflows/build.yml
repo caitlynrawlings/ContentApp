@@ -20,6 +20,13 @@ jobs:
     - uses: actions/checkout@v3
 
     # Runs commands using the runners shell
+    - name: Merge with main
+      run: |
+        git config --local user.name  ${{ github.actor }}        
+        git config --local user.email "${{ github.actor }}@users.noreply.github.com"
+        git checkout preview
+        git fetch origin
+        git rebase origin/master
     - name: Set up Python 3.8
       uses: actions/setup-python@v2
       with:
@@ -35,8 +42,6 @@ jobs:
         python3 parse/main.py
     - name: Commit files  # transfer the new html files back into the repository
       run: |
-        git config --local user.name  ${{ github.actor }}        
-        git config --local user.email "${{ github.actor }}@users.noreply.github.com"
         git add ./assets
         git commit -m "Updating downloaded files"
     - name: Push changes  # push the output folder to your repo

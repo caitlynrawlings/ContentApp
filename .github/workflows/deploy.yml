@@ -44,8 +44,6 @@ jobs:
 
       - name: Copy build to gh-pages branch
         run: |
-          git checkout gh-pages
-    
           # Print contents of build/web directory before copying
           ls -l build/web
     

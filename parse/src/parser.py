@@ -20,39 +20,32 @@ class Parser:
         return {
             "content-type": content_type,
             "content": {
-                languages[i]: parser_method(row[2:], i, languages[i], title)
+                languages[i]: parser_method(row[2:][i] if i < len(row[2:]) else "", languages[i], title)
                 for i in range(len(languages))
             }
         }
 
     @staticmethod
-    def _parse_text(cell, i, _, __):
-        if i >= len(cell):
-            return ""
-        return cell[i]
+    def _parse_text(cell, _, __):
+        return cell
 
     @staticmethod
-    def _parse_heading(cell, i, _, __):
-        if i >= len(cell):
-            return ""
-        return cell[i]
+    def _parse_heading(cell, _, __):
+        return cell
 
     @staticmethod
-    def _parse_subheading(cell, i, _, __):
-        if i >= len(cell):
-            return ""
-        return cell[i]
+    def _parse_subheading(cell, _, __):
+        return cell
 
     @staticmethod
-    def _parse_image(cell, i, language, title):
-        if i >= len(cell):
+    def _parse_image(cell, language, title):
+        if cell == "":
             return {
                 "path": "",
                 "alt": "",
                 "caption": ""
             }
 
-        cell = cell[i]
         newlines = cell.split('\n')
         file_name = Parser.__download_file(newlines[0], language, title)
 
@@ -63,21 +56,20 @@ class Parser:
         }
 
     @staticmethod
-    def _parse_spacer(cell, i, _, __):
-        if i >= len(cell):
+    def _parse_spacer(cell, _, __):
+        if cell == "":
             return ""
 
-        return int(cell[i])
+        return int(cell)
 
     @staticmethod
     def _parse_iconsubheading(cell, i, language, title):
-        if i >= len(cell):
+        if cell == "":
             return {
                 "path": "",
                 "subheading": ""
             }
 
-        cell = cell[i]
         newlines = cell.split('\n')
         file_name = Parser.__download_file(newlines[0], language, title)
 
@@ -88,13 +80,12 @@ class Parser:
 
     @staticmethod
     def _parse_callout(cell, i, language, title):
-        if i >= len(cell):
+        if cell == "":
             return {
                 "path": "",
                 "text": ""
             }
 
-        cell = cell[i]
         newlines = cell.split('\n')
         file_name = Parser.__download_file(newlines[0], language, title)
 
@@ -105,13 +96,12 @@ class Parser:
 
     @staticmethod
     def _parse_audio(cell, i, language, title):
-        if i >= len(cell):
+        if cell == "":
             return {
                 "path": "",
                 "caption": ""
             }
 
-        cell = cell[i]
         newlines = cell.split('\n', 1)
         file_name = Parser.__download_file(newlines[0], language, title)
 
@@ -122,13 +112,12 @@ class Parser:
 
     @staticmethod
     def _parse_toggle(cell, i, _, __):
-        if i >= len(cell):
+        if cell == "":
             return {
                 "title": "",
                 "body": ""
             }
 
-        cell = cell[i]
         newlines = cell.split('\n', 1)
 
         return {
@@ -138,13 +127,12 @@ class Parser:
 
     @staticmethod
     def _parse_link(cell, i, _, __):
-        if i >= len(cell):
+        if cell == "":
             return {
                 "displayText": "",
                 "page": ""
             }
 
-        cell = cell[i]
         newlines = cell.split('\n')
 
         return {

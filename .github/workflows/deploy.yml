@@ -38,8 +38,20 @@ jobs:
       - name: Copy build to gh-pages branch
         run: |
           git checkout gh-pages
-          git rm -rf .
-          cp -r build/web/* .
-          git add .
-          git commit -m "Deploying to gh-pages"
-          git push origin gh-pages
+    
+          # Print contents of build/web directory before copying
+          ls -l build/web
+    
+          # Check if build/web directory exists and is not empty
+          if [ -d "build/web" ] && [ "$(ls -A build/web)" ]; then
+            git rm -rf .
+            cp -r build/web/* .
+            git add .
+            git commit -m "Deploying to gh-pages"
+            git push origin gh-pages
+          else
+            echo "No files found in build/web directory. Skipping deployment to gh-pages."
+          fi
+    
+          # Print contents of build/web directory after copying
+          ls -l build/web

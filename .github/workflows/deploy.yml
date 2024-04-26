@@ -21,7 +21,10 @@ jobs:
             flutter-version: '3.19.6' # Specify the Flutter version explicitly
 
       - name: Flutter web build
-        run: flutter build web
+        run: |
+          flutter build web
+          ls ./build/web
+
 
       - name: Set up Git identity
         run: |

@@ -1,5 +1,7 @@
 name: Deploy to GitHub Pages
 
+
+
 on:
   push:
     branches:
@@ -16,7 +18,7 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-            flutter-version: '2.8.1' # Specify the Flutter version explicitly
+            flutter-version: '3.19.6' # Specify the Flutter version explicitly
 
       - name: Flutter web build
         run: flutter build web

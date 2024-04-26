@@ -23,6 +23,11 @@ jobs:
       - name: Flutter web build
         run: flutter build web
 
+      - name: Set up Git identity
+        run: |
+          git config --global user.email "caitlyn7413@gmail.com"
+          git config --global user.name "caitlynrawlings"
+
       - name: Create gh-pages branch
         run: |
           git checkout --orphan gh-pages

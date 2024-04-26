@@ -1,0 +1,38 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 'stable'
+
+      - name: Flutter web build
+        run: flutter build web
+
+      - name: Create gh-pages branch
+        run: |
+          git checkout --orphan gh-pages
+          git reset --hard
+          git commit --allow-empty -m "Initializing gh-pages branch"
+          git push origin gh-pages
+
+      - name: Copy build to gh-pages branch
+        run: |
+          git checkout gh-pages
+          git rm -rf .
+          cp -r build/web/* .
+          git add .
+          git commit -m "Deploying to gh-pages"
+          git push origin gh-pages

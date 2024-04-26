@@ -63,7 +63,7 @@ class Parser:
         return int(cell)
 
     @staticmethod
-    def _parse_iconsubheading(cell, i, language, title):
+    def _parse_iconsubheading(cell, language, title):
         if cell == "":
             return {
                 "path": "",
@@ -79,7 +79,7 @@ class Parser:
         }
 
     @staticmethod
-    def _parse_callout(cell, i, language, title):
+    def _parse_callout(cell, language, title):
         if cell == "":
             return {
                 "path": "",
@@ -95,7 +95,7 @@ class Parser:
         }
 
     @staticmethod
-    def _parse_audio(cell, i, language, title):
+    def _parse_audio(cell, language, title):
         if cell == "":
             return {
                 "path": "",
@@ -111,7 +111,7 @@ class Parser:
         }
 
     @staticmethod
-    def _parse_toggle(cell, i, _, __):
+    def _parse_toggle(cell, _, __):
         if cell == "":
             return {
                 "title": "",
@@ -126,7 +126,7 @@ class Parser:
         }
 
     @staticmethod
-    def _parse_link(cell, i, _, __):
+    def _parse_link(cell, _, __):
         if cell == "":
             return {
                 "displayText": "",

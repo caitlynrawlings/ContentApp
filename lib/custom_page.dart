@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'heading.dart';
 import 'subheading.dart';
 import 'image_widget.dart';
-
+import 'audio_widget.dart'
 import 'callout_widget.dart';
 
 class CustomPage extends StatefulWidget {
@@ -73,7 +73,7 @@ class _CustomPageState extends State<CustomPage> {
       case 'Image':
         return ImageWidget(imagePath: value['path'], altText: value['alt'] ?? 'No alt text provided');
       case 'Audio':
-        return const Text('Audio not supported yet');
+        return AudioWidget(audioAsset: 'assets/${value['path']}');
       case 'Callout':
         
 

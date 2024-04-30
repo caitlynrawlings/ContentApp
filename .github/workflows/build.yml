@@ -11,7 +11,6 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
-    if: github.ref == 'refs/heads/preview'
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -23,15 +22,6 @@ jobs:
         fetch-depth: 0
 
     # Runs commands using the runners shell
-    - name: Config git user
-      run: |
-        git config --local user.name  ${{ github.actor }}        
-        git config --local user.email "${{ github.actor }}@users.noreply.github.com"
-    - name: Merge with main
-      run: |
-        git fetch origin
-        git pull
-        git merge --strategy-option=theirs origin/main
     - name: Set up Python 3.8
       uses: actions/setup-python@v2
       with:
@@ -40,6 +30,17 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r parse/requirements.txt
+    - name: Config git user
+      run: |
+        git config --local user.name  ${{ github.actor }}        
+        git config --local user.email "${{ github.actor }}@users.noreply.github.com"
+
+    - name: Create preview branch
+        run: |
+          # Copy files from preview branch
+          git fetch origin
+          git checkout preview
+          git reset --hard origin/main
     - name: Sync with google sheet changes
       env:
         SHEETS_API: ${{ secrets.SHEETS_API_TOKEN }}        
@@ -49,8 +50,4 @@ jobs:
       run: |
         git add ./assets
         git commit -m "Updating downloaded files"
-    - name: Push changes  # push the output folder to your repo
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        force: true
+        git push origin preview --force

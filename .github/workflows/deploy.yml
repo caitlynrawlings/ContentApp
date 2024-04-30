@@ -44,7 +44,6 @@ jobs:
             ls -a ./build
             cp -r build/web/* .
             rm -rf ./build
-            ls .
             git add .
             git commit -m "Deploying to gh-pages"
             git push origin gh-pages --force

@@ -12,16 +12,17 @@ jobs:
         run: |
           git config --local user.name  ${{ github.actor }}        
           git config --local user.email "${{ github.actor }}@users.noreply.github.com"
-      - name: Copy preview into main branch
+      - name: Create temp merge branch
         run: |
-          # Copy files from preview branch
-          git fetch origin
-          git merge origin/preview --strategy-option theirs --allow-unrelated-histories
-      - name: Commit files
-        run: |
-          git add .
-          git commit -m "Syncing main with preview branch"
+          git fetch
+          git checkout -b temp_merge_branch main
+          git checkout preview -- ./assets
+          git add ./assets
+          git commit -m "Merge changes from preview for ./assets"
+          git checkout main
+          git merge temp_merge_branch
           git push origin main --force
+          git branch -d temp_merge_branch
   deploy:
     needs: merge
     runs-on: ubuntu-latest

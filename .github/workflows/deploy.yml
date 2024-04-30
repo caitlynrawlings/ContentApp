@@ -26,8 +26,8 @@ jobs:
       - name: Create gh-pages branch
         run: |
           # Copy files from main branch
+          git fetch origin
           git checkout gh-pages
-          git fetch origin main
           git reset --hard origin/main
       - name: Flutter web build
         run: |

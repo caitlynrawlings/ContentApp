@@ -34,12 +34,12 @@ jobs:
           git config --local user.name  ${{ github.actor }}        
           git config --local user.email "${{ github.actor }}@users.noreply.github.com"
 
-      - name: Create preview branch
-          run: |
-            # Copy files from preview branch
-            git fetch origin
-            git checkout preview
-            git reset --hard origin/main
+      - name: Create main branch
+        run: |
+          # Copy files from preview branch
+          git fetch origin
+          git checkout preview
+          git reset --hard origin/main
       - name: Sync with google sheet changes
         env:
           SHEETS_API: ${{ secrets.SHEETS_API_TOKEN }}        

@@ -22,7 +22,7 @@ jobs:
         run: |
           git add .
           git commit -m "Syncing main with preview branch"
-          git push origin main --force
+          git push
   deploy:
     needs: merge
     runs-on: ubuntu-latest

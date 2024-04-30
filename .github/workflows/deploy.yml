@@ -5,7 +5,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - preview
 
 jobs:
   build:
@@ -25,10 +25,10 @@ jobs:
           git config --local user.email "${{ github.actor }}@users.noreply.github.com"
       - name: Create gh-pages branch
         run: |
-          # Copy files from main branch
+          # Copy files from preview branch
           git fetch origin
           git checkout gh-pages
-          git reset --hard origin/main
+          git reset --hard origin/preview
       - name: Flutter web build
         run: |
           flutter build web

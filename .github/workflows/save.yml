@@ -16,6 +16,7 @@ jobs:
         run: |
           # Copy files from preview branch
           git fetch origin
+          git pull origin main
           git merge origin/preview --strategy-option theirs --allow-unrelated-histories
       - name: Commit files
         run: |

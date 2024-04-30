@@ -1,4 +1,4 @@
-name: Save current changes and deploy
+name: Save Current Changes and Deploy
 on:
   workflow_dispatch:
 
@@ -26,3 +26,5 @@ jobs:
     needs: merge
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2

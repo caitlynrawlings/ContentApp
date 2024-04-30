@@ -16,41 +16,41 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - name: Checkout code
-        uses: actions/checkout@v2
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout code
+          uses: actions/checkout@v2
 
-    # Runs commands using the runners shell
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.8
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r parse/requirements.txt
-    - name: Config git user
-      run: |
-        git config --local user.name  ${{ github.actor }}        
-        git config --local user.email "${{ github.actor }}@users.noreply.github.com"
-
-    - name: Create preview branch
+      # Runs commands using the runners shell
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
         run: |
-          # Copy files from preview branch
-          git fetch origin
-          git checkout preview
-          git reset --hard origin/main
-    - name: Sync with google sheet changes
-      env:
-        SHEETS_API: ${{ secrets.SHEETS_API_TOKEN }}        
-      run: |
-        python3 parse/main.py
-    - name: Commit files  # transfer the new html files back into the repository
-      run: |
-        git add ./assets
-        git commit -m "Updating downloaded files"
-        git push origin preview --force
-  deploys:
+          python -m pip install --upgrade pip
+          pip install -r parse/requirements.txt
+      - name: Config git user
+        run: |
+          git config --local user.name  ${{ github.actor }}        
+          git config --local user.email "${{ github.actor }}@users.noreply.github.com"
+
+      - name: Create preview branch
+          run: |
+            # Copy files from preview branch
+            git fetch origin
+            git checkout preview
+            git reset --hard origin/main
+      - name: Sync with google sheet changes
+        env:
+          SHEETS_API: ${{ secrets.SHEETS_API_TOKEN }}        
+        run: |
+          python3 parse/main.py
+      - name: Commit files  # transfer the new html files back into the repository
+        run: |
+          git add ./assets
+          git commit -m "Updating downloaded files"
+          git push origin preview --force
+  deploy:
     runs-on: ubuntu-latest
 
     steps:

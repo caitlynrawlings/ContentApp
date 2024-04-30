@@ -18,7 +18,7 @@ jobs:
           git fetch origin
           git pull origin main
           git merge origin/preview --strategy-option theirs --allow-unrelated-histories
-          git push
+          git push origin main --force
   deploy:
     needs: merge
     runs-on: ubuntu-latest

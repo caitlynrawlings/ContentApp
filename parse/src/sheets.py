@@ -101,7 +101,7 @@ class Sheets:
 
         # 4. Save to file
         with open(PARSED_JSON, 'w') as f:
-            json.dump(json_data, f)
+            json.dump(json_data, f, indent=4)
 
         # 5. Rename update to downloads
         shutil.rmtree(DOWNLOADS_DIR)

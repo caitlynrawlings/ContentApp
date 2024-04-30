@@ -16,7 +16,8 @@ jobs:
         run: |
           # Copy files from preview branch
           git fetch origin
-          git reset --hard origin/preview
+          git merge preview
+          git checkout --theirs
       - name: Commit files
         run: |
           git add .

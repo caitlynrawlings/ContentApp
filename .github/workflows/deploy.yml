@@ -51,8 +51,10 @@ jobs:
     
           # Check if build/web directory exists and is not empty
           if [ -d "build/web" ] && [ "$(ls -A build/web)" ]; then
+            git rm -rf --ignore-unmatch ./build/web
             cp -r build/web/* .
             git add .
+            git rm -rf ./build
             git commit -m "Deploying to gh-pages"
             git push origin gh-pages
           else

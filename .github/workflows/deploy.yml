@@ -28,9 +28,8 @@ jobs:
 
       - name: Set up Git identity
         run: |
-          git config --global user.email "caitlyn7413@gmail.com"
-          git config --global user.name "caitlynrawlings"
-
+          git config --local user.name  ${{ github.actor }}        
+          git config --local user.email "${{ github.actor }}@users.noreply.github.com"
       - name: Create gh-pages branch
         run: |
             # Check if gh-pages branch exists remotely

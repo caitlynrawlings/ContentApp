@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'heading.dart';
 import 'subheading.dart';
 import 'image_widget.dart';
-import 'audio_widget.dart'
+import 'audio_widget.dart';
 import 'callout_widget.dart';
 
 class CustomPage extends StatefulWidget {

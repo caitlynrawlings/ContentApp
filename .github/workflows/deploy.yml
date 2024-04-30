@@ -32,17 +32,17 @@ jobs:
           git config --local user.email "${{ github.actor }}@users.noreply.github.com"
       - name: Create gh-pages branch
         run: |
-            # Check if gh-pages branch exists remotely
-            if git ls-remote --exit-code origin gh-pages >/dev/null 2>&1; then
-                # Delete the remote gh-pages branch
-                git push origin --delete gh-pages
-            fi
-        
-            # Create the orphaned gh-pages branch
-            git checkout --orphan gh-pages
-            git reset --hard
-            git commit --allow-empty -m "Initializing gh-pages branch"
-            git push origin gh-pages
+          # Check if gh-pages branch exists remotely
+          if git ls-remote --exit-code origin gh-pages >/dev/null 2>&1; then
+              # Delete the remote gh-pages branch
+              git push origin --delete gh-pages
+          fi
+      
+          # Create the orphaned gh-pages branch
+          git checkout --orphan gh-pages
+          git reset --hard
+          git commit --allow-empty -m "Initializing gh-pages branch"
+          git push origin gh-pages
 
       - name: Copy build to gh-pages branch
         run: |
@@ -51,7 +51,6 @@ jobs:
     
           # Check if build/web directory exists and is not empty
           if [ -d "build/web" ] && [ "$(ls -A build/web)" ]; then
-            git rm -rf .
             cp -r build/web/* .
             git add .
             git commit -m "Deploying to gh-pages"

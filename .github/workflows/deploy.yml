@@ -19,13 +19,6 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
             flutter-version: '3.19.6' # Specify the Flutter version explicitly
-
-      - name: Flutter web build
-        run: |
-          flutter build web
-          ls ./build/web
-
-
       - name: Set up Git identity
         run: |
           git config --local user.name  ${{ github.actor }}        
@@ -38,12 +31,12 @@ jobs:
               git push origin --delete gh-pages
           fi
       
-          # Create the orphaned gh-pages branch
-          git checkout --orphan gh-pages
-          git reset --hard
-          git commit --allow-empty -m "Initializing gh-pages branch"
-          git push origin gh-pages
-
+          # Create the gh-pages branch
+          git checkout -b gh-pages main
+      - name: Flutter web build
+        run: |
+          flutter build web
+          ls ./build/web
       - name: Copy build to gh-pages branch
         run: |
           # Print contents of build/web directory before copying

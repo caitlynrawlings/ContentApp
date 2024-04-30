@@ -51,6 +51,7 @@ jobs:
           git commit -m "Updating downloaded files"
           git push origin preview --force
   deploy:
+    needs: build
     runs-on: ubuntu-latest
 
     steps:

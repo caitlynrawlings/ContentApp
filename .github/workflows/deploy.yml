@@ -51,7 +51,7 @@ jobs:
     
           # Check if build/web directory exists and is not empty
           if [ -d "build/web" ] && [ "$(ls -A build/web)" ]; then
-            find . -mindepth 1 -maxdepth 1 | grep -v "^./build" | xargs rm -rf
+            find . -mindepth 1 -maxdepth 1 | grep -v -E "^./(build|\.git)$" | xargs rm -rf
             cp -r build/web/* .
             rm -rf ./build
             git add .

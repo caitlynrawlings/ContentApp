@@ -1,0 +1,28 @@
+name: Save current changes and deploy
+on:
+  workflow_dispatch:
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Config git user
+        run: |
+          git config --local user.name  ${{ github.actor }}        
+          git config --local user.email "${{ github.actor }}@users.noreply.github.com"
+      - name: Copy preview into main branch
+        run: |
+          # Copy files from preview branch
+          git fetch origin
+          git reset --hard origin/preview
+      - name: Commit files
+        run: |
+          git add .
+          git commit -m "Syncing main with preview branch"
+          git push origin main --force
+  deploy:
+    needs: merge
+    runs-on: ubuntu-latest
+    steps:

@@ -16,7 +16,7 @@ jobs:
         run: |
           git fetch
           git checkout -b temp_merge_branch main
-          git checkout preview -- ./assets
+          git checkout origin/preview -- ./assets
           git add ./assets
           git commit -m "Merge changes from preview for ./assets"
           git checkout main

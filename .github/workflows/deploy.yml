@@ -47,7 +47,7 @@ jobs:
             ls .
             git add .
             git commit -m "Deploying to gh-pages"
-            git push origin gh-pages
+            git push origin gh-pages --force
           else
             echo "No files found in build/web directory. Skipping deployment to gh-pages."
           fi

@@ -12,12 +12,15 @@ jobs:
         run: |
           git config --local user.name  ${{ github.actor }}        
           git config --local user.email "${{ github.actor }}@users.noreply.github.com"
-      - name: Merge preview into main branch
+      - name: Copy preview into main branch
         run: |
           # Copy files from preview branch
           git fetch origin
-          git pull origin main
           git merge origin/preview --strategy-option theirs --allow-unrelated-histories
+      - name: Commit files
+        run: |
+          git add .
+          git commit -m "Syncing main with preview branch"
           git push origin main --force
   deploy:
     needs: merge

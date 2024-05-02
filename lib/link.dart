@@ -15,11 +15,22 @@ class Link extends StatelessWidget {
   Widget build(BuildContext context) {
     // final theme = Theme.of(context);
 
-    return FloatingActionButton(
-      onPressed: () {
-        onChangePage(linkedPageId);
-      },
-      child: Text(displayText),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        ElevatedButton(
+          onPressed: () {
+            onChangePage(linkedPageId);
+          },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Theme.of(context).cardColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(4.0),
+            ),
+          ),
+          child: Text(displayText),
+        ),
+      ]
     );
   }
 }

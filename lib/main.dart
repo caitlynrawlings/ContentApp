@@ -53,12 +53,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int selectedPageIndex = 0;  // tracks which page is being displayed. 0 is menu page and increments from that in order of pages added
-  String selectedLanguage = "";  // tracks current language
+  String selectedLanguage = "";  // tracks current language and its directionality
 
   List<dynamic> pageIds = [];
   List<dynamic> pageTitles = [];
   List<dynamic> pagesContents = [];
-  List<String> languages = [];
+  List<Map<String, String>> languages = [];
 
   @override
   void initState() {
@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<void> loadJsonData() async {
-    String jsonData = await rootBundle.loadString('assets/test_content.json');
+    String jsonData = await rootBundle.loadString('assets/pages.json');
     final data = json.decode(jsonData);
     setState(() {
       languages = List<String>.from(data['languages']);
@@ -117,33 +117,36 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           ),
-          body: Column(
-            children: [
-              Expanded(
-                child: selectedPageIndex == 0
-                    ? Center(
-                        child: Menu(
-                          pageTitles: pageTitles,
-                          selectedLanguage: selectedLanguage,
-                          onSelectPage: (index) {
-                            setState(() {
-                              selectedPageIndex = index + 1;
-                            });
-                          },
+          body: Directionality(
+            textDirection: textDirection,
+            child: Column(
+              children: [
+                Expanded(
+                  child: selectedPageIndex == 0
+                      ? Center(
+                          child: Menu(
+                            pageTitles: pageTitles,
+                            selectedLanguage: selectedLanguage,
+                            onSelectPage: (index) {
+                              setState(() {
+                                selectedPageIndex = index + 1;
+                              });
+                            },
+                          ),
+                        )
+                      : CustomPage(
+                          content: pagesContents[selectedPageIndex - 1],
+                          title: pageTitles[selectedPageIndex - 1],
+                          language: selectedLanguage,
+                          onChangePage: (pageId) {
+                              setState(() {
+                                selectedPageIndex = pageIds.indexOf(pageId) + 1;
+                              });
+                            },
                         ),
-                      )
-                    : CustomPage(
-                        content: pagesContents[selectedPageIndex - 1],
-                        title: pageTitles[selectedPageIndex - 1],
-                        language: selectedLanguage,
-                        onChangePage: (pageId) {
-                            setState(() {
-                              selectedPageIndex = pageIds.indexOf(pageId) + 1;
-                            });
-                          },
-                      ),
-              ),
-            ],
+                ),
+              ],
+            ),
           ),
         );
       },

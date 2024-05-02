@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'heading.dart';
-import 'subheading.dart';
-import 'image_widget.dart';
-import 'audio_widget.dart';
-import 'callout_widget.dart';
-import 'link.dart';
+import 'content_types/heading.dart';
+import 'content_types/subheading.dart';
+import 'content_types/image_widget.dart';
+import 'content_types/audio_widget.dart';
+import 'content_types/callout_widget.dart';
+import 'content_types/link.dart';
 
 class CustomPage extends StatefulWidget {
   final List<dynamic> content;
@@ -54,7 +54,10 @@ class _CustomPageState extends State<CustomPage> {
                   children: widget.content.map((item) {
                     dynamic contentType = item["content-type"];
                     dynamic content = item["content"];
-                    return _buildContentWidget(contentType, content[widget.language]);
+                    return Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: _buildContentWidget(contentType, content[widget.language]),
+                    );
                   }).toList(),
                 ),
               ),
@@ -88,7 +91,7 @@ class _CustomPageState extends State<CustomPage> {
             ),
         );
       case 'Spacer':
-        return SizedBox(height: value,);
+        return value.runtimeType == String ? const SizedBox(height: 0) : SizedBox(height: value.toDouble());
       case 'Link':
         return Link(
             displayText: value['displayText'], 

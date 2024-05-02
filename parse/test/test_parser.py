@@ -29,7 +29,7 @@ def test_subheading(languages, row, expected):
 
 def _test_basic(type, languages, row, expected):
     row.insert(0, type)
-    assert Parser.parse(languages, row, '') == {
+    assert Parser.parse(languages, row, 0 '') == {
         'content-type': type,
         'content': expected
     }

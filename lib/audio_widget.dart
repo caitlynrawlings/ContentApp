@@ -1,12 +1,10 @@
 
 import 'package:flutter/material.dart';
-import 'main.dart'; 
 import 'package:just_audio/just_audio.dart';
 
 class AudioWidget extends StatefulWidget {
-  @override
   final String audioAsset;
-  AudioWidget({Key? key, required this.audioAsset}) : super(key:key);
+  const AudioWidget({super.key, required this.audioAsset});
   @override
   State<AudioWidget> createState() => _AudioWidgetState();
 }

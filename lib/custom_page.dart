@@ -4,17 +4,20 @@ import 'subheading.dart';
 import 'image_widget.dart';
 import 'audio_widget.dart';
 import 'callout_widget.dart';
+import 'link.dart';
 
 class CustomPage extends StatefulWidget {
   final List<dynamic> content;
   final Map<dynamic, dynamic> title;
   final String language;
+  final dynamic onChangePage;
 
   const CustomPage({
     super.key,
     required this.content,
     required this.title,
     required this.language,
+    required this.onChangePage,
   });
 
   @override
@@ -86,6 +89,14 @@ class _CustomPageState extends State<CustomPage> {
         );
       case 'Spacer':
         return SizedBox(height: value,);
+      case 'Link':
+        return Link(
+            displayText: value['displayText'], 
+            linkedPageId: value['page'],
+            onChangePage: (pageId) {
+              widget.onChangePage(pageId);
+            },
+        );
       default:
         return Text('Unsupported content type: $contentType');
     }

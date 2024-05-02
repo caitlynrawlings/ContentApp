@@ -67,12 +67,23 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<void> loadJsonData() async {
-    String jsonData = await rootBundle.loadString('assets/pages.json');
+    String jsonData = await rootBundle.loadString('assets/test_content.json');
     final data = json.decode(jsonData);
-    setState(() {
-      languages = List<String>.from(data['languages']);
-      selectedLanguage = languages[0];
 
+    setState(() {
+      final dynamic languagesData = data['languages'];
+      if (languagesData is List && languagesData.isNotEmpty && languagesData.every((e) => e is Map<String, dynamic>)) {
+        languages = List<Map<String, String>>.from(languagesData.map((e) => e.cast<String, String>()));
+      } else {
+        throw Exception('language cannot be null');
+      }
+      String? lan = languages[0]['language'];
+      if (lan == null) {
+        throw Exception('language cannot be null');
+      } else {
+        selectedLanguage = lan;
+      }
+      
       List<dynamic> pages = data['pages'];
       for (dynamic page in pages) {
         pageIds += [page["id"]];
@@ -109,7 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 LanguageDropdown(
                   key: const ValueKey('languageDropdown'),
                   selectedLanguage: selectedLanguage,
-                  languages: languages,
+                  languages: languages.map((langMap) => langMap['language'] ?? '').toList(),
                   onChanged: (String newLanguage) {
                     _handleLanguageChange(newLanguage);
                   },
@@ -117,9 +128,10 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           ),
-          body: Directionality(
-            textDirection: textDirection,
-            child: Column(
+          body: //Directionality(
+            //textDirection: TextDirection.ltr,
+            // child: 
+            Column(
               children: [
                 Expanded(
                   child: selectedPageIndex == 0
@@ -147,7 +159,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             ),
-          ),
+         // ),
         );
       },
     );

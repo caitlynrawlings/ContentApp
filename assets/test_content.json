@@ -1,5 +1,18 @@
 {
-    "languages": ["english", "dholuo", "kiswahili"],
+    "languages": [
+        {
+            "language": "english", 
+            "direction": "rtl"
+        },
+        {
+            "language": "dholuo", 
+            "direction": "ltr"
+        },
+        {
+            "language": "kiswahili",
+            "direction": "ltr"
+        }
+            ],
     "pages": [
         {
             "id": "Page 1",

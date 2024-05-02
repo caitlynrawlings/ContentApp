@@ -58,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
   List<dynamic> pageIds = [];
   List<dynamic> pageTitles = [];
   List<dynamic> pagesContents = [];
-  List<Map<String, String>> languages = [];
+  Map<String, String> languages = {};
 
   @override
   void initState() {
@@ -73,16 +73,15 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       final dynamic languagesData = data['languages'];
       if (languagesData is List && languagesData.isNotEmpty && languagesData.every((e) => e is Map<String, dynamic>)) {
-        languages = List<Map<String, String>>.from(languagesData.map((e) => e.cast<String, String>()));
+        for (var item in languagesData) {
+          String lan = item['language'] != Null ? item['language'] : throw Exception('language cannot be null');
+          String dir = item['direction'] != Null ? item['direction'] : throw Exception('language cannot be null');
+          languages[lan] = dir;
+        }
       } else {
         throw Exception('language cannot be null');
       }
-      String? lan = languages[0]['language'];
-      if (lan == null) {
-        throw Exception('language cannot be null');
-      } else {
-        selectedLanguage = lan;
-      }
+      selectedLanguage = languages.keys.first;
       
       List<dynamic> pages = data['pages'];
       for (dynamic page in pages) {
@@ -120,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 LanguageDropdown(
                   key: const ValueKey('languageDropdown'),
                   selectedLanguage: selectedLanguage,
-                  languages: languages.map((langMap) => langMap['language'] ?? '').toList(),
+                  languages: languages.keys.toList(),
                   onChanged: (String newLanguage) {
                     _handleLanguageChange(newLanguage);
                   },
@@ -128,9 +127,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           ),
-          body: //Directionality(
-            //textDirection: TextDirection.ltr,
-            // child: 
+          body: Directionality(
+            textDirection: TextDirection.ltr,
+             child: 
             Column(
               children: [
                 Expanded(
@@ -159,7 +158,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             ),
-         // ),
+          ),
         );
       },
     );

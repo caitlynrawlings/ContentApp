@@ -55,6 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int selectedPageIndex = 0;  // tracks which page is being displayed. 0 is menu page and increments from that in order of pages added
   String selectedLanguage = "";  // tracks current language
 
+  List<dynamic> pageIds = [];
   List<dynamic> pageTitles = [];
   List<dynamic> pagesContents = [];
   List<String> languages = [];
@@ -66,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<void> loadJsonData() async {
-    String jsonData = await rootBundle.loadString('assets/pages.json');
+    String jsonData = await rootBundle.loadString('assets/test_content.json');
     final data = json.decode(jsonData);
     setState(() {
       languages = List<String>.from(data['languages']);
@@ -74,6 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
       List<dynamic> pages = data['pages'];
       for (dynamic page in pages) {
+        pageIds += [page["id"]];
         pageTitles += [page["title"]];
         pagesContents += [page["content"]];
       }
@@ -134,6 +136,11 @@ class _MyHomePageState extends State<MyHomePage> {
                         content: pagesContents[selectedPageIndex - 1],
                         title: pageTitles[selectedPageIndex - 1],
                         language: selectedLanguage,
+                        onChangePage: (pageId) {
+                            setState(() {
+                              selectedPageIndex = pageIds.indexOf(pageId) + 1;
+                            });
+                          },
                       ),
               ),
             ],

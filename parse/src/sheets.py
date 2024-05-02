@@ -55,7 +55,7 @@ class Sheets:
         """
         languages = data[0][2:]
         page_info = {
-            "id" : title,
+            "id": title,
             "title": {
                 languages[i]: data[1][2+i] for i in range(len(languages))
             },
@@ -76,9 +76,13 @@ class Sheets:
             raise Exception("Google Sheet misssing 'Languages' page")
 
         # 2. Get expected languages
-        languages = self.get_values(spreadsheet_id, "Languages!1:1")[0]
+        languages_page = self.get_values(spreadsheet_id, "Languages!1:2")
         json_data = {
-            "languages": languages,
+            "languages": [{
+                "language": languages_page[0][i],
+                "direction": (Parser.get_acronym(languages_page[1][i])
+                              if i < len(languages_page[1]) else "")
+            } for i in range(len(languages_page[0]))],
             "pages": []
         }
 
@@ -88,11 +92,11 @@ class Sheets:
                 continue
 
             data = self.get_values(spreadsheet_id, f"{sheet}!1:{MAX_ROWS}")
-            if data[0][2:] != languages:
+            if data[0][2:] != languages_page[0]:
                 raise Exception(f"Provided sheet [{sheet}] doesn't include all languages: {data[0][2:]} != {languages}")
 
             # Make sure every page has a title in every language
-            if len(data[1][2:]) != len(languages):
+            if len(data[1][2:]) != len(languages_page[0]):
                 raise Exception(f"Provided sheet [{sheet}] doesn't include a title in all languages: {data[1][2:]} != {len(languages)} element(s)")
 
             json_data['pages'].append(

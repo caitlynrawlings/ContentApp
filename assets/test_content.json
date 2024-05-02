@@ -6,7 +6,7 @@
         },
         {
             "language": "dholuo", 
-            "direction": "ltr"
+            "direction": ""
         },
         {
             "language": "kiswahili",
@@ -25,7 +25,7 @@
                 {
                     "content-type": "Heading",
                     "content": {
-                        "english": "one",
+                        "english": "مرحبا بالعالم",
                         "dholuo": "two",
                         "kiswahili": "three"
                     }    

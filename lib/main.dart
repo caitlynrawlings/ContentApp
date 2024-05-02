@@ -128,7 +128,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           body: Directionality(
-            textDirection: TextDirection.ltr,
+            textDirection: languages[selectedLanguage] == "rtl" ? TextDirection.rtl : TextDirection.ltr,
              child: 
             Column(
               children: [

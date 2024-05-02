@@ -76,7 +76,7 @@ class _CustomPageState extends State<CustomPage> {
       case 'Image':
         return ImageWidget(imagePath: value['path'], altText: value['alt'] ?? 'No alt text provided');
       case 'Audio':
-        return AudioWidget(audioAsset: 'assets/${value['path']}');
+        return AudioWidget(audioAsset: 'assets/downloads/${value['path']}');
       case 'Callout':
         
 

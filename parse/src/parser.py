@@ -8,7 +8,8 @@ from .drive import Drive
 
 class Parser:
     @staticmethod
-    def parse(languages, row, title):
+    def parse(languages, rows, row_i, title):
+        row = rows[row_i]
         content_type = row[0]
         if content_type not in VALID_CONTENT_TYPES:
             raise Exception(f"Type {content_type} not parseable")
@@ -16,6 +17,9 @@ class Parser:
         parser_method = getattr(Parser, f"_parse_{content_type.lower()}", None)
         if parser_method is None or not callable(parser_method):
             raise Exception(f"No parser defined for {content_type}")
+
+        if len(row[2:] < len(languages)):
+            raise Exception(f"Missing translation on row {row_i + 3} of {title}")
 
         return {
             "content-type": content_type,

@@ -69,11 +69,6 @@ def test_audio():
     pass
 
 
-empty = {
-    'a': '', 'b': ''
-}
-
-
 standard_two_line_args = (
     'languages, row, expected', [
         (['one'], ['example', 't\nc'], {'one': {'a': 't', 'b': 'c'}}),

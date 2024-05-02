@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<void> loadJsonData() async {
-    String jsonData = await rootBundle.loadString('assets/test_content.json');
+    String jsonData = await rootBundle.loadString('assets/pages.json');
     final data = json.decode(jsonData);
     setState(() {
       languages = List<String>.from(data['languages']);

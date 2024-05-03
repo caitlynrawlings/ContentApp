@@ -11,7 +11,9 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final String jsonFile; 
+
+  const MyApp({super.key, this.jsonFile = 'assets/pages.json'});
 
   @override
   Widget build(BuildContext context) {
@@ -39,19 +41,21 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const MyHomePage(),
+      home: AppScreen(jsonFile: jsonFile),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class AppScreen extends StatefulWidget {
+  final String jsonFile; 
+
+  const AppScreen({super.key, required this.jsonFile});
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _AppScreenState createState() => _AppScreenState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _AppScreenState extends State<AppScreen> {
   int selectedPageIndex = 0;  // tracks which page is being displayed. 0 is menu page and increments from that in order of pages added
   String selectedLanguage = "";  // tracks current language
 
@@ -67,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<void> loadJsonData() async {
-    String jsonData = await rootBundle.loadString('assets/pages.json');
+    String jsonData = await rootBundle.loadString(widget.jsonFile);
     final data = json.decode(jsonData);
     setState(() {
       languages = List<String>.from(data['languages']);

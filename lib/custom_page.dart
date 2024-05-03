@@ -81,8 +81,6 @@ class _CustomPageState extends State<CustomPage> {
       case 'Audio':
         return AudioWidget(audioAsset: 'assets/downloads/${value['path']}');
       case 'Callout':
-        
-
         return Container(
             margin: const EdgeInsets.symmetric(horizontal: 16.0), 
             child: CalloutWidget(

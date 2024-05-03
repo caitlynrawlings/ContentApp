@@ -37,10 +37,6 @@ class Parser:
         }
 
     @staticmethod
-    def parse(cell, language, title):
-        parser_method = getattr(Parser, f"_parse_{content_type.lower()}", None)
-
-    @staticmethod
     def get_acronym(phrase):
         return ''.join([token[0] for token in phrase.split()]).lower()
 

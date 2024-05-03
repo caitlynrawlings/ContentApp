@@ -75,9 +75,9 @@ void main() {
       await tester.pumpAndSettle(); // Ensure dropdown menu is rendered
 
       // Find english heading
-      final headingItem = find.text("Page 1 (english)");
+      final page1Button = find.text("Page 1 (english)");
       // Check if the item is found
-      expect(headingItem, findsOneWidget);
+      expect(page1Button, findsOneWidget);
 
       // Find the dropdown menu item for "dholuo"
       final dholuoItem = find.text("dholuo");
@@ -90,12 +90,34 @@ void main() {
       await tester.pumpAndSettle(); // Ensure widget tree is updated
 
       // Find english heading
-      final newHeadingItem = find.text("Page 1 (dholuo) and the translation is really really really long");
+      final newPage1Button = find.text("Page 1 (dholuo) and the translation is really really really long");
       // Check if the item is found
-      expect(newHeadingItem, findsOneWidget);
+      expect(newPage1Button, findsOneWidget);
 
       // Verify that the selected language is updated to "dholuo"
       expect(find.text("dholuo"), findsOneWidget);
+    });
+  });
+
+  testWidgets('Verify menu button updates page', (WidgetTester tester) async {
+    await tester.runAsync(() async {
+      await tester.pumpWidget(const MyApp(jsonFile: 'assets/test_content.json',));
+      await tester.pumpAndSettle();
+
+      // Find english heading
+      final page1button = find.text("Page 1 (english)");
+      // Check if the item is found
+      expect(page1button, findsOneWidget);
+
+      // Tap on the page button to go to that page
+      await tester.tap(page1button);
+      await tester.pumpAndSettle(); 
+
+      // Find the dropdown menu item for "dholuo"
+      final headingItem = find.text("page1heading1");
+
+      // Check if the item is found
+      expect(headingItem, findsOneWidget);
     });
   });
 
@@ -107,44 +129,44 @@ void main() {
     });
   });
 
-  // testWidgets('Languages in dropdown populates', (WidgetTester tester) async {
-  //   // Build our app and trigger a frame.
-  //   await tester.pumpWidget(const MyApp());
+  testWidgets('Verify home button returns to menu', (WidgetTester tester) async {
+    await tester.runAsync(() async {
+      await tester.pumpWidget(const MyApp(jsonFile: 'assets/test_content.json',));
+      await tester.pumpAndSettle();
 
-  //   final languageDropdown = find.byKey(const ValueKey('languageDropdown'));
+      // Find english heading
+      var page1button = find.text("Page 1 (english)");
+      // Check if the item is found
+      expect(page1button, findsOneWidget);
 
-  //   expect(languageDropdown, findsOneWidget);
-  //   // Open the dropdown menu
-  //   await tester.tap(languageDropdown);
-  //   await tester.pumpAndSettle();
-      
-  //   // Find the dropdown menu items
-  //   final dholuo = find.byKey(const ValueKey('dholuo'));
+      // Tap on the page button to go to that page
+      await tester.tap(page1button);
+      await tester.pumpAndSettle();
 
-  //   await tester.tap(dholuo);
-  //   await tester.pumpAndSettle();
+      // Find the dropdown menu item for "dholuo"
+      final headingItem = find.text("page1heading1");
 
-  //   expect(find.text('Content App: dholuo'), findsOneWidget);
+      // Check if the item is found
+      expect(headingItem, findsOneWidget);
 
-  //   // Check if the dropdown menu items contain the expected languages
-  //   // for (var language in languages) {
-  //   //   expect(find.text(language), findsOneWidget);
-  //   // }
-  //   });
-  // testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-  //   // Build our app and trigger a frame.
-  //   await tester.pumpWidget(const MyApp());
+      // Find home button
+      final homeButton = find.byIcon(Icons.home);
+      // Check if the item is found
+      expect(homeButton, findsOneWidget);
 
-  //   // Verify that our counter starts at 0.
-  //   expect(find.text('0'), findsOneWidget);
-  //   expect(find.text('1'), findsNothing);
+      // Tap on the page button to go to that page
+      await tester.tap(homeButton);
+      await tester.pumpAndSettle();
 
-  //   // Tap the '+' icon and trigger a frame.
-  //   await tester.tap(find.byIcon(Icons.add));
-  //   await tester.pump();
+      // Check for all page names in english to see if back in menu
+      page1button = find.text("Page 1 (english)");
+      // Check if the item is found
+      expect(page1button, findsOneWidget);
 
-  //   // Verify that our counter has incremented.
-  //   expect(find.text('0'), findsNothing);
-  //   expect(find.text('1'), findsOneWidget);
-  // });
+      final page2button = find.text("Page 2 (english)");
+      // Check if the item is found
+      expect(page2button, findsOneWidget);
+
+    });
+  });
 }

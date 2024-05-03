@@ -12,7 +12,7 @@
                 {
                     "content-type": "Heading",
                     "content": {
-                        "english": "one",
+                        "english": "page1heading1",
                         "dholuo": "two",
                         "kiswahili": "three"
                     }    
@@ -111,7 +111,7 @@
         {   
             "id": "Page 2",
             "title": {
-                "english": "Page 2 (eng)",
+                "english": "Page 2 (english)",
                 "dholuo": "Page 2 (dholuo)",
                 "kiswahili": "Page 2 (kiswahili)"
             },

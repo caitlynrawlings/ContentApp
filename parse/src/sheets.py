@@ -60,7 +60,7 @@ class Sheets:
                 languages[i]: data[1][2+i] for i in range(len(languages))
             },
             "content": [
-                Parser.parse(languages, data[2:], row_i, title)
+                Parser.parse(languages, data[2:][row_i], title)
                 for row_i in range(len(data[2:]))
             ]
         }
@@ -93,7 +93,7 @@ class Sheets:
 
             data = self.get_values(spreadsheet_id, f"{sheet}!1:{MAX_ROWS}")
             if data[0][2:] != languages_page[0]:
-                raise Exception(f"Provided sheet [{sheet}] doesn't include all languages: {data[0][2:]} != {languages_page[0]}")
+                raise Exception(f"Provided sheet [{sheet}] doesn't include all languages: {data[0][2:]} != {languages}")
 
             # Make sure every page has a title in every language
             if len(data[1][2:]) != len(languages_page[0]):

@@ -26,6 +26,10 @@ class Parser:
         }
 
     @staticmethod
+    def get_acronym(phrase):
+        return ''.join([token[0] for token in phrase.split()]).lower()
+
+    @staticmethod
     def _parse_text(cell, _, __):
         return cell
 

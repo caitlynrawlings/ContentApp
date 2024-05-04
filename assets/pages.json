@@ -1,1 +1,158 @@
-{"languages": ["English", "Dholuo", "Kiswahili"], "pages": [{"id": "Page 1", "title": {"English": "English Title 1.0", "Dholuo": "Dholuo Title", "Kiswahili": "Kiswahili Title"}, "content": [{"content-type": "Subheading", "content": {"English": "How it works", "Dholuo": "", "Kiswahili": ""}}, {"content-type": "Text", "content": {"English": "Your period will most likely become lighter, and might not come on a usual schedule. You might stop having periods all together while you are using depo. This is normal and healthy while using depo, because of the way the method works with your body. If your periods are usually heavy, this might be a good thing.", "Dholuo": "Rembi mar dwe biro bedo matin, kendo samoro ok bi biro kaka ochan. Inyalo weyo bedo gi remb dwe chutho ekinde ma itiyo gi Depo. Ma en gima timore kendo gima ber ekinde ma itiyo gi Depo, nikech kaka yor komo nyuol tiyo e dendi. Ka rembi mar dwe biro ga mang'eny, ma nyalo bedo gima ber.", "Kiswahili": "Kuna uwezekano mkubwa kwamba damu yako ya hedhi kitapungua, na huenda kisije kwa ratiba ya kawaida. Unaweza kuacha kupata hedhi wakati unatumia depo. Hii ni kawaida na yenye afya wakati wa kutumia depo, kwa sababu ya jinsi njia inavyofanya kazi na mwili wako. Ikiwa hedhi yako ni nzito, hii inaweza kuwa jambo zuri."}}, {"content-type": "Image", "content": {"English": {"path": "Page 1-English-cow.gif", "alt": "Alt Text", "caption": "Caption"}, "Dholuo": {"path": "Page 1-Dholuo-cow.gif", "alt": "Alt Text", "caption": ""}, "Kiswahili": {"path": "Page 1-Kiswahili-cow.gif", "alt": "Alt Text", "caption": ""}}}, {"content-type": "Callout", "content": {"English": {"path": "Page 1-English-info-icon.png", "text": "Important information that we want to stand out"}, "Dholuo": {"path": "Page 1-Dholuo-info-icon.png", "text": "Important information that we want to stand out"}, "Kiswahili": {"path": "Page 1-Kiswahili-info-icon.png", "text": "Important information that we want to stand out"}}}, {"content-type": "Audio", "content": {"English": {"path": "Page 1-English-heyThis_HIV_STI_E.mp3", "caption": "this is the transcript"}, "Dholuo": {"path": "", "caption": ""}, "Kiswahili": {"path": "", "caption": ""}}}]}, {"id": "Page 2", "title": {"English": "English Title 2", "Dholuo": "Dholuo Title 2", "Kiswahili": "Kiswahili Title 2"}, "content": [{"content-type": "Heading", "content": {"English": "Heading", "Dholuo": "", "Kiswahili": ""}}, {"content-type": "Toggle", "content": {"English": {"title": "Learn More", "body": "This is some more information that will appear in the dropdown"}, "Dholuo": {"title": "", "body": ""}, "Kiswahili": {"title": "", "body": ""}}}, {"content-type": "Link", "content": {"English": {"displayText": "Next Page", "page": "Page 1"}, "Dholuo": {"displayText": "", "page": ""}, "Kiswahili": {"displayText": "", "page": ""}}}]}]}
+{
+    "languages": [
+        "English",
+        "Dholuo",
+        "Kiswahili"
+    ],
+    "pages": [
+        {
+            "id": "Page 1",
+            "title": {
+                "English": "English Title 1.0",
+                "Dholuo": "Dholuo Title",
+                "Kiswahili": "Kiswahili Title"
+            },
+            "content": [
+                {
+                    "content-type": "Subheading",
+                    "content": {
+                        "English": "How it works",
+                        "Dholuo": "",
+                        "Kiswahili": ""
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "Your period will most likely become lighter, and might not come on a usual schedule. You might stop having periods all together while you are using depo. This is normal and healthy while using depo, because of the way the method works with your body. If your periods are usually heavy, this might be a good thing.",
+                        "Dholuo": "Rembi mar dwe biro bedo matin, kendo samoro ok bi biro kaka ochan. Inyalo weyo bedo gi remb dwe chutho ekinde ma itiyo gi Depo. Ma en gima timore kendo gima ber ekinde ma itiyo gi Depo, nikech kaka yor komo nyuol tiyo e dendi. Ka rembi mar dwe biro ga mang'eny, ma nyalo bedo gima ber.",
+                        "Kiswahili": "Kuna uwezekano mkubwa kwamba damu yako ya hedhi kitapungua, na huenda kisije kwa ratiba ya kawaida. Unaweza kuacha kupata hedhi wakati unatumia depo. Hii ni kawaida na yenye afya wakati wa kutumia depo, kwa sababu ya jinsi njia inavyofanya kazi na mwili wako. Ikiwa hedhi yako ni nzito, hii inaweza kuwa jambo zuri."
+                    }
+                },
+                {
+                    "content-type": "Image",
+                    "content": {
+                        "English": {
+                            "path": "Page 1-English-cow.gif",
+                            "alt": "Alt Text",
+                            "caption": "Caption"
+                        },
+                        "Dholuo": {
+                            "path": "Page 1-Dholuo-cow.gif",
+                            "alt": "Alt Text",
+                            "caption": ""
+                        },
+                        "Kiswahili": {
+                            "path": "Page 1-Kiswahili-cow.gif",
+                            "alt": "Alt Text",
+                            "caption": ""
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "Page 1-English-info-icon.png",
+                            "text": "Important information that we want to stand out"
+                        },
+                        "Dholuo": {
+                            "path": "Page 1-Dholuo-info-icon.png",
+                            "text": "Important information that we want to stand out"
+                        },
+                        "Kiswahili": {
+                            "path": "Page 1-Kiswahili-info-icon.png",
+                            "text": "Important information that we want to stand out"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Audio",
+                    "content": {
+                        "English": {
+                            "path": "Page 1-English-heyThis_HIV_STI_E.mp3",
+                            "caption": "this is the transcript"
+                        },
+                        "Dholuo": {
+                            "path": "Page 1-Dholuo-heyThis_HIV_STI_L.mp3",
+                            "caption": "Dholuo transcript"
+                        },
+                        "Kiswahili": {
+                            "path": "Page 1-Kiswahili-heyThis_HIV_STI_K.mp3",
+                            "caption": "Kiswahili transcript"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Toggle",
+                    "content": {
+                        "English": {
+                            "title": "Title",
+                            "body": "How does this work"
+                        },
+                        "Dholuo": {
+                            "title": "Title",
+                            "body": "How does this work"
+                        },
+                        "Kiswahili": {
+                            "title": "Title",
+                            "body": "How does this work"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Page 2",
+            "title": {
+                "English": "English Title 2",
+                "Dholuo": "Dholuo Title 2",
+                "Kiswahili": "Kiswahili Title 2"
+            },
+            "content": [
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Heading",
+                        "Dholuo": "",
+                        "Kiswahili": ""
+                    }
+                },
+                {
+                    "content-type": "Toggle",
+                    "content": {
+                        "English": {
+                            "title": "Learn More",
+                            "body": "This is some more information that will appear in the dropdown"
+                        },
+                        "Dholuo": {
+                            "title": "",
+                            "body": ""
+                        },
+                        "Kiswahili": {
+                            "title": "",
+                            "body": ""
+                        }
+                    }
+                },
+                {
+                    "content-type": "Link",
+                    "content": {
+                        "English": {
+                            "displayText": "Next Page",
+                            "page": "Page 1"
+                        },
+                        "Dholuo": {
+                            "displayText": "",
+                            "page": ""
+                        },
+                        "Kiswahili": {
+                            "displayText": "",
+                            "page": ""
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

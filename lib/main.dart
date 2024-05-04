@@ -57,12 +57,12 @@ class AppScreen extends StatefulWidget {
 
 class _AppScreenState extends State<AppScreen> {
   int selectedPageIndex = 0;  // tracks which page is being displayed. 0 is menu page and increments from that in order of pages added
-  String selectedLanguage = "";  // tracks current language
+  String selectedLanguage = "";  // tracks current language and its directionality
 
   List<dynamic> pageIds = [];
   List<dynamic> pageTitles = [];
   List<dynamic> pagesContents = [];
-  List<String> languages = [];
+  Map<String, String> languages = {};
 
   @override
   void initState() {
@@ -73,10 +73,20 @@ class _AppScreenState extends State<AppScreen> {
   Future<void> loadJsonData() async {
     String jsonData = await rootBundle.loadString(widget.jsonFile);
     final data = json.decode(jsonData);
-    setState(() {
-      languages = List<String>.from(data['languages']);
-      selectedLanguage = languages[0];
 
+    setState(() {
+      final dynamic languagesData = data['languages'];
+      if (languagesData is List && languagesData.isNotEmpty && languagesData.every((e) => e is Map<String, dynamic>)) {
+        for (var item in languagesData) {
+          String lan = item['language'] != Null ? item['language'] : throw Exception('language cannot be null');
+          String dir = item['direction'] != Null ? item['direction'] : throw Exception('language cannot be null');
+          languages[lan] = dir;
+        }
+      } else {
+        throw Exception('language cannot be null');
+      }
+      selectedLanguage = languages.keys.first;
+      
       List<dynamic> pages = data['pages'];
       for (dynamic page in pages) {
         pageIds += [page["id"]];
@@ -113,7 +123,7 @@ class _AppScreenState extends State<AppScreen> {
                 LanguageDropdown(
                   key: const ValueKey('languageDropdown'),
                   selectedLanguage: selectedLanguage,
-                  languages: languages,
+                  languages: languages.keys.toList(),
                   onChanged: (String newLanguage) {
                     _handleLanguageChange(newLanguage);
                   },
@@ -121,33 +131,37 @@ class _AppScreenState extends State<AppScreen> {
               ],
             ),
           ),
-          body: Column(
-            children: [
-              Expanded(
-                child: selectedPageIndex == 0
-                    ? Center(
-                        child: Menu(
-                          pageTitles: pageTitles,
-                          selectedLanguage: selectedLanguage,
-                          onSelectPage: (index) {
-                            setState(() {
-                              selectedPageIndex = index + 1;
-                            });
-                          },
+          body: Directionality(
+            textDirection: languages[selectedLanguage] == "rtl" ? TextDirection.rtl : TextDirection.ltr,
+             child: 
+            Column(
+              children: [
+                Expanded(
+                  child: selectedPageIndex == 0
+                      ? Center(
+                          child: Menu(
+                            pageTitles: pageTitles,
+                            selectedLanguage: selectedLanguage,
+                            onSelectPage: (index) {
+                              setState(() {
+                                selectedPageIndex = index + 1;
+                              });
+                            },
+                          ),
+                        )
+                      : CustomPage(
+                          content: pagesContents[selectedPageIndex - 1],
+                          title: pageTitles[selectedPageIndex - 1],
+                          language: selectedLanguage,
+                          onChangePage: (pageId) {
+                              setState(() {
+                                selectedPageIndex = pageIds.indexOf(pageId) + 1;
+                              });
+                            },
                         ),
-                      )
-                    : CustomPage(
-                        content: pagesContents[selectedPageIndex - 1],
-                        title: pageTitles[selectedPageIndex - 1],
-                        language: selectedLanguage,
-                        onChangePage: (pageId) {
-                            setState(() {
-                              selectedPageIndex = pageIds.indexOf(pageId) + 1;
-                            });
-                          },
-                      ),
-              ),
-            ],
+                ),
+              ],
+            ),
           ),
         );
       },

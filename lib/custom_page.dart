@@ -90,6 +90,9 @@ class _CustomPageState extends State<CustomPage> {
         );
       case 'Spacer':
         return value.runtimeType == String ? const SizedBox(height: 0) : SizedBox(height: value.toDouble());
+      case 'Toggle':
+        print("Toggle Content - Title: ${value['title']}, Body: ${value['body']}");
+        return ToggleWidget(title: value['title'], body: value['body']);
       case 'Link':
         return Link(
             displayText: value['displayText'], 

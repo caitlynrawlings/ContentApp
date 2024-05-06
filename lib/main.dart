@@ -5,9 +5,10 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'custom_page.dart';
 import 'lang_dropdown.dart'; 
 
-void main() async {
+void main(List<String> arguments) async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+  const file = String.fromEnvironment("FILE", defaultValue: 'assets/pages.json');
+  runApp(const MyApp(jsonFile: file));
 }
 
 class MyApp extends StatelessWidget {

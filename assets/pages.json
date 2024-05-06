@@ -148,7 +148,7 @@
                     "content-type": "Link",
                     "content": {
                         "English": {
-                            "displayText": "Next Page",
+                            "displayText": "Last Page",
                             "page": "Page 1"
                         },
                         "Dholuo": {

@@ -58,6 +58,10 @@ To run the app locally run the command in the top level of the repo:
 ```
 flutter run
 ```
+The file read from defaults to `assets/pages.json`. To use a different file to load app data from use:
+```
+flutter run --dart-define="FILE=<the file you want to load>"
+```
 
 ## Directory Structure
 Below are files of note for those that wish to continue development on this project

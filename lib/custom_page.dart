@@ -5,7 +5,7 @@ import 'content_types/image_widget.dart';
 import 'content_types/audio_widget.dart';
 import 'content_types/callout_widget.dart';
 import 'content_types/link.dart';
-
+import 'toggle_widget.dart';
 class CustomPage extends StatefulWidget {
   final List<dynamic> content;
   final Map<dynamic, dynamic> title;

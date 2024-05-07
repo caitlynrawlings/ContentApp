@@ -60,7 +60,7 @@ class Sheets:
                 languages[i]: data[1][2+i] for i in range(len(languages))
             },
             "content": [
-                Parser.parse(languages, data[2:][row_i], title)
+                Parser.parse(languages, data[2:][row_i], row_i, title)
                 for row_i in range(len(data[2:]))
             ]
         }

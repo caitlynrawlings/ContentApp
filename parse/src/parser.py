@@ -22,10 +22,10 @@ class Parser:
             if parser_method is None or not callable(parser_method):
                 raise Exception(f"No parser defined for {content_type}")
 
-            try:
-                return parser_method(cell, language, title)
-            except:
-                raise Exception(f"Parsing error on row {row_i + 3} of {title}")
+            if cell.strip() == "":
+                raise Exception(f"Empty cell in row {row_i + 3} of {title}")
+
+            return parser_method(cell, language, title)
 
         return {
             "content-type": content_type,

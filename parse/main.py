@@ -7,7 +7,7 @@ from google.oauth2 import service_account
 from src.drive import Drive
 from src.sheets import Sheets
 from src.constants import (
-    ENVIRONMENT_API_KEY, UPDATE_DIR
+    ENVIRONMENT_API_KEY, UPDATE_DIR, SPREADSHEET_LINK
 )
 
 
@@ -28,14 +28,9 @@ def main():
         'https://www.googleapis.com/auth/spreadsheets'
     ])
 
-    spreadsheet_link = "https://docs.google.com/spreadsheets/d/1tu5G4pl6Wn2uOx3CbrUiJHEZy2e_8F2bPn8Ry6HJYJ4/edit?usp=sharing"
-
     Drive.set_creds(creds)
-    Sheets(creds).parse_to_json(
-        Sheets.get_id_from_link(spreadsheet_link)
-    )
+    Sheets(creds).parse_to_json(Sheets.get_id_from_link(SPREADSHEET_LINK))
 
-    # TODO: Maybe change this when testing the pipeline jic of permission errors
     shutil.rmtree(UPDATE_DIR, ignore_errors=True)
 
 

@@ -137,13 +137,13 @@ def _replace_sub_keys(dict, keys, olds, news):
 def _test_invalid(type, languages, row):
     row.insert(0, type)
     with pytest.raises(Exception):
-        Parser.parse(languages, row, 0, '')
+        Parser.parse_row(languages, row, 0, '')
     row.pop(0)
 
 
 def _test_basic(type, languages, row, expected):
     row.insert(0, type)
-    assert Parser.parse(languages, row, 0, '') == {
+    assert Parser.parse_row(languages, row, 0, '') == {
         'content-type': type,
         'content': expected
     }

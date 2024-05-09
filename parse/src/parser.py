@@ -71,7 +71,7 @@ class Parser:
             "id": title,
             "icon": "" if data[1][2].strip() == "" else Parser.__download_file(data[1][2]),
             "title": {
-                languages[i]: data[2][3+i] for i in range(len(languages))
+                languages[i]: data[2][2+i] for i in range(len(languages))
             },
             "content": [
                 Parser.parse_row(languages, data[3:][row_i], row_i, title)

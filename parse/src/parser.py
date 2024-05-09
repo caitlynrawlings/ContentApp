@@ -43,7 +43,7 @@ class Parser:
                 raise Exception(f"Provided sheet [{sheet}] doesn't include all languages: {data[0][2:]} != {languages_page[0]}")
 
             # Make sure every page has a title in every language
-            if len(data[1][2:]) != len(languages_page[0]):
+            if len(data[2][2:]) != len(languages_page[0]):
                 raise Exception(f"Provided sheet [{sheet}] doesn't include a title in all languages: {data[1][2:]} != {len(languages_page[0])} element(s)")
 
             json_data['pages'].append(
@@ -69,12 +69,13 @@ class Parser:
         languages = data[0][2:]
         page_info = {
             "id": title,
+            "icon": "" if data[1][2].strip() == "" else Parser.__download_file(data[1][2]),
             "title": {
-                languages[i]: data[1][2+i] for i in range(len(languages))
+                languages[i]: data[2][3+i] for i in range(len(languages))
             },
             "content": [
-                Parser.parse_row(languages, data[2:][row_i], row_i, title)
-                for row_i in range(len(data[2:]))
+                Parser.parse_row(languages, data[3:][row_i], row_i, title)
+                for row_i in range(len(data[3:]))
             ]
         }
         return page_info
@@ -187,7 +188,7 @@ class Parser:
         }
 
     @staticmethod
-    def __download_file(link, language, title):
+    def __download_file(link):
         file_name = Drive.get_file_name(link=link)
 
         # Uncomment if you want unique per-page/language naming:

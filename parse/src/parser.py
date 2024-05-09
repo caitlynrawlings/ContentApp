@@ -188,6 +188,19 @@ class Parser:
         }
 
     @staticmethod
+    def _parse_imagetext(cell):
+        newlines = cell.split('\n', 4)
+        file_name = Parser.__download_file(newlines[0])
+
+        return {
+            "path": file_name,
+            "alt": newlines[1].strip(),
+            "caption": newlines[2].strip(),
+            "imagePlacement": newlines[3].strip().lower(),
+            "text": newlines[4]
+        }
+
+    @staticmethod
     def __download_file(link):
         file_name = Drive.get_file_name(link=link)
 

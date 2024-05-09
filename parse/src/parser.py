@@ -95,10 +95,8 @@ class Parser:
 
         def handle_parse(cell, title):
             parser_method = getattr(Parser, f"_parse_{content_type.lower()}", None)
-
             if parser_method is None or not callable(parser_method):
                 raise Exception(f"No parser defined for {content_type}")
-
             if cell.strip() == "":
                 raise Exception(f"Empty cell in row {row_i + 3} of {title}")
 

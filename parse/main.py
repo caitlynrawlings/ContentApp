@@ -31,8 +31,6 @@ def main():
     Drive.set_creds(creds)
     Sheets(creds).parse_to_json(Sheets.get_id_from_link(SPREADSHEET_LINK))
 
-    shutil.rmtree(UPDATE_DIR, ignore_errors=True)
-
 
 if __name__ == "__main__":
     main()

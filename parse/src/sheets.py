@@ -110,4 +110,6 @@ class Sheets:
         # 5. Rename update to downloads
         shutil.rmtree(DOWNLOADS_DIR)
         os.rename(UPDATE_DIR, DOWNLOADS_DIR)
+
+        shutil.rmtree(UPDATE_DIR, ignore_errors=True)
         return True

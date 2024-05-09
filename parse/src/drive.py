@@ -87,5 +87,6 @@ class Drive:
 
     @staticmethod
     def download_file_link(link, path=None):
-        id = Drive.get_id_from_link(link)
-        return Drive.download_file_id(id, path)
+        if not os.path.exists(path):
+            id = Drive.get_id_from_link(link)
+            return Drive.download_file_id(id, path)

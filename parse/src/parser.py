@@ -228,8 +228,11 @@ class Parser:
 
     @staticmethod
     def __download_file(link, language, title):
-        name = Drive.get_file_name(link=link)
-        file_name = f"{title}-{language}-{name}"
+        file_name = Drive.get_file_name(link=link)
+
+        # Uncomment if you want unique per-page/language naming:
+        # file_name = f"{title}-{language}-{name}"
+
         path = os.path.join(UPDATE_DIR, file_name)
         Drive.download_file_link(link, path)
 

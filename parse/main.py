@@ -6,6 +6,7 @@ from google.oauth2 import service_account
 
 from src.drive import Drive
 from src.sheets import Sheets
+from src.parser import Parser
 from src.constants import (
     ENVIRONMENT_API_KEY, UPDATE_DIR, SPREADSHEET_LINK
 )
@@ -29,7 +30,9 @@ def main():
     ])
 
     Drive.set_creds(creds)
-    Sheets(creds).parse_to_json(Sheets.get_id_from_link(SPREADSHEET_LINK))
+    Sheets.set_creds(creds)
+
+    Parser.parse_to_json(SPREADSHEET_LINK)
 
 
 if __name__ == "__main__":

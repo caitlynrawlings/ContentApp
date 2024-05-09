@@ -120,8 +120,8 @@ class Parser:
         file_name = Parser.__download_file(newlines[0], language, title)
 
         return {
-            "path" : file_name,
-            "caption" : newlines[1].strip()
+            "path": file_name,
+            "caption": newlines[1].strip()
         }
 
     @staticmethod
@@ -136,7 +136,7 @@ class Parser:
 
         return {
             "title": newlines[0],
-            "body" : newlines[1].strip()
+            "body": newlines[1].strip()
         }
 
     @staticmethod
@@ -150,8 +150,8 @@ class Parser:
         newlines = cell.split('\n')
 
         return {
-            "displayText" : newlines[0],
-            "page" : newlines[1]
+            "displayText": newlines[0],
+            "page": newlines[1]
         }
 
     @staticmethod

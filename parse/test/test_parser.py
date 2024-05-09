@@ -34,8 +34,8 @@ def test_basic(languages, row, expected):
 
 @pytest.mark.parametrize(*bad_text_args)
 def test_basic_invalid(languages, row):
-    _test_invalid("Text", languages, row)
     _test_invalid("Heading", languages, row)
+    _test_invalid("Text", languages, row)
     _test_invalid("Subheading", languages, row)
 
 
@@ -123,7 +123,6 @@ bad_three_line_args = (
         (['one'], ['example']),
         (['one'], ['example', '']),
         (['one'], ['example', '1']),
-        (['one'], ['example', '1\n2']),
     ]
 )
 
@@ -131,6 +130,36 @@ bad_three_line_args = (
 @pytest.mark.parametrize(*three_line_args)
 def test_three_line_downloads(languages, row, expected):
     _test_n_line("Image", 3, ['path', 'alt', 'caption'], languages, row, expected, "path")
+
+
+@pytest.mark.parametrize(*bad_three_line_args)
+def test_bad_three_line(languages, row):
+    _test_invalid("Image", languages, row)
+
+
+# --------------------------------- #
+# Five-line text formatting options #
+# --------------------------------- #
+five_line_args = (
+    'languages, row, expected', [
+        (['one'], ['example', '1\n2\n3\n4\n5'], {'one': {'a': '1', 'b': '2', 'c': '3', 'd': '4', 'e': '5'}}),
+        (['one', 'two'], ['example', '1\n2\n3\n4\n5', '11\n22\n33\n44\n55'], {'one': {'a': '1', 'b': '2', 'c': '3', 'd': '4', 'e': '5'}, 'two': {'a': '11', 'b': '22', 'c': '33', 'd':'44', 'e':'55'}}),
+    ]
+)
+bad_five_line_args = (
+    'languages, row', [
+        (['one'], ['example']),
+        (['one'], ['example', '']),
+        (['one'], ['example', '1']),
+        (['one'], ['example', '1\n2']),
+        (['one'], ['example', '1\n2\n3']),
+        (['one'], ['example', '1\n2\n3\n4']),
+    ]
+)
+
+
+def test_five_line_downloads():
+    pass
 
 
 # -------------- #

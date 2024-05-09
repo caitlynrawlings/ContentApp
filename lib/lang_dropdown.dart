@@ -19,19 +19,46 @@ class LanguageDropdown extends StatefulWidget {
 class LanguageDropdownState extends State<LanguageDropdown> {
   @override
   Widget build(BuildContext context) {
-    return DropdownButton<String>(
-      value: widget.selectedLanguage,
-      onChanged: (String? newLanguage) {
-        widget.onChanged(newLanguage ?? widget.languages[0]);
-      },
-      items: widget.languages
-          .map<DropdownMenuItem<String>>((dynamic language) {
-            return DropdownMenuItem<String>(
-              key: ValueKey(language),
-              value: language,
-              child: Text(language),
-            );
-          }).toList(),
+    return Container(
+      decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10.0),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5), // Color of the shadow
+                spreadRadius: -10, // Spread radius
+                blurRadius: 7, // Blur radius
+                offset: const Offset(0, 3), // Offset in x and y directions
+              ),
+            ],
+          ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 6.0),
+        child: Row(
+          children: [
+            const Icon(Icons.language),
+            const SizedBox(width: 5),
+            DropdownButton<String>(
+              value: widget.selectedLanguage,
+              onChanged: (String? newLanguage) {
+                widget.onChanged(newLanguage ?? widget.languages[0]);
+              },
+              items: widget.languages
+                  .map<DropdownMenuItem<String>>((dynamic language) {
+                    return DropdownMenuItem<String>(
+                      key: ValueKey(language),
+                      value: language,
+                      child: Row(
+                        children: [
+                          Text(language),
+                        ],
+                      ),
+                    );
+                  }).toList(),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

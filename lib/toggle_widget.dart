@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ToggleWidget extends StatefulWidget {
   final String title;
   final String body;
-  const ToggleWidget({Key? key, required this.title, required this.body}) : super(key: key);
+  const ToggleWidget({super.key, required this.title, required this.body});
 
   @override
   _ToggleWidgetState createState() => _ToggleWidgetState();
@@ -27,7 +27,7 @@ class _ToggleWidgetState extends State<ToggleWidget> {
             children: [
               
               AnimatedRotation(
-                duration: Duration(milliseconds: 300),
+                duration: const Duration(milliseconds: 300),
                 curve: Curves.easeInOut,
                 turns: _isExpanded ? 0.0 : -0.5,  
                 child: Icon(
@@ -36,11 +36,11 @@ class _ToggleWidgetState extends State<ToggleWidget> {
                   size: 24,
                 ),
               ),
-              SizedBox(width: 8),
+              const SizedBox(width: 8),
               Expanded(
                 child: Text(
                   widget.title,
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
             ],
@@ -48,8 +48,8 @@ class _ToggleWidgetState extends State<ToggleWidget> {
         ),
         if (_isExpanded)
           Padding(
-            padding: EdgeInsets.only(left: 10, top: 8),
-            child: Text(widget.body, style: TextStyle(fontSize: 16, color: Colors.black)),
+            padding: const EdgeInsets.only(left: 10, top: 8),
+            child: Text(widget.body, style: const TextStyle(fontSize: 16, color: Colors.black)),
           ),
       ],
     );

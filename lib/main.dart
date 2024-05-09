@@ -105,68 +105,74 @@ class _AppScreenState extends State<AppScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        return Scaffold(
-            appBar: AppBar(
-              backgroundColor: Theme.of(context).primaryColor,
-              leading: IconButton(
-                tooltip: "Home",
-                icon: const Icon(Icons.home),
-                onPressed: () {
-                  setState(() {
-                    selectedPageIndex = 0;
-                  });
-                },
-              ),
-              title: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  LanguageDropdown(
-                    key: const ValueKey('languageDropdown'),
-                    selectedLanguage: selectedLanguage,
-                    languages: languages.keys.toList(),
-                    onChanged: (String newLanguage) {
-                      _handleLanguageChange(newLanguage);
+    return FocusScope(
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          return Scaffold(
+              appBar: AppBar(
+                backgroundColor: Theme.of(context).primaryColor,
+                toolbarHeight: 60,
+                leading: Padding(
+                  padding: const EdgeInsets.only(left: 6.0,),
+                  child: IconButton(
+                    // tooltip: "Menu",
+                    icon: const Icon(Icons.menu, size: 40),
+                    onPressed: () {
+                      setState(() {
+                        selectedPageIndex = 0;
+                      });
                     },
                   ),
-                ],
+                ),
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    LanguageDropdown(
+                      key: const ValueKey('languageDropdown'),
+                      selectedLanguage: selectedLanguage,
+                      languages: languages.keys.toList(),
+                      onChanged: (String newLanguage) {
+                        _handleLanguageChange(newLanguage);
+                      },
+                    ),
+                  ],
+                ),
               ),
-            ),
-            body: Directionality(
-              textDirection: languages[selectedLanguage] == "rtl" ? TextDirection.rtl : TextDirection.ltr,
-               child: 
-              Column(
-                children: [
-                  Expanded(
-                    child: selectedPageIndex == 0
-                        ? Center(
-                            child: Menu(
-                              pageTitles: pageTitles,
-                              selectedLanguage: selectedLanguage,
-                              onSelectPage: (index) {
-                                setState(() {
-                                  selectedPageIndex = index + 1;
-                                });
-                              },
+              body: Directionality(
+                textDirection: languages[selectedLanguage] == "rtl" ? TextDirection.rtl : TextDirection.ltr,
+                 child: 
+                Column(
+                  children: [
+                    Expanded(
+                      child: selectedPageIndex == 0
+                          ? Center(
+                              child: Menu(
+                                pageTitles: pageTitles,
+                                selectedLanguage: selectedLanguage,
+                                onSelectPage: (index) {
+                                  setState(() {
+                                    selectedPageIndex = index + 1;
+                                  });
+                                },
+                              ),
+                            )
+                          : CustomPage(
+                              content: pagesContents[selectedPageIndex - 1],
+                              title: pageTitles[selectedPageIndex - 1],
+                              language: selectedLanguage,
+                              onChangePage: (pageId) {
+                                  setState(() {
+                                    selectedPageIndex = pageIds.indexOf(pageId) + 1;
+                                  });
+                                },
                             ),
-                          )
-                        : CustomPage(
-                            content: pagesContents[selectedPageIndex - 1],
-                            title: pageTitles[selectedPageIndex - 1],
-                            language: selectedLanguage,
-                            onChangePage: (pageId) {
-                                setState(() {
-                                  selectedPageIndex = pageIds.indexOf(pageId) + 1;
-                                });
-                              },
-                          ),
-                  ),
-                ],
+                    ),
+                  ],
+                ),
               ),
-            ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }

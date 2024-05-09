@@ -1,6 +1,9 @@
 import pytest
 from src.parser import Parser
 
+# ------------------------- #
+# Simple text type elements #
+# ------------------------- #
 text_args = (
     'languages, row, expected', [
         (['one'], ['example', 'a'], {'one': 'a'}),
@@ -19,7 +22,6 @@ bad_text_args = (
 )
 
 
-# Simple text type elements
 @pytest.mark.parametrize(*text_args)
 def test_basic(languages, row, expected):
     _test_basic("Text", languages, row, expected)
@@ -34,7 +36,9 @@ def test_basic_invalid(languages, row):
     _test_invalid("Subheading", languages, row)
 
 
-# Spacer element is special since we want ints
+# -------------------------------------------- #
+# Spacer element is special since we want ints #
+# -------------------------------------------- #
 number_args = (
     'languages, row, expected', [
         (['one'], ['example', '1'], {'one': 1}),
@@ -61,42 +65,9 @@ def test_spacer_invalid(languages, row):
     _test_invalid("Spacer", languages, row)
 
 
-def _test_invalid(type, languages, row):
-    row.insert(0, type)
-    with pytest.raises(Exception):
-        Parser.parse(languages, row, 0, '')
-    row.pop(0)
-
-
-def _test_basic(type, languages, row, expected):
-    row.insert(0, type)
-    assert Parser.parse(languages, row, 0, '') == {
-        'content-type': type,
-        'content': expected
-    }
-    row.pop(0)
-
-
-def test_image():
-    # TODO: Need to mock google api calls :)
-    pass
-
-
-def test_icon_subheading():
-    # TODO: Need to mock google api calls :)
-    pass
-
-
-def test_callout():
-    # TODO: Need to mock google api calls :)
-    pass
-
-
-def test_audio():
-    # TODO: Need to mock google api calls :)
-    pass
-
-
+# -------------------------------- #
+# Two-line text formatting options #
+# -------------------------------- #
 two_line_args = (
     'languages, row, expected', [
         (['one'], ['example', 't\nc'], {'one': {'a': 't', 'b': 'c'}}),
@@ -125,6 +96,32 @@ def test_bad_two_line(languages, row):
     _test_invalid("Link", languages, row)
 
 
+# ------------------------------------- #
+# TODO: Additional methods w/ API calls #
+# ------------------------------------- #
+def test_image():
+    # TODO: Need to mock google api calls :)
+    pass
+
+
+def test_icon_subheading():
+    # TODO: Need to mock google api calls :)
+    pass
+
+
+def test_callout():
+    # TODO: Need to mock google api calls :)
+    pass
+
+
+def test_audio():
+    # TODO: Need to mock google api calls :)
+    pass
+
+
+# -------------- #
+# Helper methods #
+# -------------- #
 def _test_two_line(type, keys, languages, row, expected):
     _replace_sub_keys(expected, languages, ['a', 'b'], keys)
     _test_basic(type, languages, row, expected)
@@ -135,3 +132,19 @@ def _replace_sub_keys(dict, keys, olds, news):
     for key in keys:
         for i in range(len(olds)):
             dict[key][news[i]] = dict[key].pop(olds[i])
+
+
+def _test_invalid(type, languages, row):
+    row.insert(0, type)
+    with pytest.raises(Exception):
+        Parser.parse(languages, row, 0, '')
+    row.pop(0)
+
+
+def _test_basic(type, languages, row, expected):
+    row.insert(0, type)
+    assert Parser.parse(languages, row, 0, '') == {
+        'content-type': type,
+        'content': expected
+    }
+    row.pop(0)

@@ -1,0 +1,144 @@
+{
+    "languages": [
+      {
+          "language": "English", 
+          "direction": "rtl"
+      }
+          ],
+    "pages": [
+      {
+        "id" : "Heading Content Type",
+        "title": {
+          "English": "Heading Content Type"
+        },
+        "content": [
+          {
+            "content-type": "Heading",
+            "content": {
+              "English": "Heading Text"
+            }
+          }
+        ]
+      },
+      {
+        "id" : "Subheading Content Type",
+        "title": {
+          "English": "Subheading Content Type"
+        },
+        "content": [
+          {
+            "content-type": "Subheading",
+            "content": {
+              "English": "Subheading Text"
+            }
+          }
+        ]
+      },
+      {
+        "id" : "Body Text Content Type",
+        "title": {
+          "English": "Body Text Content Type"
+        },
+        "content": [
+          {
+            "content-type": "Text",
+            "content": {
+              "English": "Body Text"
+            }
+          }
+        ]
+      },
+      {
+        "id" : "Callout Content Type",
+        "title": {
+          "English": "Callout Content Type"
+        },
+        "content": [
+          {
+            "content-type": "Callout",
+            "content": {
+              "English": {
+                "path": "icon.png",
+                "text": "Callout text"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id" : "Spacer Content Type",
+        "title": {
+          "English": "Spacer Content Type"
+        },
+        "content": [
+          {
+            "content-type": "Spacer",
+            "content": {
+              "English": 8
+            }
+          }
+        ]
+      },
+      {
+        "id" : "Audio Content Type",
+        "title": {
+          "English": "Audio Content Type"
+        },
+        "content": [
+          {
+            "content-type": "Audio",
+            "content": {
+              "English": {
+                "path": "audio.mp4",
+                "caption": "caption"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id" : "Toggle Content Type",
+        "title": {
+          "English": "Toggle Content Type"
+        },
+        "content": [
+          {
+            "content": {
+              "English": {
+                "title": "Dropdown preview",
+                "body": "Dropdown contents"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id" : "Page Link Content Type 1",
+        "title": {
+          "English": "Page Link Content Type"
+        },
+        "content": [
+          {
+            "English": {
+              "displayText": "Next page",
+              "page": "Page Link Content Type 2"
+            }
+          }
+        ]
+      },
+      {
+        "id" : "Page Link Content Type 2",
+        "title": {
+          "English": "Page Link Content Type"
+        },
+        "content": [
+          {
+            "English": {
+              "displayText": "Last page",
+              "page": "Page Link Content Type 1"
+            }
+          }
+        ]
+      }
+    ]
+  }

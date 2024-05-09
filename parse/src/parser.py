@@ -125,13 +125,6 @@ class Parser:
 
     @staticmethod
     def _parse_image(cell, language, title):
-        if cell == "":
-            return {
-                "path": "",
-                "alt": "",
-                "caption": ""
-            }
-
         newlines = cell.split('\n')
         file_name = Parser.__download_file(newlines[0], language, title)
 
@@ -143,19 +136,10 @@ class Parser:
 
     @staticmethod
     def _parse_spacer(cell, _, __):
-        if cell == "":
-            return ""
-
         return int(cell)
 
     @staticmethod
     def _parse_iconsubheading(cell, language, title):
-        if cell == "":
-            return {
-                "path": "",
-                "subheading": ""
-            }
-
         newlines = cell.split('\n')
         file_name = Parser.__download_file(newlines[0], language, title)
 
@@ -166,12 +150,6 @@ class Parser:
 
     @staticmethod
     def _parse_callout(cell, language, title):
-        if cell == "":
-            return {
-                "path": "",
-                "text": ""
-            }
-
         newlines = cell.split('\n')
         file_name = Parser.__download_file(newlines[0], language, title)
 
@@ -182,12 +160,6 @@ class Parser:
 
     @staticmethod
     def _parse_audio(cell, language, title):
-        if cell == "":
-            return {
-                "path": "",
-                "caption": ""
-            }
-
         newlines = cell.split('\n', 1)
         file_name = Parser.__download_file(newlines[0], language, title)
 
@@ -198,12 +170,6 @@ class Parser:
 
     @staticmethod
     def _parse_toggle(cell, _, __):
-        if cell == "":
-            return {
-                "title": "",
-                "body": ""
-            }
-
         newlines = cell.split('\n', 1)
 
         return {
@@ -213,12 +179,6 @@ class Parser:
 
     @staticmethod
     def _parse_link(cell, _, __):
-        if cell == "":
-            return {
-                "displayText": "",
-                "page": ""
-            }
-
         newlines = cell.split('\n')
 
         return {

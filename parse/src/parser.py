@@ -93,7 +93,7 @@ class Parser:
         if len(row[2:]) < len(languages):
             raise Exception(f"Missing translation on row {row_i + 3} of {title}")
 
-        def handle_parse(cell, language, title):
+        def handle_parse(cell, title):
             parser_method = getattr(Parser, f"_parse_{content_type.lower()}", None)
 
             if parser_method is None or not callable(parser_method):
@@ -102,32 +102,32 @@ class Parser:
             if cell.strip() == "":
                 raise Exception(f"Empty cell in row {row_i + 3} of {title}")
 
-            return parser_method(cell, language, title)
+            return parser_method(cell)
 
         return {
             "content-type": content_type,
             "content": {
-                languages[i]: handle_parse(row[2:][i], languages[i], title)
+                languages[i]: handle_parse(row[2:][i], title)
                 for i in range(len(languages))
             }
         }
 
     @staticmethod
-    def _parse_text(cell, _, __):
+    def _parse_text(cell):
         return cell
 
     @staticmethod
-    def _parse_heading(cell, _, __):
+    def _parse_heading(cell):
         return cell
 
     @staticmethod
-    def _parse_subheading(cell, _, __):
+    def _parse_subheading(cell):
         return cell
 
     @staticmethod
-    def _parse_image(cell, language, title):
+    def _parse_image(cell):
         newlines = cell.split('\n')
-        file_name = Parser.__download_file(newlines[0], language, title)
+        file_name = Parser.__download_file(newlines[0])
 
         return {
             "path": file_name,
@@ -136,13 +136,13 @@ class Parser:
         }
 
     @staticmethod
-    def _parse_spacer(cell, _, __):
+    def _parse_spacer(cell):
         return int(cell)
 
     @staticmethod
-    def _parse_iconsubheading(cell, language, title):
+    def _parse_iconsubheading(cell):
         newlines = cell.split('\n')
-        file_name = Parser.__download_file(newlines[0], language, title)
+        file_name = Parser.__download_file(newlines[0])
 
         return {
             "path": file_name,
@@ -150,9 +150,9 @@ class Parser:
         }
 
     @staticmethod
-    def _parse_callout(cell, language, title):
+    def _parse_callout(cell):
         newlines = cell.split('\n')
-        file_name = Parser.__download_file(newlines[0], language, title)
+        file_name = Parser.__download_file(newlines[0])
 
         return {
             "path": file_name,
@@ -160,9 +160,9 @@ class Parser:
         }
 
     @staticmethod
-    def _parse_audio(cell, language, title):
+    def _parse_audio(cell):
         newlines = cell.split('\n', 1)
-        file_name = Parser.__download_file(newlines[0], language, title)
+        file_name = Parser.__download_file(newlines[0])
 
         return {
             "path": file_name,
@@ -170,7 +170,7 @@ class Parser:
         }
 
     @staticmethod
-    def _parse_toggle(cell, _, __):
+    def _parse_toggle(cell):
         newlines = cell.split('\n', 1)
 
         return {
@@ -179,7 +179,7 @@ class Parser:
         }
 
     @staticmethod
-    def _parse_link(cell, _, __):
+    def _parse_link(cell):
         newlines = cell.split('\n')
 
         return {

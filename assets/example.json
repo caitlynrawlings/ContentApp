@@ -1,11 +1,11 @@
 {
   "languages": [
     {
-        "language": "English", 
+        "language": "English",
         "direction": "rtl"
     },
     {
-        "language": "Dholuo", 
+        "language": "Dholuo",
         "direction": ""
     },
     {
@@ -16,6 +16,7 @@
   "pages": [
     {
       "id" : "Page 1",
+      "icon": "icon.png",
       "title": {
         "English": "English Title",
         "Dholuo": "Dholuo Title",
@@ -160,44 +161,29 @@
           }
         },
         {
-          "content-type": "TwoImages",
+          "content-type": "ImageText",
           "content": {
-            "English": [
-              {
+            "English": {
                 "path": "earth.png",
-                "alt": "",
-                "caption": ""
-              },
-              {
+                "alt": "alt text",
+                "caption": "caption",
+                "imagePlacement": "left",
+                "text": "text that should appear next to the image"
+            },
+            "Dholuo": {
                 "path": "earth.png",
-                "alt": "",
-                "caption": ""
-              }
-            ],
-            "Dholuo": [
-              {
+                "alt": "alt text",
+                "caption": "caption",
+                "imagePlacement": "left",
+                "text": "text that should appear next to the image"
+            },
+            "Kiswahili": {
                 "path": "earth.png",
-                "alt": "",
-                "caption": ""
-              },
-              {
-                "path": "earth.png",
-                "alt": "",
-                "caption": ""
-              }
-            ],
-            "Kiswahili": [
-              {
-                "path": "earth.png",
-                "alt": "",
-                "caption": ""
-              },
-              {
-                "path": "earth.png",
-                "alt": "",
-                "caption": ""
-              }
-            ]
+                "alt": "alt text",
+                "caption": "caption",
+                "imagePlacement": "left",
+                "text": "text that should appear next to the image"
+            }
           }
         }
       ]

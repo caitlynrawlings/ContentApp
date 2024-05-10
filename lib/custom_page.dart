@@ -34,9 +34,11 @@ class _CustomPageState extends State<CustomPage> {
           children: [
             Padding(
               padding: const EdgeInsets.all(10.0),
-              child: Text(
-                widget.title[widget.language] ?? "No title translation found",
-                style: Theme.of(context).textTheme.displayLarge,
+              child: Focus(
+                child: Text(
+                  widget.title[widget.language] ?? "No title translation found",
+                  style: Theme.of(context).textTheme.displayLarge,
+                ),
               ),
             ),
             const Padding(
@@ -56,7 +58,7 @@ class _CustomPageState extends State<CustomPage> {
                     dynamic content = item["content"];
                     return Padding(
                       padding: const EdgeInsets.all(5.0),
-                      child: _buildContentWidget(contentType, content[widget.language]),
+                      child: Focus(child: _buildContentWidget(contentType, content[widget.language])),
                     );
                   }).toList(),
                 ),
@@ -91,7 +93,6 @@ class _CustomPageState extends State<CustomPage> {
       case 'Spacer':
         return value.runtimeType == String ? const SizedBox(height: 0) : SizedBox(height: value.toDouble());
       case 'Toggle':
-        print("Toggle Content - Title: ${value['title']}, Body: ${value['body']}");
         return ToggleWidget(title: value['title'], body: value['body']);
       case 'Link':
         return Link(

@@ -135,6 +135,15 @@ class _AppScreenState extends State<AppScreen> {
                         _handleLanguageChange(newLanguage);
                       },
                     ),
+                    const SizedBox(width: 4.0),
+                    IconButton(
+                      icon: const Icon(Icons.settings, size: 40),
+                      onPressed: () {
+                        setState(() {
+                          selectedPageIndex = -1;
+                        });
+                      },
+                    )
                   ],
                 ),
               ),

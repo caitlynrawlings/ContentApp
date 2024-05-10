@@ -142,5 +142,26 @@ void main() {
       });
     });
   });
+  
+  group('Toggle content type', () {
+    testWidgets('Verify toggle populates on screen', (WidgetTester tester) async {
+      await tester.runAsync(() async {
+        await tester.pumpWidget(const MyApp(jsonFile: 'assets/content_types_test.json',));
+        await tester.pumpAndSettle();
 
+        // Find page6button widget using its key
+        final page6button = find.byKey(const ValueKey("Page6"));
+
+        expect(page6button, findsOneWidget);
+
+        await tester.tap(page6button);
+        await tester.pumpAndSettle();
+
+        // Find toggle title text widget using its key
+        final toggleTitleText = find.text("Dropdown preview");
+
+        expect(toggleTitleText, findsOneWidget);
+      });
+    });
+  });
 }

@@ -103,8 +103,8 @@
         },
         "content": [
           {
+            "content-type": "Toggle",
             "content": {
-              "content-type": "Toggle",
               "English": {
                 "title": "Dropdown preview",
                 "body": "Dropdown contents"
@@ -116,13 +116,16 @@
       {
         "id" : "Page Link Content Type 1",
         "title": {
-          "English": "Page Link Content Type"
+          "English": "Page Link Content Type 1"
         },
         "content": [
           {
-            "English": {
-              "displayText": "Next page",
-              "page": "Page Link Content Type 2"
+            "content-type": "Link",
+            "content": {
+              "English": {
+                  "displayText": "Next Page",
+                  "page": "Page Link Content Type 2"
+              }
             }
           }
         ]
@@ -130,13 +133,16 @@
       {
         "id" : "Page Link Content Type 2",
         "title": {
-          "English": "Page Link Content Type"
+          "English": "Page Link Content Type 2"
         },
         "content": [
           {
-            "English": {
-              "displayText": "Last page",
-              "page": "Page Link Content Type 1"
+            "content-type": "Link",
+            "content": {
+              "English": {
+                  "displayText": "Last Page",
+                  "page": "Page Link Content Type 1"
+              }
             }
           }
         ]

@@ -84,14 +84,14 @@ class _CustomPageState extends State<CustomPage> {
         return AudioWidget(audioAsset: 'assets/downloads/${value['path']}');
       case 'Callout':
         return Container(
-            margin: const EdgeInsets.symmetric(horizontal: 16.0), 
+            margin: const EdgeInsets.symmetric(horizontal: 10.0), 
             child: CalloutWidget(
             text: value['text'],
             iconPath: 'assets/downloads/${value['path']}', 
             ),
         );
       case 'Spacer':
-        return value.runtimeType == String ? const SizedBox(height: 0) : SizedBox(height: value.toDouble());
+        return value.runtimeType == String ? const SizedBox(height: 0) : SizedBox(key: ValueKey("spacer$value"), height: value.toDouble());
       case 'Toggle':
         return ToggleWidget(title: value['title'], body: value['body']);
       case 'Link':

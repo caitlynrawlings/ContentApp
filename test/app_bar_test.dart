@@ -123,15 +123,15 @@ void main() {
       });
     });
 
-    testWidgets('Find home icon', (WidgetTester tester) async {
+    testWidgets('Find menu icon', (WidgetTester tester) async {
       await tester.runAsync(() async {
         await tester.pumpWidget(const MyApp());
 
-        expect(find.byIcon(Icons.home), findsOneWidget);
+        expect(find.byIcon(Icons.menu), findsOneWidget);
       });
     });
 
-    testWidgets('Verify home button returns to menu', (WidgetTester tester) async {
+    testWidgets('Verify menu button returns to menu', (WidgetTester tester) async {
       await tester.runAsync(() async {
         await tester.pumpWidget(const MyApp(jsonFile: 'assets/test_content.json',));
         await tester.pumpAndSettle();
@@ -151,13 +151,13 @@ void main() {
         // Check if the item is found
         expect(headingItem, findsOneWidget);
 
-        // Find home button
-        final homeButton = find.byIcon(Icons.home);
+        // Find menu button
+        final menuButton = find.byIcon(Icons.menu);
         // Check if the item is found
-        expect(homeButton, findsOneWidget);
+        expect(menuButton, findsOneWidget);
 
         // Tap on the page button to go to that page
-        await tester.tap(homeButton);
+        await tester.tap(menuButton);
         await tester.pumpAndSettle();
 
         // Check for all page names in english to see if back in menu

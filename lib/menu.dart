@@ -19,6 +19,7 @@ class Menu extends StatelessWidget {
       itemCount: pageTitles.length,
       itemBuilder: (context, index) {
         return PageButton(
+          key: ValueKey("Page$index"),
           pageLabel: pageTitles[index][selectedLanguage] ?? "Page not available in $selectedLanguage",
           onPressed: () {
             onSelectPage(index);

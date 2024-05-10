@@ -2,7 +2,7 @@
     "languages": [
       {
           "language": "English", 
-          "direction": "rtl"
+          "direction": "ltr"
       }
           ],
     "pages": [
@@ -58,7 +58,7 @@
             "content-type": "Callout",
             "content": {
               "English": {
-                "path": "icon.png",
+                "path": "test/info_icon.png",
                 "text": "Callout text"
               }
             }
@@ -104,6 +104,7 @@
         "content": [
           {
             "content": {
+              "content-type": "Toggle",
               "English": {
                 "title": "Dropdown preview",
                 "body": "Dropdown contents"

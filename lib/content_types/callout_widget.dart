@@ -25,7 +25,7 @@ class CalloutWidget extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (iconPath != null)
+          if (iconPath != "")
             Container(
               margin: const EdgeInsets.only(right: 10.0),
               child: ColorFiltered(

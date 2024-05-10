@@ -27,16 +27,16 @@ bad_text_args = (
 
 @pytest.mark.parametrize(*text_args)
 def test_basic(languages, row, expected):
-    _test_n_line("Text", 0, [], languages, row, expected)
     _test_n_line("Heading", 0, [], languages, row, expected)
     _test_n_line("Subheading", 0, [], languages, row, expected)
+    _test_n_line("Text", 0, [], languages, row, expected)
 
 
 @pytest.mark.parametrize(*bad_text_args)
 def test_basic_invalid(languages, row):
     _test_invalid("Heading", languages, row)
-    _test_invalid("Text", languages, row)
     _test_invalid("Subheading", languages, row)
+    _test_invalid("Text", languages, row)
 
 
 # -------------------------------------------- #
@@ -102,11 +102,11 @@ def test_two_line_downloads(languages, row, expected):
 
 @pytest.mark.parametrize(*bad_two_line_args)
 def test_bad_two_line(languages, row):
-    _test_invalid("Toggle", languages, row)
-    _test_invalid("Link", languages, row)
     _test_invalid("IconSubheading", languages, row)
     _test_invalid("Callout", languages, row)
     _test_invalid("Audio", languages, row)
+    _test_invalid("Toggle", languages, row)
+    _test_invalid("Link", languages, row)
 
 
 # ---------------------------------- #

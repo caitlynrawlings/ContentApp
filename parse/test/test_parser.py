@@ -158,8 +158,14 @@ bad_five_line_args = (
 )
 
 
-def test_five_line_downloads():
-    pass
+@pytest.mark.parametrize(*five_line_args)
+def test_five_line_downloads(languages, row, expected):
+    _test_n_line("ImageText", 5, ['path', 'alt', 'caption', 'imagePlacement', 'text'], languages, row, expected, "path")
+
+
+@pytest.mark.parametrize(*bad_five_line_args)
+def test_vad_five_line(languages, row):
+    _test_invalid("ImageText", languages, row)
 
 
 # -------------- #

@@ -127,6 +127,15 @@
                   "page": "Page Link Content Type 2"
               }
             }
+          },
+          {
+            "content-type": "Link",
+            "content": {
+              "English": {
+                  "displayText": "No page linked",
+                  "page": ""
+              }
+            }
           }
         ]
       },

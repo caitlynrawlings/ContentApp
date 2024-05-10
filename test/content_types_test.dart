@@ -157,11 +157,110 @@ void main() {
         await tester.tap(page6button);
         await tester.pumpAndSettle();
 
-        // Find toggle title text widget using its key
-        final toggleTitleText = find.text("Dropdown preview");
+        // Find toggle preview text widget by its text
+        final togglePreviewText = find.text("Dropdown preview");
+        expect(togglePreviewText, findsOneWidget);
 
-        expect(toggleTitleText, findsOneWidget);
+        // Do not find toggle contents text
+        var toggleContents = find.text("Dropdown contents");
+        expect(toggleContents, findsNothing);
+
+        await tester.tap(togglePreviewText);
+        await tester.pumpAndSettle();
+
+        // Find toggle contents text
+        toggleContents = find.text("Dropdown contents");
+        expect(toggleContents, findsOneWidget);
       });
     });
+  });
+
+  group('Page link content type', () {
+    testWidgets('Verify page link populates on screen', (WidgetTester tester) async {
+      await tester.runAsync(() async {
+        await tester.pumpWidget(const MyApp(jsonFile: 'assets/content_types_test.json',));
+        await tester.pumpAndSettle();
+
+        // Find page7button widget using its key
+        final page7button = find.byKey(const ValueKey("Page7"));
+
+        expect(page7button, findsOneWidget);
+
+        await tester.tap(page7button);
+        await tester.pumpAndSettle();
+
+        // Find button widget by its text
+        final nextPageButton = find.text("Next Page");
+        expect(nextPageButton, findsOneWidget);
+      });
+    });
+
+    testWidgets('Verify page link works', (WidgetTester tester) async {
+      await tester.runAsync(() async {
+        await tester.pumpWidget(const MyApp(jsonFile: 'assets/content_types_test.json',));
+        await tester.pumpAndSettle();
+
+        // Find page7button widget using its key
+        final page7button = find.byKey(const ValueKey("Page7"));
+
+        expect(page7button, findsOneWidget);
+
+        await tester.tap(page7button);
+        await tester.pumpAndSettle();
+
+        // Find button widget by its text
+        final nextPageButton = find.text("Next Page");
+        expect(nextPageButton, findsOneWidget);
+
+        await tester.tap(nextPageButton);
+        await tester.pumpAndSettle();
+
+        // Find next page title
+        final nextPageTitle = find.text("Page Link Content Type 2");
+        expect(nextPageTitle, findsOneWidget);
+
+        // Find button widget by its text
+        final lastPageButton = find.text("Last Page");
+        expect(lastPageButton, findsOneWidget);
+
+        await tester.tap(lastPageButton);
+        await tester.pumpAndSettle();
+
+        // Find last page title
+        final lastPageTitle = find.text("Page Link Content Type 1");
+        expect(lastPageTitle, findsOneWidget);
+      });
+    });
+
+    testWidgets('No page linked goes to menu screen', (WidgetTester tester) async {
+      await tester.runAsync(() async {
+        await tester.pumpWidget(const MyApp(jsonFile: 'assets/content_types_test.json',));
+        await tester.pumpAndSettle();
+
+        // Find page7button widget using its key
+        final page7button = find.byKey(const ValueKey("Page7"));
+
+        expect(page7button, findsOneWidget);
+
+        await tester.tap(page7button);
+        await tester.pumpAndSettle();
+
+        // Find button widget by its text
+        final noPageButton = find.text("No page linked");
+        expect(noPageButton, findsOneWidget);
+
+        await tester.tap(noPageButton);
+        await tester.pumpAndSettle();
+
+        // expect to be back on the menu screen
+        final page1button = find.byKey(const ValueKey("Page1"));
+        expect(page1button, findsOneWidget);
+        final page2button = find.byKey(const ValueKey("Page2"));
+        expect(page2button, findsOneWidget);
+        final page3button = find.byKey(const ValueKey("Page3"));
+        expect(page3button, findsOneWidget);
+      });
+    });
+    
   });
 }

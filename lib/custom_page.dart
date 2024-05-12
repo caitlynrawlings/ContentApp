@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'content_types/body_text.dart';
 import 'content_types/heading.dart';
 import 'content_types/subheading.dart';
 import 'content_types/image_widget.dart';
@@ -77,7 +78,7 @@ class _CustomPageState extends State<CustomPage> {
       case 'Subheading':
         return Subheading(text: value);
       case 'Text':
-        return Text(value);
+        return BodyText(text: value);
       case 'Image':
         return ImageWidget(imagePath: value['path'], altText: value['alt'] ?? 'No alt text provided');
       case 'Audio':

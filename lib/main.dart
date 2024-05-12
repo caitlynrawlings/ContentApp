@@ -1,4 +1,6 @@
 import 'package:content_app/menu.dart';
+import 'package:content_app/settings.dart';
+import 'package:content_app/theme_data.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
@@ -20,28 +22,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Content App',
-      theme: ThemeData(
-        colorSchemeSeed: const Color.fromARGB(255, 97, 29, 157),
-        textTheme: const TextTheme(
-          displayLarge: TextStyle(
-            fontSize: 40,
-            fontWeight: FontWeight.bold,
-          ),
-          // ···
-          titleLarge: TextStyle(
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
-          ),
-          headlineLarge: TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
-          ),
-          headlineMedium: TextStyle(
-            fontSize: 15,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
       home: SelectionArea(child: AppScreen(jsonFile: jsonFile)),
     );
   }
@@ -59,6 +39,8 @@ class AppScreen extends StatefulWidget {
 class _AppScreenState extends State<AppScreen> {
   int selectedPageIndex = 0;  // tracks which page is being displayed. 0 is menu page and increments from that in order of pages added
   String selectedLanguage = "";  // tracks current language and its directionality
+  double _fontSizeFactor = 1.0; // Initial font size factor
+  bool _lightMode =  true;
 
   List<dynamic> pageIds = [];
   List<dynamic> pageTitles = [];
@@ -103,14 +85,39 @@ class _AppScreenState extends State<AppScreen> {
     });
   }
 
+  void _handleFontSizeChange(double factor) {
+    setState(() {
+      _fontSizeFactor = factor;
+    });
+  }
+
+  void _handleLightModeChange() {
+    setState(() {
+      _lightMode = !_lightMode;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return FocusScope(
-      child: LayoutBuilder(
-        builder: (context, constraints) {
-          return Scaffold(
+    final ThemeData baseTheme = Theme.of(context);
+
+    final TextTheme adjustedTextTheme = baseTheme.textTheme.copyWith(
+      displayLarge: baseTheme.textTheme.displayLarge?.copyWith(fontSize: 40 * _fontSizeFactor),
+      titleLarge: baseTheme.textTheme.titleLarge?.copyWith(fontSize: 30 * _fontSizeFactor),
+      headlineLarge: baseTheme.textTheme.headlineLarge?.copyWith(fontSize: 25 * _fontSizeFactor),
+      headlineMedium: baseTheme.textTheme.headlineMedium?.copyWith(fontSize: 18 * _fontSizeFactor),
+      bodyLarge: baseTheme.textTheme.bodyLarge?.copyWith(fontSize: 12 * _fontSizeFactor),
+    );
+
+    final ThemeData selectedTheme = _lightMode 
+                                    ? AppThemes.lightTheme.copyWith(textTheme: adjustedTextTheme) 
+                                    : AppThemes.darkTheme.copyWith(textTheme: adjustedTextTheme);
+
+    return Theme(
+      data: selectedTheme,
+      child: Scaffold(
               appBar: AppBar(
-                backgroundColor: Theme.of(context).primaryColor,
+                backgroundColor: selectedTheme.colorScheme.primary,
                 toolbarHeight: 60,
                 leading: Padding(
                   padding: const EdgeInsets.only(left: 6.0,),
@@ -165,6 +172,12 @@ class _AppScreenState extends State<AppScreen> {
                                 },
                               ),
                             )
+                          : selectedPageIndex == -1 
+                          ? Settings(onChangeFontSize: _handleFontSizeChange, 
+                              onLightModeChange: _handleLightModeChange,
+                              fontSize: _fontSizeFactor,
+                              lightMode: _lightMode,
+                            )
                           : CustomPage(
                               content: pagesContents[selectedPageIndex - 1],
                               title: pageTitles[selectedPageIndex - 1],
@@ -179,9 +192,7 @@ class _AppScreenState extends State<AppScreen> {
                   ],
                 ),
               ),
-          );
-        },
-      ),
-    );
+          ),
+        );
   }
 }

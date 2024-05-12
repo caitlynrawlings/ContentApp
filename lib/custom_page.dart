@@ -6,6 +6,7 @@ import 'content_types/audio_widget.dart';
 import 'content_types/callout_widget.dart';
 import 'content_types/link.dart';
 import 'toggle_widget.dart';
+import 'icon_subheading.dart';
 class CustomPage extends StatefulWidget {
   final List<dynamic> content;
   final Map<dynamic, dynamic> title;
@@ -92,6 +93,23 @@ class _CustomPageState extends State<CustomPage> {
         );
       case 'Spacer':
         return value.runtimeType == String ? const SizedBox(height: 0) : SizedBox(key: ValueKey("spacer$value"), height: value.toDouble());
+      case 'IconSubheading':
+      // return IconSubheading(
+      //   iconPath: value['path'] ?? '',
+      //   subheadingText: value['subheading'] ?? 'No subheading available',
+      //   language: widget.language,
+      // );
+    if (value is Map && value.containsKey('path') && value.containsKey('subheading')) {
+        print("IconSubheading data for ${widget.language}: $value");
+        return IconSubheading(
+            iconPath: value['path'] ?? '',
+            subheadingText: value['subheading'] ?? 'No subheading available',
+            language: widget.language,
+        );
+    } else {
+        print("Incorrect or incomplete data for IconSubheading in ${widget.language}: $value");
+        return Text("Incorrect data for IconSubheading");
+    }
       case 'Toggle':
         return ToggleWidget(title: value['title'], body: value['body']);
       case 'Link':

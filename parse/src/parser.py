@@ -38,6 +38,7 @@ class Parser:
             if sheet in SKIPPED_SHEETS:
                 continue
 
+            print(f"Parsing [{sheet}]")
             data = Sheets.get_values(spreadsheet_id, f"{sheet}!1:{MAX_ROWS}")
             if data[0][2:] != languages_page[0]:
                 raise Exception(f"Provided sheet [{sheet}] doesn't include all languages: {data[0][2:]} != {languages_page[0]}")

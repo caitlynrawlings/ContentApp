@@ -82,7 +82,10 @@ class _CustomPageState extends State<CustomPage> {
       case 'Image':
         return ImageWidget(imagePath: value['path'], altText: value['alt'] ?? 'No alt text provided');
       case 'Audio':
-        return AudioWidget(audioAsset: 'assets/downloads/${value['path']}');
+        return AudioWidget(
+          audioAsset: 'assets/downloads/${value['path']}',
+          transcript: value['caption'] ?? 'No transcript available'
+      );
       case 'Callout':
         return Container(
             margin: const EdgeInsets.symmetric(horizontal: 10.0), 

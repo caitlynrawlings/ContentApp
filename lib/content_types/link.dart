@@ -28,7 +28,7 @@ class Link extends StatelessWidget {
               borderRadius: BorderRadius.circular(4.0),
             ),
           ),
-          child: Text(displayText),
+          child: Text(displayText, style: Theme.of(context).textTheme.labelLarge,),
         ),
       ]
     );

@@ -41,7 +41,7 @@ class CalloutWidget extends StatelessWidget {
           Expanded(
             child: Text(
               text,
-              style: const TextStyle(fontSize: 16.0),
+              style: Theme.of(context).textTheme.bodyLarge
             ),
           ),
         ],

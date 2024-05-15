@@ -42,19 +42,19 @@ class PageButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final textStyle = theme.textTheme.headlineSmall!.copyWith(
-      color: const Color.fromARGB(255, 0, 0, 0), // theme.colorScheme.onPrimary,
+    final textStyle = theme.textTheme.displayLarge!.copyWith(
+      color: theme.colorScheme.onBackground,
     );
 
     return Column(
       children: [
         Container(
           width: double.infinity,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             border: Border(
               bottom: BorderSide(
-                color: Color.fromARGB(255, 205, 205, 205), // Specify border color here
-                width: 1.0, // Specify border width here
+                color: Theme.of(context).colorScheme.onBackground,
+                width: 1.0,
               ),
             ),
           ),
@@ -63,7 +63,7 @@ class PageButton extends StatelessWidget {
             style: TextButton.styleFrom(
                 backgroundColor: const Color.fromARGB(255, 255, 255, 255),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(0), // Adjust the value as needed
+                  borderRadius: BorderRadius.circular(0),
                 ),
             ),
             child: Padding(

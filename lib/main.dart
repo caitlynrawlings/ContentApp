@@ -102,11 +102,13 @@ class _AppScreenState extends State<AppScreen> {
     final ThemeData baseTheme = Theme.of(context);
 
     final TextTheme adjustedTextTheme = baseTheme.textTheme.copyWith(
-      displayLarge: baseTheme.textTheme.displayLarge?.copyWith(fontSize: 40 * _fontSizeFactor),
-      titleLarge: baseTheme.textTheme.titleLarge?.copyWith(fontSize: 30 * _fontSizeFactor),
-      headlineLarge: baseTheme.textTheme.headlineLarge?.copyWith(fontSize: 25 * _fontSizeFactor),
-      headlineMedium: baseTheme.textTheme.headlineMedium?.copyWith(fontSize: 18 * _fontSizeFactor),
-      bodyLarge: baseTheme.textTheme.bodyLarge?.copyWith(fontSize: 12 * _fontSizeFactor),
+      displayLarge: baseTheme.textTheme.displayLarge?.copyWith(fontSize: AppFontSizes.displayLargeSize * _fontSizeFactor, ),
+      displayMedium: baseTheme.textTheme.displayMedium?.copyWith(fontSize: AppFontSizes.displayMediumSize * _fontSizeFactor),
+      displaySmall: baseTheme.textTheme.displaySmall?.copyWith(fontSize: AppFontSizes.displaySmallSize * _fontSizeFactor),
+      headlineMedium: baseTheme.textTheme.headlineMedium?.copyWith(fontSize: AppFontSizes.headlineMediumSize * _fontSizeFactor),
+      bodyLarge: baseTheme.textTheme.bodyLarge?.copyWith(fontSize: AppFontSizes.bodyLargeSize * _fontSizeFactor),
+      bodySmall: baseTheme.textTheme.bodySmall?.copyWith(fontSize: AppFontSizes.bodySmallSize * _fontSizeFactor),
+      labelLarge: baseTheme.textTheme.labelLarge?.copyWith(fontSize: AppFontSizes.labelLargeSize * _fontSizeFactor),
     );
 
     final ThemeData selectedTheme = _lightMode 

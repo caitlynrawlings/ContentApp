@@ -50,7 +50,7 @@ class LanguageDropdownState extends State<LanguageDropdown> {
                       value: language,
                       child: Row(
                         children: [
-                          Text(language),
+                          Text(language, style: Theme.of(context).textTheme.labelLarge,),
                         ],
                       ),
                     );

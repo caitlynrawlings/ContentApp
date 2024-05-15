@@ -14,7 +14,7 @@ class Heading extends StatelessWidget {
 
     return Text(
       text,
-      style: theme.textTheme.headlineLarge,
+      style: theme.textTheme.displayMedium,
     );
   }
 }

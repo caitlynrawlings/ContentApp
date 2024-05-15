@@ -18,9 +18,11 @@ class Settings extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
         children: [
-          ListTile(
-            title: const Text('Font Size Selector'),
-            trailing: FontSizeDropdown(value: fontSize, onChanged: onChangeFontSize,),
+          Row(
+            children: [
+              Text("Font Size Selector", style: Theme.of(context).textTheme.bodyLarge),
+              FontSizeDropdown(value: fontSize, onChanged: onChangeFontSize,)
+            ],
           ),
           ListTile(
             title: const Text('Light Mode Selector'),
@@ -66,18 +68,18 @@ class _FontSizeDropdownState extends State<FontSizeDropdown> {
           widget.onChanged?.call(newSize);
         }
       },
-      items: const [
+      items: [
         DropdownMenuItem(
           value: 1,
-          child: Text('Small'),
+          child: Text('Small', style: Theme.of(context).textTheme.labelLarge,),
         ),
         DropdownMenuItem(
           value: 1.5,
-          child: Text('Medium'),
+          child: Text('Medium', style: Theme.of(context).textTheme.labelLarge,),
         ),
         DropdownMenuItem(
           value: 2,
-          child: Text('Large'),
+          child: Text('Large', style: Theme.of(context).textTheme.labelLarge,),
         ),
       ],
     );

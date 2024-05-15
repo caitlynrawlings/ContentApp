@@ -104,7 +104,10 @@ class _CustomPageState extends State<CustomPage> {
             },
         );
       default:
-        return Text('Unsupported content type: $contentType');
+        return Text(
+            'Unsupported content type: $contentType', 
+            style: Theme.of(context).textTheme.bodyLarge,
+          );
     }
   }
 }

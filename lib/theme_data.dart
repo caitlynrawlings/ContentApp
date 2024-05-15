@@ -9,26 +9,42 @@ class AppTextThemes {
   static final baseTextTheme = ThemeData(
     textTheme: const TextTheme(
       displayLarge: TextStyle(
-        fontSize: 40,
+        fontSize: AppFontSizes.displayLargeSize,
         fontWeight: FontWeight.bold,
       ),
-      titleLarge: TextStyle(
-        fontSize: 30,
+      displayMedium: TextStyle(
+        fontSize: AppFontSizes.displayMediumSize,
         fontWeight: FontWeight.bold,
       ),
-      headlineLarge: TextStyle(
-        fontSize: 25,
+      displaySmall: TextStyle(
+        fontSize: AppFontSizes.displaySmallSize,
         fontWeight: FontWeight.bold,
       ),
       headlineMedium: TextStyle(
-        fontSize: 18,
+        fontSize: AppFontSizes.headlineMediumSize,
         fontWeight: FontWeight.bold,
       ),
       bodyLarge: TextStyle(
-        fontSize: 12,
+        fontSize: AppFontSizes.bodyLargeSize,
       ),
+      bodySmall: TextStyle(
+        fontSize: AppFontSizes.bodySmallSize,
+      ),
+      labelLarge: TextStyle(
+        fontSize: AppFontSizes.labelLargeSize,
+      )
     ),
   );
+}
+
+class AppFontSizes {
+  static const displayLargeSize = 40.0; // page title
+  static const displayMediumSize = 30.0; // heading
+  static const displaySmallSize = 25.0; // subheading
+  static const headlineMediumSize = 18.0; // preview text for dropdown
+  static const bodyLargeSize = 12.0; // body text
+  static const bodySmallSize = 10.0; // caption
+  static const labelLargeSize = 15.0; // button and dropdown
 }
 
 class AppColorsSchemes {
@@ -40,9 +56,9 @@ class AppColorsSchemes {
     onPrimary: Colors.white,
     secondary: lightBlue,
     onSecondary: Colors.black,
-    background: darkBlue,
+    background: Colors.black,
     onBackground: Colors.white,
-    surface: Colors.black,
+    surface: darkBlue,
     onSurface: Colors.white,
     error: Colors.red,
     onError: Colors.white,
@@ -54,9 +70,9 @@ class AppColorsSchemes {
     onPrimary: Colors.black,
     secondary: darkBlue,
     onSecondary: Colors.white,
-    background: lightBlue,
+    background: Colors.white,
     onBackground: Colors.black,
-    surface: Colors.white,
+    surface: lightBlue,
     onSurface: Colors.black,
     error: Colors.red,
     onError: Colors.white,

@@ -1,21 +1,22 @@
 {
     "languages": [
         {
-            "language": "English", 
+            "language": "English",
             "direction": "ltr"
         },
         {
-            "language": "Dholuo", 
-            "direction": ""
+            "language": "Dholuo",
+            "direction": "ltr"
         },
         {
             "language": "Kiswahili",
             "direction": "ltr"
         }
-            ],
+    ],
     "pages": [
         {
             "id": "Page 1",
+            "icon": "info-icon.png",
             "title": {
                 "English": "English Title 1.0",
                 "Dholuo": "Dholuo Title",
@@ -26,8 +27,8 @@
                     "content-type": "Subheading",
                     "content": {
                         "English": "How it works",
-                        "Dholuo": "",
-                        "Kiswahili": ""
+                        "Dholuo": "How it works",
+                        "Kiswahili": "How it works"
                     }
                 },
                 {
@@ -42,17 +43,17 @@
                     "content-type": "Image",
                     "content": {
                         "English": {
-                            "path": "Page 1-English-cow.gif",
+                            "path": "cow.gif",
                             "alt": "Alt Text",
                             "caption": "Caption"
                         },
                         "Dholuo": {
-                            "path": "Page 1-Dholuo-cow.gif",
+                            "path": "cow.gif",
                             "alt": "Alt Text",
                             "caption": ""
                         },
                         "Kiswahili": {
-                            "path": "Page 1-Kiswahili-cow.gif",
+                            "path": "cow.gif",
                             "alt": "Alt Text",
                             "caption": ""
                         }
@@ -62,15 +63,15 @@
                     "content-type": "Callout",
                     "content": {
                         "English": {
-                            "path": "Page 1-English-info-icon.png",
+                            "path": "info-icon.png",
                             "text": "Important information that we want to stand out"
                         },
                         "Dholuo": {
-                            "path": "Page 1-Dholuo-info-icon.png",
+                            "path": "info-icon.png",
                             "text": "Important information that we want to stand out"
                         },
                         "Kiswahili": {
-                            "path": "Page 1-Kiswahili-info-icon.png",
+                            "path": "info-icon.png",
                             "text": "Important information that we want to stand out"
                         }
                     }
@@ -79,15 +80,15 @@
                     "content-type": "Audio",
                     "content": {
                         "English": {
-                            "path": "Page 1-English-heyThis_HIV_STI_E.mp3",
+                            "path": "heyThis_HIV_STI_E.mp3",
                             "caption": "this is the transcript"
                         },
                         "Dholuo": {
-                            "path": "Page 1-Dholuo-heyThis_HIV_STI_L.mp3",
+                            "path": "heyThis_HIV_STI_L.mp3",
                             "caption": "Dholuo transcript"
                         },
                         "Kiswahili": {
-                            "path": "Page 1-Kiswahili-heyThis_HIV_STI_K.mp3",
+                            "path": "heyThis_HIV_STI_K.mp3",
                             "caption": "Kiswahili transcript"
                         }
                     }
@@ -97,22 +98,32 @@
                     "content": {
                         "English": {
                             "title": "Title",
-                            "body": "How does this work"
+                            "body": "How does this work (E)"
                         },
                         "Dholuo": {
                             "title": "Title",
-                            "body": "How does this work"
+                            "body": "How does this work (L)"
                         },
                         "Kiswahili": {
                             "title": "Title",
-                            "body": "How does this work"
+                            "body": "How does this work (K)"
                         }
                     }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "Test",
+                        "Dholuo": "Test",
+                        "Kiswahili": "Test"
+                    }
                 }
-            ]
+            ],
+            "hidden": false
         },
         {
             "id": "Page 2",
+            "icon": "info-icon.png",
             "title": {
                 "English": "English Title 2",
                 "Dholuo": "Dholuo Title 2",
@@ -123,8 +134,8 @@
                     "content-type": "Heading",
                     "content": {
                         "English": "Heading",
-                        "Dholuo": "",
-                        "Kiswahili": ""
+                        "Dholuo": "Heading",
+                        "Kiswahili": "Heading"
                     }
                 },
                 {
@@ -132,15 +143,15 @@
                     "content": {
                         "English": {
                             "title": "Learn More",
-                            "body": "This is some more information that will appear in the dropdown"
+                            "body": "Info (E)"
                         },
                         "Dholuo": {
-                            "title": "",
-                            "body": ""
+                            "title": "Learn More (L)",
+                            "body": "Info (L)"
                         },
                         "Kiswahili": {
-                            "title": "",
-                            "body": ""
+                            "title": "Learn More (K)",
+                            "body": "Info (K)"
                         }
                     }
                 },
@@ -148,20 +159,1700 @@
                     "content-type": "Link",
                     "content": {
                         "English": {
-                            "displayText": "Last Page",
+                            "displayText": "Next Page (E)",
                             "page": "Page 1"
                         },
                         "Dholuo": {
-                            "displayText": "",
-                            "page": ""
+                            "displayText": "Next Page (L)",
+                            "page": "Page 1"
                         },
                         "Kiswahili": {
-                            "displayText": "",
-                            "page": ""
+                            "displayText": "Next Page (K)",
+                            "page": "Page 1"
                         }
                     }
                 }
-            ]
+            ],
+            "hidden": false
+        },
+        {
+            "id": "What are my options?",
+            "icon": "noun-birth-control-2223575.png",
+            "title": {
+                "English": "What are my options?",
+                "Dholuo": "Yierona gin mage?",
+                "Kiswahili": "Chaguzi zangu ni zipi?"
+            },
+            "content": [
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Implant",
+                        "Dholuo": "Implant",
+                        "Kiswahili": "Implant"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "The implant is a tiny plastic rod (or rods) about the size of a match stick that is placed under the skin of your upper arm by a health provider. If you want to, you can feel the rod(s) under the skin. It has hormones in it that prevent pregnancy by telling your body not to release an egg every month while the implant is in. It needs to be removed by a provider. This method is popular among people who want a method they can forget about and lasts up to 3-5 years depending on the type.",
+                        "Dholuo": "Implant en plastik matin machiegni rom gi yadh kibrit ma isoyo e bwo pien e bat gi jachiw thieth. Ka idwaro, inyalo mule e bwo pien. En gi homons mageng'o ich ka nyiso dendi mondo kik gol tong dwe ka dwe ekinde ma implant ni eiye. Dwarore ni ogole gi jachiw thieth. Joma ohero yorni ahinya gin jogo madwaro yor komo nyuol ma wigi nyalo wil godo kendoo kao madirom higni 3-5 kaluwore gi kit miketo.",
+                        "Kiswahili": "Implant ni kijiti ndogo ya plastiki (au vijiti) yenye ukubwa wa fimbo ya kiberiti ambayo huwekwa chini ya ngozi ya mkono wako wa juu na mhudumu wa afya. Ikiwa unataka, unaweza kuhisi fimbo chini ya ngozi. Ina homoni zinazozuia mimba kwa kuuambia mwili wako usitoe yai kila mwezi wakati implant iko ndani. Inahitaji kuondolewa na mtoa huduma. Njia hii ni maarufu kati ya watu ambao wanataka njia ambayo wanaweza kusahau na hudumu hadi miaka 3-5 kulingana na aina."
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Depo",
+                        "Dholuo": "Depo",
+                        "Kiswahili": "Depo"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "The injection, or depo, is an injection given in your arm or buttock. It has hormones in it that prevent pregnancy by telling your body not to release eggs for 3 months. It's very easy to keep private because once it's in your body, no one can see or feel it.",
+                        "Dholuo": "Sindan, kata Depo, en sindan ma ichuoyo e bat kata e sianda. En gi homons mageng'o ich ka onyiso del mondo kik gol tong kuom dweche 3. Oyot kano mopondo nikech ka osechuoye e dendi onge ng'ama nyalo nene kata mule.",
+                        "Kiswahili": "Sindano, au depo, ni sindano inayotolewa kwenye mkono au kitako chako. Ina homoni zinazozuia mimba kwa kuuambia mwili wako usitoe mayai kwa muda wa miezi 3. Ni rahisi sana kuiweka faragha kwa sababu ikishaingia mwilini mwako, hakuna anayeweza kuiona au kuihisi."
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "IUCD",
+                        "Dholuo": "IUCD",
+                        "Kiswahili": "IUCD"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "The IUCD is small, T-shaped, and made out of plastic. It is placed into the womb (uterus) by a health provider to prevent pregnancy, and is the longest lasting method of up to 12 years. You can't feel it once it is in, and it needs to be removed by a provider. This method does not have hormones, and is popular among people who don't want to have to remember to do anything to prevent pregnancy",
+                        "Dholuo": "Koil [IUCD] en gima tin, olose ekido machalo T, kendo olose gi plastik. Ikete e ofuko nyuol gi jachiw thieth mondo ogeng ich, kendo en e yor komo nyuol mabudho ahinya, otieko higni madirom 12. ok inyal mule ka en e iye, kendo dwarore ni ogole gi jachiw thieth. Yor ni onge homons, kendo ohere ahinya gi jogo ma ok dwar paro timo gimoro amora mondo ogeng' ich",
+                        "Kiswahili": "IUCD ni ndogo, yenye umbo la T, na imetengenezwa kwa plastiki. Huwekwa kwenye tumbo la uzazi (uterasi) na mhudumu wa afya ili kuzuia mimba, na ndiyo njia inayodumu kwa muda mrefu zaidi ya hadi miaka 12. Huwezi kuhisi ikiwa imeingia, na inahitaji kuondolewa na mtoa huduma. Njia hii haina homoni, na ni maarufu miongoni mwa watu ambao hawataki kukumbuka kufanya chochote ili kuzuia mimba."
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Daily Pills",
+                        "Dholuo": "Pills",
+                        "Kiswahili": "Vidonge vya kila siku"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "Daily pills need to be taken every day to prevent pregnancy. The pills contain hormones that tell your body not to release an egg that month. You can stop using them on your own, and they can also help to reduce pimples and prevent cancer. [Which type of cancer?]",
+                        "Dholuo": "Pills dwarore ni omuonyo pile ka pile mondo ogeng ich. Yedhegi nigi homons manyiso dendi mondo kik gol tong e dwe no. inyalo weyo tiyo kodgi kendi, kendo ginyalo bende konyo duoko kabirwa chien kendo geng'o kansa.",
+                        "Kiswahili": "Vidonge vya kila siku vinahitaji kuchukuliwa kila siku ili kuzuia mimba. Vidonge hivyo vina homoni zinazouambia mwili wako usitoe yai mwezi huo. Unaweza kuwazuia wao wenyewe, na wanaweza pia kusaidia kupunguza chunusi na kuzuia saratani."
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Emergency Pills",
+                        "Dholuo": "Emergency Pills",
+                        "Kiswahili": "Vidonge vya dharura"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "Emergency pills are used to prevent pregnancy AFTER having sex. They only work if your body hasn't already released an egg, so they are good in an emergency, but not as a method to use all the time. Typically, they come as 2 pills you swallow at the same time. [Can we add something about the 72 hours duration?]",
+                        "Dholuo": "Emergency pills itiyo godo e geng'o ich BANG' terruok. Gitiyo mana ka dendi pok ne ogolo tong, koro gibeyo tiyo godo e emergency, to ok kaka yor komo nyuol mitiyo godo seche tee. Ojabiro kaka yedhe 2 ma imuonyo kanyakla.",
+                        "Kiswahili": "Vidonge vya dharura hutumika kuzuia mimba BAADA ya kujamiiana. Zinafanya kazi tu ikiwa mwili wako bado haujatoa yai, kwa hivyo ni nzuri katika dharura, lakini sio kama njia unayotumia kila wakati. Kwa kawaida, huja kama dawa 2 unazomeza kwa wakati mmoja."
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Male Condoms",
+                        "Dholuo": "Duong dichuo kapok uteroru",
+                        "Kiswahili": "Kondomu ya kiume"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "The male condom goes on over a man's penis before sex and keeps the sperm from going inside your body. This prevents pregnancy and also protects you from many STIs (infections you can get from sex, like HIV).",
+                        "Dholuo": "Rabo yunga iruako e duong dichuo kapok uteroru kendo ogeng'o mondo pi nyodo kik donj e dendi. Ma geng'o ich kendo geng'i kuom tuoche mang'eny mag nyae [tuoche ma inyalo yudo e yor terruok, kaka kute mag ayaki.",
+                        "Kiswahili": "Kondomu ya kiume huenda juu ya uume wa mwanamume kabla ya kujamiiana na kuzuia mbegu za kiume zisiingie ndani ya mwili wako. Hii inazuia mimba na pia hukukinga dhidi ya magonjwa mengi ya zinaa (maambukizi unayoweza kupata kutokana na kufanya ngono, kama vile virusi vya ukimwi)."
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Female Condoms",
+                        "Dholuo": "Duong mine isoyo e duongni kapok iterori",
+                        "Kiswahili": "Kondomu ya kike"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "The female condom is placed into your vagina before sex to keep the man's sperm from going inside your body, which prevents pregnancy and STIs (infections you can get from sex, like HIV). The end with the flexible plastic ring goes into the vagina. It is woman-controlled!",
+                        "Dholuo": "Rabo duong mine isoyo e duongni kapok iterori mondo kik pi nyodo mar dichuo odonj e dendi, ma geng'o ich kod nyae [tuoche ma inyalo yudo e yor terruok, kaka kute mag ayaki]. Dhoge man gi plastik ma dudore machalo pete donjo e duong. En gima miyo ema ruako.",
+                        "Kiswahili": "Kondomu ya kike huwekwa kwenye uke wako kabla ya kujamiiana ili kuzuia mbegu za kiume zisiingie ndani ya mwili wako, jambo ambalo huzuia mimba na magonjwa ya zinaa (maambukizi unayoweza kupata kutokana na kujamiiana, kama vile VVU). Mwisho na pete ya plastiki inayoweza kubadilika huenda kwenye uke. Inadhibitiwa na mwanamke!"
+                    }
+                }
+            ],
+            "hidden": false
+        },
+        {
+            "id": "What will happen to my period?",
+            "icon": "noun-period-5876442.png",
+            "title": {
+                "English": "What will happen to my period?",
+                "Dholuo": "What will happen to my period?",
+                "Kiswahili": "Nini kitafanyikia hedhi zangu"
+            },
+            "content": [
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Implant",
+                        "Dholuo": "Implant",
+                        "Kiswahili": "Implant"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "Your period will most likely become lighter, and might not come on a usual schedule. You might stop having periods all together while you are using the implant. This is normal and healthy while using the implant, because of the way the method works with your body. If your periods are usually heavy, this might be a good thing",
+                        "Dholuo": "Rembi mar dwe biro bedo matin, kendo samoro ok bi biro kaka ochan. Inyalo weyo bedo gi remb dwe chutho ekinde ma itiyo gi implant. Ma en gima timore kendo gima ber ekinde ma itiyo gi implant, nikech kaka yor komo nyuol tiyo e dendi. Ka rembi mar dwe biro ga mang'eny, ma nyalo bedo gima ber.",
+                        "Kiswahili": "Kuna uwezekano mkubwa kwamba damu yako ya hedhi kitapungua, na huenda kisije kwa ratiba ya kawaida. Unaweza kuacha kupata hedhi wakati unatumia implant. Hii ni ya kawaida na yenye afya wakati wa kutumia implant, kwa sababu ya jinsi njia hiyo inavyofanya kazi na mwili wako. Ikiwa hedhi yako ni nzito, hii inaweza kuwa jambo zuri."
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Depo",
+                        "Dholuo": "Depo",
+                        "Kiswahili": "Depo"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "Your period will most likely become lighter, and might not come on a usual schedule. You might stop having periods all together while you are using depo. This is normal and healthy while using depo, because of the way the method works with your body. If your periods are usually heavy, this might be a good thing.",
+                        "Dholuo": "Rembi mar dwe biro bedo matin, kendo samoro ok bi biro kaka ochan. Inyalo weyo bedo gi remb dwe chutho ekinde ma itiyo gi Depo. Ma en gima timore kendo gima ber ekinde ma itiyo gi Depo, nikech kaka yor komo nyuol tiyo e dendi. Ka rembi mar dwe biro ga mang'eny, ma nyalo bedo gima ber.",
+                        "Kiswahili": "Kuna uwezekano mkubwa kwamba damu yako ya hedhi kitapungua, na huenda kisije kwa ratiba ya kawaida. Unaweza kuacha kupata hedhi wakati unatumia depo. Hii ni kawaida na yenye afya wakati wa kutumia depo, kwa sababu ya jinsi njia inavyofanya kazi na mwili wako. Ikiwa hedhi yako ni nzito, hii inaweza kuwa jambo zuri."
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "IUCD",
+                        "Dholuo": "IUCD",
+                        "Kiswahili": "IUCD"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "The IUCD, or coil, will not change the timing of when your periods come. It might make your period flow heavier, and cause more cramping during your period. This is not bad for your body, but if you already have very heavy or painful periods, it may not be the best method for you.  ",
+                        "Dholuo": "IUCD kata koil, ok bi loko kinde ma rembi mar dwe bire. onyalo miyo remb dwe ochwer mang'eny, kendo miyo piny iyi orami ahinya ekinde ma in e dwe. ma ok en gima rach ne dendi, to ka ne in ga gi remb dwe machwer mang'eny kata rem mang'eny ekinde ma in e dwe, ok onyal bedo yo maber mogik ne in.",
+                        "Kiswahili": "IUCD, au coil, haitabadilisha muda wa siku zako za hedhi. Inaweza kufanya mtiririko wako wa hedhi kuwa mzito zaidi, na kusababisha mkazo zaidi wakati wa kipindi chako. Hii sio mbaya kwa mwili wako, lakini ikiwa tayari una hedhi nzito au yenye uchungu, inaweza kuwa sio njia bora kwako."
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "Changes to your periods are normal when you are using the implant, depo, daily pills, IUCD, or E-pills. All of these methods except the IUCD have hormones in them, which have effects on your periods while you are using the method. These changes will stop if you stop using the method. The IUCD does not have hormones, but is inside the womb or uterus which can lead to heavier or crampier periods. These bleeding changes have NOTHING to do with your ability to get pregnant in the future. ",
+                        "Dholuo": "Lokruok e chwer mar remb dwe en gima ni kare ekinde ma itiyo gi Implant, Depo, daily pills, IUCD, kata E-pills. Yoregi te maka mana IUCD nigi homons kuomgi, makelo chachruok e rembi mar dwe ekinde ma itiyo gi yoregi. Lokruokgi biro rumo ka iweyo tiyo gi yoregi. IUCD onge gi homons, to en ei ofuko mar nyuol ma nyalo kelochwer mang'eny kata rem mar dwe. lokruok e chwer mar dwe gi ONGE gi tudruok moro amora gi nyaloni mar mako ich e ndalo mabiro",
+                        "Kiswahili": "Mabadiliko ya hedhi yako ni ya kawaida unapotumia implant, depo, tembe za kila siku, IUCD, au E-pills. Njia hizi zote isipokuwa IUCD zina homoni ndani yake, ambazo zina athari kwenye siku zako za hedhi wakati unatumia mbinu hizo. Mabadiliko haya yatakoma ukiacha kutumia mbinu. IUCD haina homoni, lakini iko ndani ya tumbo la uzazi au uterasi ambayo inaweza kusababisha hedhi nzito au ya uchungu. Mabadiliko haya ya kutokwa na damu hayana uhusiano wowote na uwezo wako wa kupata ujauzito katika siku zijazo."
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Daily Pills",
+                        "Dholuo": "Pills",
+                        "Kiswahili": "Vidonge vya kila siku"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "When using daily pills, your period will usually come every month during the last week of the pills. You can start the pills at any time in your monthly cycle. Daily pills can help relieve heavy or painful periods, and do not usually cause much irregular bleeding. ",
+                        "Dholuo": "Ekinde ma itiyo gi pills ma pile ka pile, rembi mar dwe biroga biro dwe ka dwe e wik mogik mar muonyo pills. Inyalo chako muonyo pills e saa asaya e sako ni mar dwe. Pills ma imuonyo pile ka pile nyalo konyo reso remo mar dwe mabiro mang'eny kata remb dwe mabiro gi rem, kendo ok kel ga remb dwe mabiro ekinde ma ok achan.",
+                        "Kiswahili": "Unapotumia vidonge vya kila siku, hedhi yako itakuja kila mwezi wakati wa wiki ya mwisho ya vidonge. Unaweza kuanza tembe wakati wowote katika mzunguko wako wa kila mwezi. Vidonge vya kila siku vinaweza kusaidia kupunguza hedhi nzito au yenye uchungu, na sio kawaida kusababisha kutokwa na damu nyingi isiyo ya kawaida."
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Emergency Pills",
+                        "Dholuo": "Emergency Pills",
+                        "Kiswahili": "Vidonge vya dharura"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "E-pills might affect your period differently, depending on when you take them in your monthly cycle. Your period might come a bit later or a bit earlier than usual after taking E-pills. It is normal to have some light bleeding or drops of blood in your panties after taking E-pills. This is not dangerous, and will go away on its own! Take a pregnancy test if you do not get your period.",
+                        "Dholuo": "E-pill nyalo chacho rembi mar dwe mopogore, kaluwore gi kinde ma imuonye e sako ni mar dwe. Rembi mar dwe nyalo biro bang'e matin kata chon matin moloyo kaka obiroga bang muonyo E-pill. en gima kare mondo ibed gi chwer matin kata ton matin mar remo e suruachi bang muonyo E-pills. Ma ok en gima nyalo hinyi, kendo biro rumo kende! Tim pim mar ich ka ok iyudo rembi mar dwe",
+                        "Kiswahili": "Vidonge vya E-pill vinaweza kuathiri hedhi yako kwa njia tofauti, kulingana na wakati unavinywa katika mzunguko wako wa kila mwezi. Hedhi yako inaweza kuja baadaye kidogo au mapema kuliko kawaida baada ya kumeza E-pills. Ni kawaida kutokwa na damu kidogo au matone ya damu kwenye chupi yako baada ya kumeza vidonge vya E-pill. Hii sio hatari, na itaenda yenyewe! Pima ujauzito ikiwa haupati hedhi yako."
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Condoms",
+                        "Dholuo": "Duong dichuo kapok uteroru",
+                        "Kiswahili": "Duong"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "Using condoms will not affect your period at all! ",
+                        "Dholuo": "Tiyo gi rabo yunga ok bi chacho rembi mar dwe kata matin",
+                        "Kiswahili": "Kutumia kondomu hakutaathiri hedhi yako hata kidogo!"
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "info-icon.png",
+                            "text": "HEY! THIS IS IMPORTANT! Male and female condoms are the ONLY family planning methods that also prevent HIV and other STIs!"
+                        },
+                        "Dholuo": {
+                            "path": "info-icon.png",
+                            "text": "HEY! MA EN GIMA BER NG'EYO! Rabo yunga mar chuo gi mine e yore komo nyuol KENDE ma bende geng'o kute mag ayaki kod nyae mamoko!"
+                        },
+                        "Kiswahili": {
+                            "path": "info-icon.png",
+                            "text": "Hey! HII NI MUHIMU! Kondomu za kiume na za kike ndizo njia PEKEE za kupanga uzazi ambazo pia huzuia Virusi Vya Ukimwi na magonjwa mengine ya zinaa!"
+                        }
+                    }
+                }
+            ],
+            "hidden": false
+        },
+        {
+            "id": "How long does the method work?",
+            "icon": "noun-calendar-6540804.png",
+            "title": {
+                "English": "How long does the method work?",
+                "Dholuo": "Yor ni tiyo kuom kinde marom nade?",
+                "Kiswahili": "Mbinu hiyo inafanya kazi kwa muda gani?"
+            },
+            "content": [
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Implant",
+                        "Dholuo": "Implant",
+                        "Kiswahili": "Implant"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "The implant lasts for 3 years (Nexplanon) or 5 years (Jadelle), depending on which type you get. If you don't like it or you want to get pregnant, you can have it removed whenever you want - you don't have to wait 3-5 years! The implant can be a great method even just for a year or two. ",
+                        "Dholuo": "Implant budho kuom higni 3 [Nexplanon] kata higni 5 [Jadelle], kaluwore e kido ma oketni. ka ok ihere kata idwaro mako ich, inyalo dhi mondo ogolni godo saa asaya ma idwaro - ok ochuno ni nyaka irit higni 3-5! Implant nyalo bedo yo maber ahinya kata mana e higa kata higni ariyo",
+                        "Kiswahili": "Implant hudumu kwa miaka 3 (Nexplanon) au miaka 5 (Jadelle), kulingana na aina gani unayopata. Ikiwa hupendi au unataka kupata mimba, unaweza kuiondoa wakati wowote unapotaka - huna kusubiri miaka 3-5! Kipandikizi kinaweza kuwa njia nzuri hata kwa mwaka mmoja au miwili tu."
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Depo",
+                        "Dholuo": "Depo",
+                        "Kiswahili": "Depo"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "The injection (depo) lasts for 3 months. If you are more than 2 weeks late for your next shot, you can get pregnant, so it is good to stay on schedule if you want to prevent pregnancy!",
+                        "Dholuo": "Sindan [Depo] bet e del kuom dweche 3. Ka ileo gi jumbe 2 yudo sindan machielo, inyalo mako ich, koro ber mondo irit tarik mochiki e dok e sindan ka idwaro geng'o ich!",
+                        "Kiswahili": "Sindano (depo) hudumu kwa miezi 3. Ikiwa umechelewa kwa zaidi ya wiki 2 kwa picha yako inayofuata, unaweza kupata mimba, kwa hivyo ni vizuri kukaa kwenye ratiba ikiwa unataka kuzuia mimba!"
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "IUCD",
+                        "Dholuo": "IUCD",
+                        "Kiswahili": "IUCD"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "The IUCD (coil) works for up to 12 years! Many people don't keep it in that long, and might just use it for a year or two. You can have the IUCD removed whenever you want, if you don't like it or want to get pregnant. ",
+                        "Dholuo": "IUCD [koil] tiyo nyaka higni 12! Ng'eny ji ok weye kanyo mang'eny kamano, kendo nyalo mana tiyo kode kuom higa kata higni ariyo. Inyalo golo IUCD saa asaya ma idwaro, ka ok idware kata idwaro mako ich.",
+                        "Kiswahili": "IUCD (coil) inafanya kazi hadi miaka 12! Watu wengi hawaihifadhi kwa muda mrefu hivyo, na wanaweza kuitumia kwa mwaka mmoja au miwili. Unaweza kuondoa IUCD wakati wowote unapotaka, ikiwa hupendi au unataka kupata mimba."
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Daily Pills",
+                        "Dholuo": "Pills",
+                        "Kiswahili": "Vidonge vya kila siku"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "Daily pills need to be taken every day to prevent pregnancy. If you miss pills, your body might release an egg, and you could get pregnant. It can be helpful to take your daily pill as part of a routine, like right before you go to bed, or before you start your day in the morning.",
+                        "Dholuo": "Pills ma pile ka pile onego muony pile ka pile mondo ogeng ich. Ka ok imuonyo pills, dendi nyalo golo tong, kendo inyalo mako ich. Nyalo bedo gima konyo ka imuonyo pills pile ka pile kaka gino ma iketo e chenro, kaka kapok idhi e kitanda, kata kapok ichako odiechiengi gokinyi.",
+                        "Kiswahili": "Vidonge vya kila siku vinahitaji kuchukuliwa kila siku ili kuzuia mimba. Ukikosa vidonge, mwili wako unaweza kutoa yai, na unaweza kupata mimba. Inaweza kusaidia kumeza kidonge chako cha kila siku kama sehemu ya utaratibu, kama vile kabla ya kulala, au kabla ya kuanza siku yako asubuhi."
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Emergency Pills",
+                        "Dholuo": "Emergency Pills",
+                        "Kiswahili": "Vidonge vya dharura"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "The E-pill (P2) does not work for a particular length of time, but is meant to reduce the chance of pregnancy after having sex. Don't assume it is still going to work if you have sex again a day or two after taking the E-pill...it is better to use a different method as your regular method!",
+                        "Dholuo": "E-pill [P2] ok ti kuom kinde moko, to en mar duoko chien nyaloni mar mako ich bang bedo e achiel. Kik ipar ni podi odhi tiyo ka ibedo e achiel kendo odiechieng achiel kata ariyo bang muonyo E-pill... Ber mondo iti gi yo machielo kaka yori mapile mar geng'o ich!  ",
+                        "Kiswahili": "E-pill (P2) haifanyi kazi kwa muda fulani, lakini inakusudiwa kupunguza uwezekano wa kupata mimba baada ya kufanya ngono. Usifikiri kwamba bado itafanya kazi ikiwa utafanya ngono tena siku moja au mbili baada ya kumeza E-pill...ni bora kutumia njia tofauti kama njia yako ya kawaida!"
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Condoms",
+                        "Dholuo": "Duong dichuo kapok uteroru",
+                        "Kiswahili": "Duong"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "To prevent pregnancy, you need to use a condom every time you have sex. It can be very challenging to predict your safe days, so condoms need to be used every time you have sex in order to work well.  ",
+                        "Dholuo": "Mondo igeng ich, dwarore ni mondo iti gi rabo yunga kinde duto ma ibedo e achiel. Onyalo bedo gima pek ng'eyo kinde ma ionge thuolo mar mako ich, koro rabo yunga onego tigodo kinde duto ma ibedo e achiel mondo oti maber. ",
+                        "Kiswahili": "Ili kuzuia mimba, unahitaji kutumia kondomu kila mara unapofanya ngono. Inaweza kuwa changamoto sana kutabiri siku zako salama, kwa hivyo kondomu zinahitajika kutumika kila wakati unapojamiiana ili kufanya kazi vizuri."
+                    }
+                }
+            ],
+            "hidden": false
+        },
+        {
+            "id": "What is my chance of getting pregnant?",
+            "icon": "noun-chance-224103.png",
+            "title": {
+                "English": "What is my chance of getting pregnant?",
+                "Dholuo": "Nyalona mar mako ich en ang'o?",
+                "Kiswahili": "Je, nafasi yangu ya kupata mimba ni ipi?"
+            },
+            "content": [
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "info-icon.png",
+                            "text": "The more you have to remember to use or get a method, the more room there is for mistakes or problems. That's the main reason why some methods like the implant and IUCD work better to prevent pregnancy -- because once they are in your body, you don't have to do anything else. Methods like condoms that you have to use every time you have sex (and depend on your partner to use them) do not work as well over time to prevent pregnancy, mainly because users might forget to use a condom or not have one when they need it. All of the methods (other than the E-pill) work very well to prevent pregnancy when used as directed."
+                        },
+                        "Dholuo": {
+                            "path": "info-icon.png",
+                            "text": "Kaka nyalo dwarore ni mondo ipar mar tiyo gi yor komo nyuol kata dhi ome, e kaka nyalo kelo thuolo mang'eny mar makosa kata chandruok. Ma ema omiyo yore moko mag komo nyuol kaka Implant kod IUCD tiyo maber e geng'o ich -- nikech ka oseruakgi e dendi, onge gima nyaka itim machielo. Yore kaka rabo yunga ma nyaka itigodo seche te ma ibedo e achiel [kendo dwarore ni jaherani ema ruake] ok ti ga maber kuom ndalo e geng'o ich, mana nikech jomatiyo kodgi wigi nyalo wil tiyo gi rabo yunga kata bedo maonge kode seche ma gidware. Yore gi te [koweyo E-pill] tiyo maber ahinya w geng'o ich ka oti kodgi kaka dwarore."
+                        },
+                        "Kiswahili": {
+                            "path": "info-icon.png",
+                            "text": "Kadiri unavyopaswa kukumbuka kutumia au kupata njia, ndivyo nafasi zaidi ya makosa au matatizo inavyoongezeka. Hiyo ndiyo sababu kuu kwa nini baadhi ya mbinu kama vile vipandikizi na IUCD hufanya kazi vyema zaidi kuzuia mimba -- kwa sababu zinapokuwa kwenye mwili wako, si lazima ufanye kitu kingine chochote. Mbinu kama vile kondomu unazopaswa kutumia kila wakati unapofanya ngono (na unategemea mwenzi wako kuzitumia) hazifanyi kazi kwa muda ili kuzuia mimba, hasa kwa sababu watumiaji wanaweza kusahau kutumia kondomu au kutokuwa na wakati wanapohitaji. hiyo. Mbinu zote (zaidi ya E-pill) hufanya kazi vizuri sana kuzuia mimba zinapotumiwa kama ilivyoelekezwa."
+                        }
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Implant",
+                        "Dholuo": "Implant",
+                        "Kiswahili": "Implant"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "Fewer than 1 in 100 women using the implant for a year will become pregnant. ",
+                        "Dholuo": "Matin ne miyo 1 kuom 100 matiyo gi Implant e higa biro mako ich ",
+                        "Kiswahili": "Chini ya mwanamke 1 kati ya 100 wanaotumia implant kwa mwaka mmoja watapata ujauzito."
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Depo",
+                        "Dholuo": "Depo",
+                        "Kiswahili": "Depo"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "About 4 out of 100 women using the injection (depo) for a year will become pregnant. ",
+                        "Dholuo": "madirom mine 4 kuom 100 matiyo gi sindan [Depo] e higa biro mako ich",
+                        "Kiswahili": "Takriban wanawake 4 kati ya 100 wanaotumia sindano (depo) kwa mwaka watakuwa wajawazito."
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "IUCD",
+                        "Dholuo": "IUCD",
+                        "Kiswahili": "IUCD"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "Fewer than 1 in 100 women using the IUCD (coil) for a year will become pregnant. ",
+                        "Dholuo": "Matin ne miyo 1 kuom 100 matiyo gi IUCD [koil] e higa biro mako ich ",
+                        "Kiswahili": "Chini ya mwanamke 1 kati ya 100 wanaotumia IUCD (coil) kwa mwaka mmoja watapata mimba."
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Daily Pills",
+                        "Dholuo": "Pills",
+                        "Kiswahili": "Vidonge vya kila siku"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "About 7 out of 100 women using daily pills for a year will become pregnant. ",
+                        "Dholuo": "Madirom mine 7 kuom 100 matiyo gi pills mapile ka pile e higa biro mako ich",
+                        "Kiswahili": "Takriban wanawake 7 kati ya 100 wanaotumia vidonge vya kila siku kwa mwaka watakuwa wajawazito."
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Male Condoms",
+                        "Dholuo": "Duong dichuo kapok uteroru",
+                        "Kiswahili": "Kondomu ya kiume"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "About 13 out of 100 women using male condoms for a year will become pregnant. ",
+                        "Dholuo": "Madirom mine 13 kuom 100 matiyo gi kondoms mar chuo e higa biro mako ich",
+                        "Kiswahili": "Takriban wanawake 13 kati ya 100 wanaotumia kondomu za kiume kwa mwaka mmoja watapata mimba."
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Female Condoms",
+                        "Dholuo": "Duong mine isoyo e duongni kapok iterori",
+                        "Kiswahili": "Kondomu ya kike"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "About 21 out of 100 women using female condoms for a year will become pregnant. ",
+                        "Dholuo": "Madirom mine 21 kuom 100 matiyo gi kondoms mar mine e higa biro mako ich",
+                        "Kiswahili": "Takriban wanawake 21 kati ya 100 wanaotumia kondomu za kike kwa mwaka mmoja watapata mimba."
+                    }
+                }
+            ],
+            "hidden": false
+        },
+        {
+            "id": "Can I keep it private?",
+            "icon": "noun-private-3465156.png",
+            "title": {
+                "English": "Can I keep it private?",
+                "Dholuo": "Bende anyalo kete mopondo?",
+                "Kiswahili": "Je, ninaweza kuiweka kwa usiri?"
+            },
+            "content": [
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Implant",
+                        "Dholuo": "Implant",
+                        "Kiswahili": "Implant"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "Some people find the implant very private, but it is possible that partners or others could feel the implant when touching your upper arm, or could see the bandage or small scar after the implant is placed. ",
+                        "Dholuo": "Jomoko nenoga ni Implant en yor komo nyuol ma opondo, to en gima nyalore ni johera kata jomoko nyalo winjo implant ka gimulo malo mar badi, kata nyalo neno bandej kata mbala matin bang koseket implant. ",
+                        "Kiswahili": "Baadhi ya watu wanaona kuwa Implant ni cha faragha sana, lakini inawezekana kwamba wenzi au wengine wanaweza kuhisi Implant wakati wa kugusa mkono wako wa juu, au wanaweza kuona bandeji au kovu dogo baada ya kuwekewa."
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Depo",
+                        "Dholuo": "Depo",
+                        "Kiswahili": "Depo"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "The injection (depo) is one of the most private methods, as once you are injected, no one can see or know the method is in your body and you do not need to take anything home. You will need to get an injection every 3 months at a clinic or pharmacy though, which could be hard to explain to others. ",
+                        "Dholuo": "Sindan [Depo] en achiel kuom yore mag komo nyuol ma opondo, nikech kosechuoyi, onge ng'ama nyalo nene kata ng'eyo ni yath nitie e dendi kendo onge gima dwarore ni idhi godo dala. Biro dwarore ni ochuoyi sindan ban dweche 3 ka dweche 3 e klinik kata e od yath, ma nyako bedoni matek lero ne jomoko. ",
+                        "Kiswahili": "Sindano (depo) ni moja ya njia za kibinafsi, kwani mara tu unapochomwa, hakuna mtu anayeweza kuona au kujua njia hiyo iko kwenye mwili wako na hauitaji kupeleka chochote nyumbani. Utahitaji kupata sindano kila baada ya miezi 3 kwenye kliniki au duka la dawa, ambayo inaweza kuwa ngumu kuelezea kwa wengine."
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "IUCD",
+                        "Dholuo": "IUCD",
+                        "Kiswahili": "IUCD"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "The IUCD (coil) is one of the most private methods, as you cannot see it or know it is there after it is placed in the womb or uterus. Only the strings are outside of the womb, and they are hidden inside the vagina. Most partners cannot feel the strings if they do not know the IUCD is there. Some partners might complain of pinching or poking during sex. ",
+                        "Dholuo": "IUCD [koil] en achiel kuom yore mag komo nyuol mopondo, nikech ok inyal nene kata ng'eyo ni en tie bang ka osesoye e ofuko mar nyuol. Mana tonde ema ni oko mar ofuko nyuol, kendo gipondo ei duong miyo. Ng'eny johera ok nyal winjo tonde ka gikia ni IUCD nitie eiye kanyo, Johera moko nyalo winjo ka nitie dhuno kata chuopo ekinde ma ubedo e achiel.",
+                        "Kiswahili": "IUCD (coil) ni mojawapo ya njia za faragha, kwani huwezi kuiona au kujua iko baada ya kuwekwa kwenye tumbo la uzazi au uterasi. Ni nyuzi tu ziko nje ya tumbo la uzazi, na zimefichwa ndani ya uke. Washirika wengi hawawezi kuhisi nyuzi ikiwa hawajui IUCD iko. Wapenzi wengine wanaweza kulalamika kwa kubana au kuchomwa wakati wa ngono."
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Daily Pills",
+                        "Dholuo": "Pills",
+                        "Kiswahili": "Vidonge vya kila siku"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "It is possible to keep daily pills private from people who do not stay with you, but a partner or someone else could find them at your home or in your purse. You need to take a pill every day, so if you go boarding school or travel somewhere else you need to bring pills with you. ",
+                        "Dholuo": "En gima nyalore mondo iti gi pills ma pile ka pile mopondo ma joma ok odak kodi ok ng'e, to jaherani kata ng'at machielo nyalo yudogi ei ot kata e kibetini. Dwarore ni imuony pill achiel pile ka pile, koro ka idhi e boarding school kata idhi e wuoth kamachielo nyaka iting pills. ",
+                        "Kiswahili": "Inawezekana kuweka tembe za kila siku kuwa za faragha kutoka kwa watu ambao hawakai na wewe, lakini mpenzi au mtu mwingine anaweza kuzipata nyumbani kwako au kwenye mkoba wako. Unahitaji kumeza kidonge kila siku, kwa hivyo ukienda shule ya bweni au kusafiri mahali pengine unahitaji kuja na vidonge."
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Emergency Pills",
+                        "Dholuo": "Emergency Pills",
+                        "Kiswahili": "Vidonge vya dharura"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "The E-pill is easy to keep private, except for the fact that you have to go and buy it. You can take it right after you buy it and no one can know that you used it, since it is one or two pills taken at the same time and there is nothing you have to bring home.",
+                        "Dholuo": "E-pill yot mondo iti godo e yo mopondo, makmana en adiera ni nyaka idhi ing'iewe. Inyalo muonye bang nyiewe sano sano kendo onge ng'ama nyalo ng'eyo ni ne itiyo kode, nikech en adila achiel kata ariyo ma imuonyo dichiel kanyakla kendo onge gima nyaka iting' idhi godo dala.  ",
+                        "Kiswahili": "E-pill ni rahisi kuweka faragha, isipokuwa kwa ukweli kwamba una kwenda na kununua. Unaweza kuinywa mara tu baada ya kuinunua na hakuna mtu anayeweza kujua kuwa umeitumia, kwa kuwa ni kidonge kimoja au mbili zilizochukuliwa kwa wakati mmoja na hakuna chochote unachopaswa kuleta nyumbani."
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Male Condoms",
+                        "Dholuo": "Duong dichuo kapok uteroru",
+                        "Kiswahili": "Kondomu ya kiume"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "Obviously...you won't be able to keep condom use private from your partner when he is the one who wears the condom! Even when you want to use a condom, it can be difficult if your partner doesn't want to. You can keep this method private from others, unless they find one at your home or in your purse.",
+                        "Dholuo": "En gima ong'ere... ok ibi nyalo tiyo gi rabo yunga e yo mopondo majaherani ok ong'eyo nikech en ema orwako rabo yunga! Kata ka idwaro tiyo gi rabo yunga, nyalo bedo matek ka jaherano ok dwar. Inyalo tiyo gi rabo yunga ma ji ok ong'eyo, mak mana ka giyude ei odi kata ei kibetini ",
+                        "Kiswahili": "Ni wazi...hutaweza kuweka matumizi ya kondomu kuwa siri kutoka kwa mpenzi wako wakati yeye ndiye anayevaa kondomu! Hata unapotaka kutumia kondomu, inaweza kuwa vigumu ikiwa mpenzi wako hataki. Unaweza kuweka njia hii kuwa ya faragha kutoka kwa watu wengine, isipokuwa waipate nyumbani kwako au kwenye mkoba wako."
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Female Condoms",
+                        "Dholuo": "Duong mine isoyo e duongni kapok iterori",
+                        "Kiswahili": "Kondomu ya kike"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "Female condoms will probably be noticed by your partner, since they are visible on the outside, you can often feel them during sex, and they can make a sound during sex. You can keep this method private from others, unless they find one at your home or in your purse.  ",
+                        "Dholuo": "Kondom mar joma mine ibiro ne gi jaherani, nikech gin gik ma inyalone gioko, inyako winjonjgi ekinde terruok, kendo ginyalo goyo koko ekinde terruok. Inyalo tiyo gi yorni e yo ma opondo ma jok ma moko ok ong'eyo, mak mana ka ng'ato oyudogi e odi kata e kibetini",
+                        "Kiswahili": "Kondomu za kike labda zitatambuliwa na mpenzi wako, kwa kuwa zinaonekana kwa nje, mara nyingi unaweza kuzihisi wakati wa ngono, na zinaweza kutoa sauti wakati wa ngono. Unaweza kuweka njia hii kuwa ya faragha kutoka kwa watu wengine, isipokuwa waipate nyumbani kwako au kwenye mkoba wako."
+                    }
+                }
+            ],
+            "hidden": false
+        },
+        {
+            "id": "What if I'm ready to have a baby?",
+            "icon": "noun-pregnant-woman-1294199-FF59B9.png",
+            "title": {
+                "English": "What if I'm ready to have a baby?",
+                "Dholuo": "To ka ayikora mar mako ich to?",
+                "Kiswahili": "Je, itakuaje ikiwa niko tayari kupata mtoto?"
+            },
+            "content": [
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Implant",
+                        "Dholuo": "Implant",
+                        "Kiswahili": "Implant"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "A few days after having the implant removed, your body will return to your normal level of fertility. This it true whether or not you have ever had a pregnancy or a birth. So, when you are ready for a pregnancy, you can just have the implant removed! ",
+                        "Dholuo": "Ndalo machuok bang golo implant, dendi biro dok kaka ne entie e thuolo mar mako ich. Ma en adier kata bed ni ne pok imako ich kata nyuol. Koro ka iseyikori mar mako ich, inyalo mana dhi mondo ogolni Implant.",
+                        "Kiswahili": "Siku chache baada ya implant kuondolewa, mwili wako utarudi kwenye kiwango chako cha kawaida cha uzazi. Hii ni kweli ikiwa umewahi kupata ujauzito au kuzaliwa. Kwa hiyo, unapokuwa tayari kwa mimba, unaweza tu kuondoa implant!"
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Depo",
+                        "Dholuo": "Depo",
+                        "Kiswahili": "Depo"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "Using the injection (depo) is not harmful to your future ability to get pregnant - even if you have never had a pregnancy, or your periods stop. If you want to get pregnant, stop getting the injection and let it wear off. Most people return to their normal fertility soon after the next injection was due, but for some people it takes longer, up to about 6 months. If you want to get pregnant in the next 6 months, a different method might be a better choice for you.",
+                        "Dholuo": "Tiyo gi sindan [Depo] ok kel hinyruok e nyaloni mar mako ich e ndalo mabiro - kata ka pok ne imako ich, kata remo mar dwe ochung. ka idwaro mako ich, we dhi e sindan aeto irit orum e dendi. Ng'eny ji dok e nyalogi mar mako ich ndalo matin kapok oromo chieng gi mar dok e sindan machielo, to ne joma moko nyalo kao thuolo malach, kata nyaka dweche 6. Ka idwaro mako ich e dweche 6 mabiro, yo machielo mar geng'o ich nyalo bedo yiero maber ne in. ",
+                        "Kiswahili": "Kutumia sindano (depo) sio hatari kwa uwezo wako wa baadaye wa kupata mimba - hata kama hujawahi kupata mimba, au hedhi zako zitakoma. Ikiwa unataka kupata mjamzito, acha kupata sindano na uiruhusu kuzima. Watu wengi hurudi kwenye uwezo wao wa kushika mimba mara tu baada ya kudungwa sindano inayofuata, lakini kwa baadhi ya watu huchukua muda mrefu zaidi, hadi takriban miezi 6. Ikiwa unataka kupata mimba katika miezi 6 ijayo, njia tofauti inaweza kuwa chaguo bora kwako."
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "IUCD",
+                        "Dholuo": "IUCD",
+                        "Kiswahili": "IUCD"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "You can get pregnant right away after having an IUCD (coil) removed! So it's OK to use the IUCD until you want to have a pregnancy. The IUCD has no hormones in it, so once it is removed, you are good to go!",
+                        "Dholuo": "Inyalo mako ich mapiyo bang ka igolo IUCD [koil]! Koro en gima ni kare tiyo gi IUCD nyaka kinde ma idwaro make ich. IUCD onge gi homons kuome, koro bang ka isegole, to in mana kare dhi nyime!",
+                        "Kiswahili": "Unaweza kupata mimba mara moja baada ya kuondolewa kwa IUCD (coil)! Kwa hivyo ni sawa kutumia IUCD hadi utakapotaka kupata ujauzito. IUCD haina homoni ndani yake, hivyo mara tu inapoondolewa, ni vizuri kwenda!"
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Daily Pills",
+                        "Dholuo": "Pills",
+                        "Kiswahili": "Vidonge vya kila siku"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "A few days after stopping daily pills, your body will return to your normal level of fertility. Even if you have never had a pregnancy, or if use pills for many years, it will not be more difficult to get pregnant later using pills.",
+                        "Dholuo": "Ndalo machuok bang weyo muonyo pills mapile ka pile, dendi biro dok e nyaloni mar mako ich mapile. Kata ka pok ne imakoga ich, kata ka isetiyo gi pills kuom higni mang'eny, ok bi bedo matek mako ich e ndalo mabiro ka itiyo gi pills. ",
+                        "Kiswahili": "Siku chache baada ya kuacha dawa za kila siku, mwili wako utarudi kwenye kiwango chako cha kawaida cha uzazi. Hata kama hujawahi kupata mimba, au ikiwa unatumia vidonge kwa miaka mingi, haitakuwa vigumu zaidi kupata mimba baadaye kwa kutumia vidonge."
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Emergency Pills",
+                        "Dholuo": "Emergency Pills",
+                        "Kiswahili": "Vidonge vya dharura"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "The E-pill is very short-acting. Even if you take it a lot, it won't make you less able to get pregnant in the future. The E-pill doesn't damage your body in any way, but also does not work well to prevent pregnancy with regular use. ",
+                        "Dholuo": "E-pill en yath matiyo e kinde matin. Kata ka imuonyo mang'eny, ok obi miyo ibed ni ok inyal mako ich e ndalo mabiro. E-pill ok keth dendi e yo moro amora, to bende ok oti maber e gengo ich ka itiyo kode anuoya.",
+                        "Kiswahili": "E-pill ni ya muda mfupi sana. Hata ukiichukua sana, haitakufanya ushindwe kupata mimba katika siku zijazo. E-pill haidhuru mwili wako kwa njia yoyote, lakini pia haifanyi kazi vizuri kuzuia mimba kwa matumizi ya kawaida."
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Condoms",
+                        "Dholuo": "Duong dichuo kapok uteroru",
+                        "Kiswahili": "Duong"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "Condoms have no effect on your body other than to block your partner's sperm from going inside your body. If you use condoms and are ready to have a baby, you can just stop using them. Keep in mind, though, that if you stop using condoms you won't be protected from HIV or other STIs. ",
+                        "Dholuo": "Rabo yunga onge gi rach moro amora e dendi kopogore gi geng'o pi nyodo mar jaherani donjo ei dendi. Ka itiyo gi rabo yunga kendo iyikori mar yudo nyathi, inyalo mana weyo tiyo kodgi. Ng'e gi pachi ni, ka iweyo tiyo gi rabo yunga ok ibi bedo ni igeng'ori kuom yudo kute mag ayaki kata nyae mamoko. ",
+                        "Kiswahili": "Kondomu haina athari kwenye mwili wako zaidi ya kuzuia mbegu za mpenzi wako kuingia ndani ya mwili wako. Ikiwa unatumia kondomu na uko tayari kupata mtoto, unaweza kuacha tu kuzitumia. Kumbuka, hata hivyo, kwamba ukiacha kutumia kondomu huwezi kulindwa dhidi ya Virusi Vya Ukimwi au magonjwa mengine ya zinaa."
+                    }
+                },
+                {
+                    "content-type": "Heading",
+                    "content": {
+                        "English": "Are you ready?",
+                        "Dholuo": "Iyikori?",
+                        "Kiswahili": "Uko tayari?"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "If you are trying to become pregnant or are having unprotected sex, taking a multivitamin can help prevent pregnancy problems. You can ask a pharmacist or provider about the best options.",
+                        "Dholuo": "Ka itemo mako ich kata ibedo e achiel maonge rabo yunga, muonyo multivitamin nyalo konyi geng'o chandruok mag ich. inyalo penjo jatij od yath kata jachiw thieth ewi yo maber.  ",
+                        "Kiswahili": "Ikiwa unajaribu kuwa mjamzito au unajamiiana bila kinga, kuchukua multivitamini kunaweza kusaidia kuzuia shida za ujauzito. Unaweza kuuliza mfamasia au mtoa huduma kuhusu chaguo bora zaidi."
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "To make your pregnancy as healthy as possible, talk to a provider about any health conditions you have or medications you are taking. It is important to stop drinking alcohol or using any drugs.",
+                        "Dholuo": "Mondo imi ich ma in godo obed man gi ngima maber kaka nyalore, wuo gi jachiw thieth ni ewi tuo moro amora ma in godo kata yedhe ma imuonyo. en gima ber weyo madho kong'o kata tiyo gi yedhe mamero ji moro amora",
+                        "Kiswahili": "Ili kufanya ujauzito wako kuwa yenye afya nzuri uwezekanavyo, zungumza na mtoa huduma kuhusu hali yoyote ya afya uliyo nayo au dawa unazotumia. Ni muhimu kuacha kunywa pombe au kutumia dawa yoyote."
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "When you miss a period, it is a good idea to take a pregnancy test. You can pick one up at a pharmacy or go to a clinic. Starting antenatal care early and attending all your visits is a good foundation for a healthy pregnancy!",
+                        "Dholuo": "Ka ok ineno rembi mar dwe, en gima ber mondo ipim ich. Inyalo kao gir pim moro achiel e od yath kata idhi e klinik. Chako klinik mar mine mapek chon kendo dhi e limbeni te en chakruok maber ne ich man gi ngima. ",
+                        "Kiswahili": "Unapokosa hedhi, ni vyema ukapima ujauzito. Unaweza kuchukua moja kwenye duka la dawa au kwenda kliniki. Kuanza huduma katika ujauzito mapema na kuhudhuria ziara zako zote ni msingi mzuri wa ujauzito wenye afya!"
+                    }
+                },
+                {
+                    "content-type": "Text",
+                    "content": {
+                        "English": "Take care of yourself. Get enough sleep, eat fruits and vegetables, and see a provider throughout your pregnancy. You deserve it!",
+                        "Dholuo": "Ritri. Yud nindo moromo, cham olemo kod alode, kendo ine jachiw thieth ekindeni ma in gi ich. Ibergo!",
+                        "Kiswahili": "Jitunze. Pata usingizi wa kutosha, kula matunda na mboga mboga, na umwone mhudumu katika kipindi chote cha ujauzito wako. Unastahili!"
+                    }
+                }
+            ],
+            "hidden": false
+        },
+        {
+            "id": "Summary - Implant",
+            "icon": "info-icon.png",
+            "title": {
+                "English": "Summary Page - The Implant",
+                "Dholuo": "Summary Page - The Implant",
+                "Kiswahili": "Summary Page - The Implant"
+            },
+            "content": [
+                {
+                    "content-type": "IconSubheading",
+                    "content": {
+                        "English": {
+                            "path": "noun-contraceptive-implant-2860656.svg",
+                            "subheading": "(Nexplanon, Jadelle)"
+                        },
+                        "Dholuo": {
+                            "path": "noun-contraceptive-implant-2860656.svg",
+                            "subheading": "(Nexplanon, Jadelle)"
+                        },
+                        "Kiswahili": {
+                            "path": "noun-contraceptive-implant-2860656.svg",
+                            "subheading": "(Nexplanon, Jadelle)"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-birth-control-2223575.png",
+                            "text": "The implant is a tiny plastic rod (or rods) about the size of a match that is placed under the skin of your upper arm by a health provider. The rods contain hormone medication. If you want to, you can feel the rod(s) under the skin. Nexplanon has 1 rod, and Jadelle has 2. Its side effects include changes to your periods. The implant does not cause weight gain or loss."
+                        },
+                        "Dholuo": {
+                            "path": "noun-birth-control-2223575.png",
+                            "text": "Implant en kede mar plastik matin machiegni rom gi yadh kibrit ma isoyo e bwo pien e bat mamalo gi jachiw thieth. Kede no oting'o yath mar homons. Ka idwaro, inyalo mule e bwo pien. Nexplanon nigi kede 1, kendo Jadelle nigi kede 2. Rachne ma otudore gi tiyo kode oriwo lokruok e remo dwe. Implant ok kel medruok e ratil mar del kata wito ratil mar del."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-birth-control-2223575.png",
+                            "text": "Implant ni fimbo ndogo ya plastiki (au vijiti) yenye ukubwa wa kiberiti ambayo huwekwa chini ya ngozi ya mkono wako wa juu na mhudumu wa afya. Vijiti vina dawa za homoni. Ikiwa unataka, unaweza kuhisi fimbo chini ya ngozi. Nexplanon ina fimbo 1, na Jadelle ina 2. Madhara yake ni pamoja na mabadiliko ya vipindi vyako. Implant hakisababishi kupata au kupunguza uzito."
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-period-5876442.png",
+                            "text": "Your period will most likely become lighter, and might not come on a usual schedule. You might stop having periods at all while you are using the implant. This is normal and healthy while using the implant, because of the way the method works with your body. If your periods are usually heavy, this might be a good thing."
+                        },
+                        "Dholuo": {
+                            "path": "noun-period-5876442.png",
+                            "text": "Rembi mar dwe biro bedo matin, kendo samoro ok bi biro kaka ochan. Inyalo weyo bedo gi remb dwe chutho ekinde ma itiyo gi implant. Ma en gima timore kendo gima ber ekinde ma itiyo gi implant, nikech kaka yor komo nyuol tiyo e dendi. Ka rembi mar dwe biro ga mang'eny, ma nyalo bedo gima ber."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-period-5876442.png",
+                            "text": "Kuna uwezekano mkubwa kwamba damu yako ya hedhi kitapungua, na huenda kisije kwa ratiba ya kawaida. Unaweza kuacha kupata hedhi wakati unatumia implant. Hii ni ya kawaida na yenye afya wakati wa kutumia implant, kwa sababu ya jinsi njia hiyo inavyofanya kazi na mwili wako. Ikiwa hedhi yako ni nzito, hii inaweza kuwa jambo zuri."
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-calendar-6540804.png",
+                            "text": "The implant lasts for 3 years (Nexplanon) or 5 years (Jadelle), depending on which type you get. If you don't like it or you want to get pregnant, you can have it removed whenever you want - you don't have to wait 3-5 years!"
+                        },
+                        "Dholuo": {
+                            "path": "noun-calendar-6540804.png",
+                            "text": "Implant kao higni 3 [Nexplanon] kata higni 5 [Jadelle], kaluwore gi kido ma iyudo. Ka ok ihere kata idwaro mako ich, inyalo gole saa asaya ma idwaro - ok ochuno ni nyaka irit higni 3-5"
+                        },
+                        "Kiswahili": {
+                            "path": "noun-calendar-6540804.png",
+                            "text": "Implant hudumu kwa miaka 3 (Nexplanon) au miaka 5 (Jadelle), kulingana na aina gani unayopata. Ikiwa hupendi au unataka kupata mimba, unaweza kuiondoa wakati wowote unapotaka - huna kusubiri miaka 3-5!"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-chance-224103.png",
+                            "text": "The implant is one of the most effective methods. Fewer than 1 in 100 women using the implant for a year will become pregnant."
+                        },
+                        "Dholuo": {
+                            "path": "noun-chance-224103.png",
+                            "text": "Implant en achiel kuom yore matiyo matiyo maber e geng'o ich. Matin ne miyo 1 kuom 100 matiyo gi implant e higa biro mako ich"
+                        },
+                        "Kiswahili": {
+                            "path": "noun-chance-224103.png",
+                            "text": "Implant ni mojawapo ya njia zenye ufanisi zaidi. Chini ya mwanamke 1 kati ya 100 wanaotumia kipandikizi kwa mwaka mmoja watapata ujauzito."
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-private-3465156.png",
+                            "text": "Some people find the implant very private, but it is possible that partners or others could feel the implant when touching your upper arm, or could see the bandage or small scar after the implant is placed."
+                        },
+                        "Dholuo": {
+                            "path": "noun-private-3465156.png",
+                            "text": "Jomoko nenoga ni Implant en yor komo nyuol ma opondo, to en gima nyalore ni johera kata jomoko nyalo winjo implant ka gimulo malo mar badi, kata nyalo neno bandej kata mbala matin bang koseket implant."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-private-3465156.png",
+                            "text": "Baadhi ya watu wanaona kuwa Implant ni cha faragha sana, lakini inawezekana kwamba wenzi au wengine wanaweza kuhisi Implant wakati wa kugusa mkono wako wa juu, au wanaweza kuona bandeji au kovu dogo baada ya kuwekewa."
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-pregnant-woman-1294199-FF59B9.png",
+                            "text": "This method must must be removed by a provider. Your fertility will return to normal within a few days of removal."
+                        },
+                        "Dholuo": {
+                            "path": "noun-pregnant-woman-1294199-FF59B9.png",
+                            "text": "Yor ni nyaka gol gi jachiw thieth. Nyaloni mar mako ich biro duogo kaka chon kuom ndalo matin bang gole."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-pregnant-woman-1294199-FF59B9.png",
+                            "text": "Njia hii lazima iondolewe na mtoaji. Uwezo wako wa kuzaa utarudi kwa kawaida ndani ya siku chache baada ya kuondolewa."
+                        }
+                    }
+                }
+            ],
+            "hidden": true
+        },
+        {
+            "id": "Summary - Injection",
+            "icon": "info-icon.png",
+            "title": {
+                "English": "Summary Page - Injection",
+                "Dholuo": "Summary Page - Injection",
+                "Kiswahili": "Summary Page - Injection"
+            },
+            "content": [
+                {
+                    "content-type": "IconSubheading",
+                    "content": {
+                        "English": {
+                            "path": "noun-injection-6497682.svg",
+                            "subheading": "(depo)"
+                        },
+                        "Dholuo": {
+                            "path": "noun-injection-6497682.svg",
+                            "subheading": "(depo)"
+                        },
+                        "Kiswahili": {
+                            "path": "noun-injection-6497682.svg",
+                            "subheading": "(depo)"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-birth-control-2223575.png",
+                            "text": "The injection, or depo, is an injection containing hormones given in your arm or buttock. Side effects include changes to your period, and some people experience weight gain or mood changes."
+                        },
+                        "Dholuo": {
+                            "path": "noun-birth-control-2223575.png",
+                            "text": "Sindan, kata depo, en sindan ma oting'o homons ma ichuoyo e bat kata e sianda. Rach motudore gi tiyo kode oriwo lokruok e chwer mar rembi mar dwe, kendo jomoko bedo gi medruok e ratil mar del kata lokruok e chuny kaka ng'ato winjo."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-birth-control-2223575.png",
+                            "text": "Sindano, au depo, ni sindano iliyo na homoni inayotolewa kwenye mkono au kitako chako. Madhara ni pamoja na mabadiliko katika kipindi chako, na watu wengine hupata uzito au mabadiliko ya hisia."
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-period-5876442.png",
+                            "text": "Your period will most likely become lighter, and might not come on a usual schedule. You might stop having periods at all while you are using depo. This is normal and healthy while using depo, because of the way the method works with your body."
+                        },
+                        "Dholuo": {
+                            "path": "noun-period-5876442.png",
+                            "text": "Chwer rembi mar dwe biro bedo matin, kendo ok bi biro kaka pile. Inyalo weyo bedo gi chwer mar remb dwe chutho ekinde ma itiyo gi Depo. Ma en gima timore kendo ber ekinde ma itiyo gi depo, nikech kaka yor no tiyo e dendi."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-period-5876442.png",
+                            "text": "Kuna uwezekano mkubwa kwamba kipindi chako kitapungua, na huenda kisije kwa ratiba ya kawaida. Unaweza kuacha kupata hedhi wakati unatumia depo. Hii ni kawaida na yenye afya wakati wa kutumia depo, kwa sababu ya jinsi njia inavyofanya kazi na mwili wako."
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-calendar-6540804.png",
+                            "text": "The injection (depo) lasts for 3 months. If you are more than 2 weeks late for your next shot, you can get pregnant, so it is good to stay on schedule if you want to prevent pregnancy!"
+                        },
+                        "Dholuo": {
+                            "path": "noun-calendar-6540804.png",
+                            "text": "Sindan [Depo] bet e del kuom dweche 3. Ka ileo gi jumbe 2 yudo sindan machielo, inyalo mako ich, koro ber mondo irit tarik mochiki e dok e sindan ka idwaro geng'o ich!"
+                        },
+                        "Kiswahili": {
+                            "path": "noun-calendar-6540804.png",
+                            "text": "Sindano (depo) hudumu kwa miezi 3. Ikiwa umechelewa kwa zaidi ya wiki 2 kwa picha yako inayofuata, unaweza kupata mimba, kwa hivyo ni vizuri kukaa kwenye ratiba ikiwa unataka kuzuia mimba!"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-chance-224103.png",
+                            "text": "Depo is a very effective method. About 4 out of 100 women using the injection (depo) for a year will become pregnant."
+                        },
+                        "Dholuo": {
+                            "path": "noun-chance-224103.png",
+                            "text": "Depo en yo matiyo maber ahinya. Madirom mine 4 kuom 100 matiyo gi sindan ]depo] e higa biro mako ich."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-chance-224103.png",
+                            "text": "Depo ni njia nzuri sana. Takriban wanawake 4 kati ya 100 wanaotumia sindano (depo) kwa mwaka watakuwa wajawazito."
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-private-3465156.png",
+                            "text": "The injection (depo) is one of the most private methods, as once you are injected, no one can see or know the method is in your body and you do not need to take anything home. You will need to get an injection every 3 months at a clinic or pharmacy though, which could be hard to explain to others."
+                        },
+                        "Dholuo": {
+                            "path": "noun-private-3465156.png",
+                            "text": "Sindan [Depo] en achiel kuom yore mag komo nyuol ma opondo, nikech kosechuoyi, onge ng'ama nyalo nene kata ng'eyo ni yath nitie e dendi kendo onge gima dwarore ni idhi godo dala. Biro dwarore ni ochuoyi sindan ban dweche 3 ka dweche 3 e klinik kata e od yath, ma nyako bedoni matek lero ne jomoko."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-private-3465156.png",
+                            "text": "Sindano (depo) ni moja ya njia za kibinafsi, kwani mara tu unapochomwa, hakuna mtu anayeweza kuona au kujua njia hiyo iko kwenye mwili wako na hauitaji kupeleka chochote nyumbani. Utahitaji kupata sindano kila baada ya miezi 3 kwenye kliniki au duka la dawa, ambayo inaweza kuwa ngumu kuelezea kwa wengine."
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-pregnant-woman-1294199-FF59B9.png",
+                            "text": "If you want to get pregnant, stop getting the injection and let it wear off. Most people return to their normal fertility soon after the next injection was due, but for some people it takes longer, up to about 6 months."
+                        },
+                        "Dholuo": {
+                            "path": "noun-pregnant-woman-1294199-FF59B9.png",
+                            "text": "Ka idwaro mako ich, we dhi e sindan bange obiro rumo e dendi. Ng'eny ji dok e nyalogi mar moko ich machiegni bang weyo dhi e sindan machielo, to ne joma moko nyalo kao kinde mang'eny, nyaka madirom dweche 6."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-pregnant-woman-1294199-FF59B9.png",
+                            "text": "Ikiwa unataka kupata mjamzito, acha kupata sindano na uiruhusu kuzima. Watu wengi hurudi kwenye uwezo wao wa kushika mimba mara tu baada ya kudungwa sindano inayofuata, lakini kwa baadhi ya watu huchukua muda mrefu zaidi, hadi takriban miezi 6."
+                        }
+                    }
+                }
+            ],
+            "hidden": true
+        },
+        {
+            "id": "Summary - IUCD",
+            "icon": "info-icon.png",
+            "title": {
+                "English": "Summary Page - IUCD",
+                "Dholuo": "Summary Page - IUCD",
+                "Kiswahili": "Summary Page - IUCD"
+            },
+            "content": [
+                {
+                    "content-type": "IconSubheading",
+                    "content": {
+                        "English": {
+                            "path": "noun-iud-625586.svg",
+                            "subheading": "(coil)"
+                        },
+                        "Dholuo": {
+                            "path": "noun-iud-625586.svg",
+                            "subheading": "(coil)"
+                        },
+                        "Kiswahili": {
+                            "path": "noun-iud-625586.svg",
+                            "subheading": "(coil)"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-birth-control-2223575.png",
+                            "text": "The IUCD is small, T-shaped, and made out of plastic. It is placed into the womb (uterus) by a health provider to prevent pregnancy, and lasts up to 12 years. You can't feel it once it is in, and it does not have hormones. Side effects may include heavier and crampier periods."
+                        },
+                        "Dholuo": {
+                            "path": "noun-birth-control-2223575.png",
+                            "text": "IUCD en gima tin, en e kido mar T, kendo olose gi plastik. Ikete e ofuko mar nyuol gi jachiw thieth mondo ogeng ich, kendo okao nyaka higni 12. Ok inyal winje ka osesoye iye, bendo oonge gi homons. Rach motudore tiyo kode oriwo chwer mang'eny mar dwe kod rem mar piny ich."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-birth-control-2223575.png",
+                            "text": "IUCD ni ndogo, yenye umbo la T, na imetengenezwa kwa plastiki. Huwekwa kwenye tumbo la uzazi (uterasi) na mhudumu wa afya ili kuzuia mimba, na hudumu hadi miaka 12. Huwezi kuhisi ikiwa imeingia, na haina homoni. Madhara yanaweza kujumuisha vipindi vizito na vya kuuma."
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-period-5876442.png",
+                            "text": "The IUCD, or coil, will not change the timing of when your periods come. It might make your period flow heavier, and cause more cramping during your period."
+                        },
+                        "Dholuo": {
+                            "path": "noun-period-5876442.png",
+                            "text": "IUCD, kata koil, ok bi loko kinde ma rembi mar dwe bire. Onyalo miyo rembi mar dwe ochwe mang'eny, kendo kelo remo mar piny ich ekinde ma idhi e dwe."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-period-5876442.png",
+                            "text": "IUCD, au coil, haitabadilisha muda wa siku zako za hedhi. Inaweza kufanya mtiririko wako wa hedhi kuwa mzito zaidi, na kusababisha kubana zaidi wakati wa kipindi chako"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-calendar-6540804.png",
+                            "text": "The IUCD (coil) works for up to 12 years! Many people don't keep it in that long, and might just use it for a year or two. You can have the IUCD removed whenever you want, if you don't like it or want to get pregnant."
+                        },
+                        "Dholuo": {
+                            "path": "noun-calendar-6540804.png",
+                            "text": "IUCD [koil] tiyo nyaka higni 12! Ng'eny ji ok weye kanyo mang'eny kamano, kendo nyalo mana tiyo kode kuom higa kata higni ariyo. Inyalo golo IUCD saa asaya ma idwaro, ka ok idware kata idwaro mako ich."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-calendar-6540804.png",
+                            "text": "IUCD (coil) inafanya kazi hadi miaka 12! Watu wengi hawaihifadhi kwa muda mrefu hivyo, na wanaweza kuitumia kwa mwaka mmoja au miwili. Unaweza kuondoa IUCD wakati wowote unapotaka, ikiwa hupendi au unataka kupata mimba."
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-chance-224103.png",
+                            "text": "The IUCD is one of the most effective methods. Fewer than 1 in 100 women using the IUCD for a year will become pregnant."
+                        },
+                        "Dholuo": {
+                            "path": "noun-chance-224103.png",
+                            "text": "IUCD en achiel kuom yore matiyo maber ahinya. Matin ne miyo 1 kuom 100 matiyo gi IUCD e higa biro mako ich."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-chance-224103.png",
+                            "text": "IUCD ni mojawapo ya njia za ufanisi zaidi. Chini ya mwanamke 1 kati ya 100 wanaotumia IUCD kwa mwaka mmoja watapata mimba."
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-private-3465156.png",
+                            "text": "The IUCD (coil) is one of the most private methods, as you cannot see it or know it is there after it is placed in the womb or uterus. Only the strings are outside of the womb, and they are hidden inside the vagina. Most partners cannot feel the strings if they do not know the IUCD is there. Some partners might complain of pinching or poking during sex."
+                        },
+                        "Dholuo": {
+                            "path": "noun-private-3465156.png",
+                            "text": "IUCD [koil] en achiel kuom yore mag komo nyuol mopondo, nikech ok inyal nene kata ng'eyo ni en tie bang ka osesoye e ofuko mar nyuol. Mana tonde ema ni oko mar ofuko nyuol, kendo gipondo ei duong miyo. Ng'eny johera ok nyal winjo tonde ka gikia ni IUCD nitie eiye kanyo, Johera moko nyalo winjo ka nitie dhuno kata chuopo ekinde ma ubedo e achiel."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-private-3465156.png",
+                            "text": "IUCD (coil) ni mojawapo ya njia za faragha, kwani huwezi kuiona au kujua iko baada ya kuwekwa kwenye tumbo la uzazi au uterasi. Ni nyuzi tu ziko nje ya tumbo la uzazi, na zimefichwa ndani ya uke. Washirika wengi hawawezi kuhisi nyuzi ikiwa hawajui IUCD iko. Wapenzi wengine wanaweza kulalamika kwa kubana au kuchomwa wakati wa ngono."
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-pregnant-woman-1294199-FF59B9.png",
+                            "text": "The IUCD should be removed by a provider. You can get pregnant right away after having an IUCD (coil) removed!"
+                        },
+                        "Dholuo": {
+                            "path": "noun-pregnant-woman-1294199-FF59B9.png",
+                            "text": "IUCD onego gol gi jachiw thieth. Inyalo mako ich sano sano bang golo IUCD [koil]"
+                        },
+                        "Kiswahili": {
+                            "path": "noun-pregnant-woman-1294199-FF59B9.png",
+                            "text": "IUCD inapaswa kuondolewa na mtoa huduma. Unaweza kupata mimba mara moja baada ya kuondolewa kwa IUCD (coil)!"
+                        }
+                    }
+                }
+            ],
+            "hidden": true
+        },
+        {
+            "id": "Summary - Pills",
+            "icon": "info-icon.png",
+            "title": {
+                "English": "Summary Page - Pills",
+                "Dholuo": "Summary Page - Pills",
+                "Kiswahili": "Summary Page - Pills"
+            },
+            "content": [
+                {
+                    "content-type": "IconSubheading",
+                    "content": {
+                        "English": {
+                            "path": "noun-birth-control-pills-1496561 (1).svg",
+                            "subheading": "(Daily pills)"
+                        },
+                        "Dholuo": {
+                            "path": "noun-birth-control-pills-1496561 (1).svg",
+                            "subheading": "(Daily pills)"
+                        },
+                        "Kiswahili": {
+                            "path": "noun-birth-control-pills-1496561 (1).svg",
+                            "subheading": "(Daily pills)"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-birth-control-2223575.png",
+                            "text": "Daily pills contain hormones and need to be taken every day to prevent pregnancy. Side effects can include upset stomach and headache, but these usually go away after a couple months. Daily pills can improve pimples and help prevent some cancers."
+                        },
+                        "Dholuo": {
+                            "path": "noun-birth-control-2223575.png",
+                            "text": "Pills ma pile ka pile nigi homons kendo dwarore ni omuonygi pile ka pile mondo ogeng ich. Rach ma otudore gi muonye oriwo ich mokuot kod wichbar, to magi rumoga kendgi bang dweche matin. Pills ma imuonyo pile ka pile nyalo tieko kabirwa kendo koyo geng'o kansa moko."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-birth-control-2223575.png",
+                            "text": "Vidonge vya kila siku vina homoni na vinahitaji kuchukuliwa kila siku ili kuzuia mimba. Madhara yanaweza kujumuisha mshtuko wa tumbo na maumivu ya kichwa, lakini kawaida hupotea baada ya miezi michache. Vidonge vya kila siku vinaweza kuboresha chunusi na kusaidia kuzuia baadhi ya saratani."
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-period-5876442.png",
+                            "text": "When using daily pills, your period will usually come every month during the last week of the pills. You can start the pills at any time in your monthly cycle. Daily pills can help relieve heavy or painful periods, and do not usually cause much irregular bleeding."
+                        },
+                        "Dholuo": {
+                            "path": "noun-period-5876442.png",
+                            "text": "Ekinde ma itiyo gi pills ma pile ka pile, rembi mar dwe biroga biro dwe ka dwe e wik mogik mar muonyo pills. Inyalo chako muonyo pills e saa asaya e sako ni mar dwe. Pills ma imuonyo pile ka pile nyalo konyo reso remo mar dwe mabiro mang'eny kata remb dwe mabiro gi rem, kendo ok kel ga remb dwe mabiro ekinde ma ok achan."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-period-5876442.png",
+                            "text": "Unapotumia vidonge vya kila siku, hedhi yako itakuja kila mwezi wakati wa wiki ya mwisho ya vidonge. Unaweza kuanza tembe wakati wowote katika mzunguko wako wa kila mwezi. Vidonge vya kila siku vinaweza kusaidia kupunguza hedhi nzito au yenye uchungu, na sio kawaida kusababisha kutokwa na damu nyingi isiyo ya kawaida."
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-calendar-6540804.png",
+                            "text": "Daily pills need to be taken every day to prevent pregnancy. If you miss pills, your body might release an egg, and you could get pregnant. It can be helpful to take your daily pill as part of a routine, like right before you go to bed, or before you start your day in the morning."
+                        },
+                        "Dholuo": {
+                            "path": "noun-calendar-6540804.png",
+                            "text": "Pills ma pile ka pile onego muony pile ka pile mondo ogeng ich. Ka ok imuonyo pills, dendi nyalo golo tong, kendo inyalo mako ich. Nyalo bedo gima konyo ka imuonyo pills pile ka pile kaka gino ma iketo e chenro, kaka kapok idhi e kitanda, kata kapok ichako odiechiengi gokinyi."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-calendar-6540804.png",
+                            "text": "Vidonge vya kila siku vinahitaji kuchukuliwa kila siku ili kuzuia mimba. Ukikosa vidonge, mwili wako unaweza kutoa yai, na unaweza kupata mimba. Inaweza kusaidia kumeza kidonge chako cha kila siku kama sehemu ya utaratibu, kama vile kabla ya kulala, au kabla ya kuanza siku yako asubuhi."
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-chance-224103.png",
+                            "text": "About 7 out of 100 women using daily pills for a year will become pregnant."
+                        },
+                        "Dholuo": {
+                            "path": "noun-chance-224103.png",
+                            "text": "Madirom mine 7 kuom 100 matiyo gi pills mapile ka pile e higa biro mako ich"
+                        },
+                        "Kiswahili": {
+                            "path": "noun-chance-224103.png",
+                            "text": "Takriban wanawake 7 kati ya 100 wanaotumia vidonge vya kila siku kwa mwaka watakuwa wajawazito."
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-private-3465156.png",
+                            "text": "It is possible to keep daily pills private from people who do not stay with you, but a partner or someone else could find them at your home or in your purse. You need to take a pill every day, so if you go boarding school or travel somewhere else you need to bring pills with you."
+                        },
+                        "Dholuo": {
+                            "path": "noun-private-3465156.png",
+                            "text": "En gima nyalore mondo iti gi pills ma pile ka pile mopondo ma joma ok odak kodi ok ng'e, to jaherani kata ng'at machielo nyalo yudogi ei ot kata e kibetini. Dwarore ni imuony pill achiel pile ka pile, koro ka idhi e boarding school kata idhi e wuoth kamachielo nyaka iting pills."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-private-3465156.png",
+                            "text": "Inawezekana kuweka tembe za kila siku kuwa za faragha kutoka kwa watu ambao hawakai na wewe, lakini mpenzi au mtu mwingine anaweza kuzipata nyumbani kwako au kwenye mkoba wako. Unahitaji kumeza kidonge kila siku, kwa hivyo ukienda shule ya bweni au kusafiri mahali pengine unahitaji kuja na vidonge."
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-pregnant-woman-1294199-FF59B9.png",
+                            "text": "You can stop pills anytime on your own. A few days after stopping daily pills, your body will return to your normal level of fertility."
+                        },
+                        "Dholuo": {
+                            "path": "noun-pregnant-woman-1294199-FF59B9.png",
+                            "text": "Inyalo weyo muonyo pills saa asaya kendi. Ndalo matin bang weyo muonyo pills ma pile ka pile, dendi biro dok kaka ne en e nyaloni mar mako ich."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-pregnant-woman-1294199-FF59B9.png",
+                            "text": "Unaweza kuacha dawa wakati wowote peke yako. Siku chache baada ya kuacha dawa za kila siku, mwili wako utarudi kwenye kiwango chako cha kawaida cha uzazi."
+                        }
+                    }
+                }
+            ],
+            "hidden": true
+        },
+        {
+            "id": "Summary - Emergency Pills",
+            "icon": "info-icon.png",
+            "title": {
+                "English": "Summary Page - Emergency Pills",
+                "Dholuo": "Summary Page - Emergency Pills",
+                "Kiswahili": "Summary Page - Emergency Pills"
+            },
+            "content": [
+                {
+                    "content-type": "IconSubheading",
+                    "content": {
+                        "English": {
+                            "path": "noun-pills-3543720.svg",
+                            "subheading": "(E-pill, P2)"
+                        },
+                        "Dholuo": {
+                            "path": "noun-pills-3543720.svg",
+                            "subheading": "(E-pill, P2)"
+                        },
+                        "Kiswahili": {
+                            "path": "noun-pills-3543720.svg",
+                            "subheading": "(E-pill, P2)"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-birth-control-2223575.png",
+                            "text": "Emergency pills are used to prevent pregnancy AFTER having sex. They only work if your body hasn't already released an egg, so they are good in an emergency, but not as the method you use all the time. Typically, they come as 2 pills you swallow at the same time."
+                        },
+                        "Dholuo": {
+                            "path": "noun-birth-control-2223575.png",
+                            "text": "E-pills itiyo godo e geng'o ich BANG' bedo e achiel. Gitiyo mana ka dendi pok ogolo tong, koro giber tiyo godo e resruok, to ok kaka yori ma itiyo godo seche te. Ng'enyne, gibiro kaka pills 2 ma imuonyo dichiel kanyakla."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-birth-control-2223575.png",
+                            "text": "Vidonge vya dharura hutumika kuzuia mimba BAADA ya kujamiiana. Zinafanya kazi tu ikiwa mwili wako bado haujatoa yai, kwa hivyo ni nzuri katika dharura, lakini sio kama njia unayotumia kila wakati. Kwa kawaida, huja kama dawa 2 unazomeza kwa wakati mmoja."
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-period-5876442.png",
+                            "text": "E-pills might affect your period differently, depending on when you take them in your monthly cycle. Your period might come a bit later or a bit earlier than usual after taking E-pills. It is normal to have some light bleeding or drops of blood in your panties after taking E-pills."
+                        },
+                        "Dholuo": {
+                            "path": "noun-period-5876442.png",
+                            "text": "E-pill nyalo chacho rembi mar dwe mopogore, kaluwore ka chieng ma imuonye e sako ni mar dwe. Rembi mar dwe nyalo biro molewo matin kata chon matin moloyo kaka obiroga bang muonyo E-pill. En gima kare bedo gi remo machwer matin kata ton mar remo e siruachi bang muonyo E-pills."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-period-5876442.png",
+                            "text": "E-pill vinaweza kuathiri kipindi chako kwa njia tofauti, kulingana na wakati unavinywa katika mzunguko wako wa kila mwezi. Hedhi yako inaweza kuja baadaye kidogo au mapema kuliko kawaida baada ya kuchukua E-pills. Ni kawaida kutokwa na damu kidogo au matone ya damu kwenye chupi yako baada ya kumeza vidonge vya E-pill"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-calendar-6540804.png",
+                            "text": "The E-pill (P2) does not work for a particular length of time, but is meant to reduce the chance of pregnancy after having sex. Don't assume it is still going to work if you have sex again a day or two after taking the E-pill...it is better to use a different method as your regular method!"
+                        },
+                        "Dholuo": {
+                            "path": "noun-calendar-6540804.png",
+                            "text": "E-pill [P2] ok ti kuom kinde moko, to en mar duoko chien nyaloni mar mako ich bang bedo e achiel. Kik ipar ni podi odhi tiyo ka ibedo e achiel kendo odiechieng achiel kata ariyo bang muonyo E-pill... Ber mondo iti gi yo machielo kaka yori mapile mar geng'o ich!"
+                        },
+                        "Kiswahili": {
+                            "path": "noun-calendar-6540804.png",
+                            "text": "E-pill (P2) haifanyi kazi kwa muda fulani, lakini inakusudiwa kupunguza uwezekano wa kupata mimba baada ya kufanya ngono. Usifikiri kwamba bado itafanya kazi ikiwa utafanya ngono tena siku moja au mbili baada ya kumeza E-pill...ni bora kutumia njia tofauti kama njia yako ya kawaida!"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-chance-224103.png",
+                            "text": "How well the E-pill works to prevent pregnancy depends on a lot of things - how soon you take it after sex, and the timing in your monthly cycle. Take it as soon as possible after sex, and within 3 days."
+                        },
+                        "Dholuo": {
+                            "path": "noun-chance-224103.png",
+                            "text": "Kaka E-pill tiyo maber e geng'o ich luwore gi gik mang'eny - mapiyo mogik ma imuonye bang bedo e achiel, kod chiko kinde mar sako ni mar dwe. Muonye mapiya kaka nyalore bang bedo e achiel, kendo kapok ndalo 3 orumo."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-chance-224103.png",
+                            "text": "Jinsi E-pill inavyofanya kazi vizuri ili kuzuia mimba inategemea mambo mengi - ni muda gani unachukua baada ya ngono, na muda wa mzunguko wako wa kila mwezi. Ichukue haraka iwezekanavyo baada ya ngono, na ndani ya siku 3."
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-private-3465156.png",
+                            "text": "The E-pill is easy to keep private, except for the fact that you have to go and buy it. You can take it right after you buy it and no one can know that you used it, since it is one or two pills taken at the same time and there is nothing you have to bring home."
+                        },
+                        "Dholuo": {
+                            "path": "noun-private-3465156.png",
+                            "text": "E-pill yot mondo iti godo e yo mopondo, makmana en adiera ni nyaka idhi ing'iewe. Inyalo muonye bang nyiewe sano sano kendo onge ng'ama nyalo ng'eyo ni ne itiyo kode, nikech en adila achiel kata ariyo ma imuonyo dichiel kanyakla kendo onge gima nyaka iting' idhi godo dala."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-private-3465156.png",
+                            "text": "E-pill ni rahisi kuweka faragha, isipokuwa kwa ukweli kwamba una kwenda na kununua. Unaweza kuinywa mara tu baada ya kuinunua na hakuna mtu anayeweza kujua kuwa umeitumia, kwa kuwa ni kidonge kimoja au mbili zilizochukuliwa kwa wakati mmoja na hakuna chochote unachopaswa kuleta nyumbani."
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-pregnant-woman-1294199-FF59B9.png",
+                            "text": "The E-pill is very short-acting. Even if you take it a lot, it won't make you less able to get pregnant in the future. The E-pill doesn't damage your body in any way, but also does not work well to prevent pregnancy with regular use."
+                        },
+                        "Dholuo": {
+                            "path": "noun-pregnant-woman-1294199-FF59B9.png",
+                            "text": "E-pill en yath matiyo e kinde matin. Kata ka imuonyo mang'eny, ok obi miyo ibed ni ok inyal mako ich e ndalo mabiro. E-pill ok keth dendi e yo moro amora, to bende ok oti maber e gengo ich ka itiyo kode anuoya."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-pregnant-woman-1294199-FF59B9.png",
+                            "text": "E-pill ni ya muda mfupi sana. Hata ukiichukua sana, haitakufanya ushindwe kupata mimba katika siku zijazo. E-pill haidhuru mwili wako kwa njia yoyote, lakini pia haifanyi kazi vizuri kuzuia mimba kwa matumizi ya kawaida."
+                        }
+                    }
+                }
+            ],
+            "hidden": true
+        },
+        {
+            "id": "Summary - Male Condoms",
+            "icon": "info-icon.png",
+            "title": {
+                "English": "Summary Page - (male) Condoms",
+                "Dholuo": "Summary Page - (male) Condoms",
+                "Kiswahili": "Summary Page - (male) Condoms"
+            },
+            "content": [
+                {
+                    "content-type": "IconSubheading",
+                    "content": {
+                        "English": {
+                            "path": "noun-condom-1124679.svg",
+                            "subheading": "(Trust)"
+                        },
+                        "Dholuo": {
+                            "path": "noun-condom-1124679.svg",
+                            "subheading": "(Trust)"
+                        },
+                        "Kiswahili": {
+                            "path": "noun-condom-1124679.svg",
+                            "subheading": "(Trust)"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-birth-control-2223575.png",
+                            "text": "The male condom goes on over a man's penis before sex and keeps the sperm from going inside your body. This prevents pregnancy and also protects you from many STIs (infections you can get from sex, like HIV)."
+                        },
+                        "Dholuo": {
+                            "path": "noun-birth-control-2223575.png",
+                            "text": "Rabo yunga iruako e duong dichuo kapok uteroru kendo ogeng'o mondo pi nyodo kik donj e dendi. Ma geng'o ich kendo geng'i kuom tuoche mang'eny mag nyae [tuoche ma inyalo yudo e yor terruok, kaka kute mag ayaki."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-birth-control-2223575.png",
+                            "text": "Kondomu ya kiume huenda juu ya uume wa mwanamume kabla ya kujamiiana na kuzuia mbegu za kiume zisiingie ndani ya mwili wako. Hii inazuia mimba na pia hukukinga dhidi ya magonjwa mengi ya zinaa (maambukizi unayoweza kupata kutokana na kufanya ngono, kama vile virusi vya ukimwi)."
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-period-5876442.png",
+                            "text": "Using condoms will not affect your period at all!"
+                        },
+                        "Dholuo": {
+                            "path": "noun-period-5876442.png",
+                            "text": "Tiyo gi rabo yunga ok bi chacho rembi mar dwe kata matin"
+                        },
+                        "Kiswahili": {
+                            "path": "noun-period-5876442.png",
+                            "text": "Kutumia kondomu hakutaathiri hedhi yako hata kidogo!"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-calendar-6540804.png",
+                            "text": "To prevent pregnancy, you need to use a condom every time you have sex. It can be very challenging to predict your safe days, so condoms need to be used every time you have sex in order to work well."
+                        },
+                        "Dholuo": {
+                            "path": "noun-calendar-6540804.png",
+                            "text": "Mondo igeng ich, dwarore ni mondo iti gi rabo yunga kinde duto ma ibedo e achiel. Onyalo bedo gima pek ng'eyo kinde ma ionge thuolo mar mako ich, koro rabo yunga onego tigodo kinde duto ma ibedo e achiel mondo oti maber."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-calendar-6540804.png",
+                            "text": "Ili kuzuia mimba, unahitaji kutumia kondomu kila mara unapofanya ngono. Inaweza kuwa changamoto sana kutabiri siku zako salama, kwa hivyo kondomu zinahitajika kutumika kila wakati unapojamiiana ili kufanya kazi vizuri."
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-chance-224103.png",
+                            "text": "About 13 out of 100 women using male condoms for a year will become pregnant."
+                        },
+                        "Dholuo": {
+                            "path": "noun-chance-224103.png",
+                            "text": "Madirom mine 13 kuom 100 matiyo gi kondoms mar chuo e higa biro mako ich"
+                        },
+                        "Kiswahili": {
+                            "path": "noun-chance-224103.png",
+                            "text": "Takriban wanawake 13 kati ya 100 wanaotumia kondomu za kiume kwa mwaka mmoja watapata mimba."
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-private-3465156.png",
+                            "text": "Obviously...you won't be able to keep condom use private from your partner when he is the one who wears the condom! Even when you want to use a condom, it can be difficult if your partner doesn't want to. You can keep this method private from others, unless they find one at your home or in your purse."
+                        },
+                        "Dholuo": {
+                            "path": "noun-private-3465156.png",
+                            "text": "En gima ong'ere... ok ibi nyalo tiyo gi rabo yunga e yo mopondo majaherani ok ong'eyo nikech en ema orwako rabo yunga! Kata ka idwaro tiyo gi rabo yunga, nyalo bedo matek ka jaherano ok dwar. Inyalo tiyo gi rabo yunga ma ji ok ong'eyo, mak mana ka giyude ei odi kata ei kibetini"
+                        },
+                        "Kiswahili": {
+                            "path": "noun-private-3465156.png",
+                            "text": "Ni wazi...hutaweza kuweka matumizi ya kondomu kuwa siri kutoka kwa mpenzi wako wakati yeye ndiye anayevaa kondomu! Hata unapotaka kutumia kondomu, inaweza kuwa vigumu ikiwa mpenzi wako hataki. Unaweza kuweka njia hii kuwa ya faragha kutoka kwa watu wengine, isipokuwa waipate nyumbani kwako au kwenye mkoba wako."
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-pregnant-woman-1294199-FF59B9.png",
+                            "text": "Condoms have no effect on your body other than to block your partner's sperm from going inside your body. If you use condoms and are ready to have a baby, you can just stop using them. Keep in mind, though, that if you stop using condoms you won't be protected from HIV or other STIs."
+                        },
+                        "Dholuo": {
+                            "path": "noun-pregnant-woman-1294199-FF59B9.png",
+                            "text": "Rabo yunga onge gi rach moro amora e dendi kopogore gi geng'o pi nyodo mar jaherani donjo ei dendi. Ka itiyo gi rabo yunga kendo iyikori mar yudo nyathi, inyalo mana weyo tiyo kodgi. Ng'e gi pachi ni, ka iweyo tiyo gi rabo yunga ok ibi bedo ni igeng'ori kuom yudo kute mag ayaki kata nyae mamoko."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-pregnant-woman-1294199-FF59B9.png",
+                            "text": "Kondomu haina athari kwenye mwili wako zaidi ya kuzuia mbegu za mpenzi wako kuingia ndani ya mwili wako. Ikiwa unatumia kondomu na uko tayari kupata mtoto, unaweza kuacha tu kuzitumia. Kumbuka, hata hivyo, kwamba ukiacha kutumia kondomu huwezi kulindwa dhidi ya Virusi Vya Ukimwi au magonjwa mengine ya zinaa."
+                        }
+                    }
+                }
+            ],
+            "hidden": true
+        },
+        {
+            "id": "Summary - Female Condoms",
+            "icon": "info-icon.png",
+            "title": {
+                "English": "Summary Page - (female) Condoms",
+                "Dholuo": "Summary Page - (female) Condoms",
+                "Kiswahili": "Summary Page - (female) Condoms"
+            },
+            "content": [
+                {
+                    "content-type": "IconSubheading",
+                    "content": {
+                        "English": {
+                            "path": "noun-female-condom-5959600.png",
+                            "subheading": ""
+                        },
+                        "Dholuo": {
+                            "path": "noun-female-condom-5959600.png",
+                            "subheading": ""
+                        },
+                        "Kiswahili": {
+                            "path": "noun-female-condom-5959600.png",
+                            "subheading": ""
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-birth-control-2223575.png",
+                            "text": "The female condom is placed into your vagina before sex to keep the man's sperm from going inside your body, which prevents pregnancy and STIs (infections you can get from sex, like HIV). The end with the flexible plastic ring goes into the vagina. It is woman-controlled!"
+                        },
+                        "Dholuo": {
+                            "path": "noun-birth-control-2223575.png",
+                            "text": "Rabo duong mine isoyo e duongni kapok iterori mondo kik pi nyodo mar dichuo odonj e dendi, ma geng'o ich kod nyae [tuoche ma inyalo yudo e yor terruok, kaka kute mag ayaki]. Dhoge man gi plastik ma dudore machalo pete donjo e duong. En gima miyo ema ruako."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-birth-control-2223575.png",
+                            "text": "Kondomu ya kike huwekwa kwenye uke wako kabla ya kujamiiana ili kuzuia mbegu za kiume zisiingie ndani ya mwili wako, jambo ambalo huzuia mimba na magonjwa ya zinaa (maambukizi unayoweza kupata kutokana na kujamiiana, kama vile VVU). Mwisho na pete ya plastiki inayoweza kubadilika huenda kwenye uke. Inadhibitiwa na mwanamke!"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-period-5876442.png",
+                            "text": "Using condoms will not affect your period at all!"
+                        },
+                        "Dholuo": {
+                            "path": "noun-period-5876442.png",
+                            "text": "Tiyo gi rabo yunga ok bi chacho rembi mar dwe kata matin"
+                        },
+                        "Kiswahili": {
+                            "path": "noun-period-5876442.png",
+                            "text": "Kutumia kondomu hakutaathiri hedhi yako hata kidogo!"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-calendar-6540804.png",
+                            "text": "To prevent pregnancy, you need to use a condom every time you have sex. It can be very challenging to predict your safe days, so condoms need to be used every time you have sex in order to work well."
+                        },
+                        "Dholuo": {
+                            "path": "noun-calendar-6540804.png",
+                            "text": "Mondo igeng ich, dwarore ni mondo iti gi rabo yunga kinde duto ma ibedo e achiel. Onyalo bedo gima pek ng'eyo kinde ma ionge thuolo mar mako ich, koro rabo yunga onego tigodo kinde duto ma ibedo e achiel mondo oti maber."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-calendar-6540804.png",
+                            "text": "Ili kuzuia mimba, unahitaji kutumia kondomu kila mara unapofanya ngono. Inaweza kuwa changamoto sana kutabiri siku zako salama, kwa hivyo kondomu zinahitajika kutumika kila wakati unapojamiiana ili kufanya kazi vizuri."
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-chance-224103.png",
+                            "text": "About 21 out of 100 women using female condoms for a year will become pregnant."
+                        },
+                        "Dholuo": {
+                            "path": "noun-chance-224103.png",
+                            "text": "Madirom mine 21 kuom 100 matiyo gi kondoms mar mine e higa biro mako ich"
+                        },
+                        "Kiswahili": {
+                            "path": "noun-chance-224103.png",
+                            "text": "Takriban wanawake 21 kati ya 100 wanaotumia kondomu za kike kwa mwaka mmoja watapata mimba."
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-private-3465156.png",
+                            "text": "Female condoms will probably be noticed by your partner, since they are visible on the outside, you can often feel them during sex, and they can make a sound during sex. You can keep this method private from others, unless they find one at your home or in your purse."
+                        },
+                        "Dholuo": {
+                            "path": "noun-private-3465156.png",
+                            "text": "Kondom mar joma mine ibiro ne gi jaherani, nikech gin gik ma inyalone gioko, inyako winjonjgi ekinde terruok, kendo ginyalo goyo koko ekinde terruok. Inyalo tiyo gi yorni e yo ma opondo ma jok ma moko ok ong'eyo, mak mana ka ng'ato oyudogi e odi kata e kibetini"
+                        },
+                        "Kiswahili": {
+                            "path": "noun-private-3465156.png",
+                            "text": "Kondomu za kike labda zitatambuliwa na mpenzi wako, kwa kuwa zinaonekana kwa nje, mara nyingi unaweza kuzihisi wakati wa ngono, na zinaweza kutoa sauti wakati wa ngono. Unaweza kuweka njia hii kuwa ya faragha kutoka kwa watu wengine, isipokuwa waipate nyumbani kwako au kwenye mkoba wako."
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "noun-pregnant-woman-1294199-FF59B9.png",
+                            "text": "Condoms have no effect on your body other than to block your partner's sperm from going inside your body. If you use condoms and are ready to have a baby, you can just stop using them. Keep in mind, though, that if you stop using condoms you won't be protected from HIV or other STIs."
+                        },
+                        "Dholuo": {
+                            "path": "noun-pregnant-woman-1294199-FF59B9.png",
+                            "text": "Rabo yunga onge gi rach moro amora e dendi kopogore gi geng'o pi nyodo mar jaherani donjo ei dendi. Ka itiyo gi rabo yunga kendo iyikori mar yudo nyathi, inyalo mana weyo tiyo kodgi. Ng'e gi pachi ni, ka iweyo tiyo gi rabo yunga ok ibi bedo ni igeng'ori kuom yudo kute mag ayaki kata nyae mamoko."
+                        },
+                        "Kiswahili": {
+                            "path": "noun-pregnant-woman-1294199-FF59B9.png",
+                            "text": "Kondomu haina athari kwenye mwili wako zaidi ya kuzuia mbegu za mpenzi wako kuingia ndani ya mwili wako. Ikiwa unatumia kondomu na uko tayari kupata mtoto, unaweza kuacha tu kuzitumia. Kumbuka, hata hivyo, kwamba ukiacha kutumia kondomu huwezi kulindwa dhidi ya Virusi Vya Ukimwi au magonjwa mengine ya zinaa."
+                        }
+                    }
+                }
+            ],
+            "hidden": true
         }
     ]
 }

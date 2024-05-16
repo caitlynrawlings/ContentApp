@@ -52,14 +52,14 @@ class AppColorsSchemes {
   static const lightBlue = Color.fromARGB(255, 145, 145, 255);
 
   static const offwhite = Color.fromARGB(255, 242, 242, 242);
-  static const offblack = Color.fromARGB(255, 62, 62, 62);
+  static const offblack = Color.fromARGB(255, 75, 75, 75);
 
   static const ColorScheme darkScheme = ColorScheme.dark(
     primary: darkBlue,
     onPrimary: Colors.white,
     secondary: offblack,
     onSecondary: Colors.white,
-    background: Colors.black,
+    background: Color.fromARGB(255, 44, 44, 44),
     onBackground: Colors.white,
     surface: darkBlue,
     onSurface: Colors.white,

@@ -62,7 +62,7 @@ class _CustomPageState extends State<CustomPage> {
                       dynamic contentType = item["content-type"];
                       dynamic content = item["content"];
                       return Padding(
-                        padding: const EdgeInsets.all(5.0),
+                        padding: const EdgeInsets.all(8.0),
                         child: Focus(child: _buildContentWidget(contentType, content[widget.language])),
                       );
                     }).toList(),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
-import '/toggle_widget.dart';
+import 'toggle_widget.dart';
 
 class AudioWidget extends StatefulWidget {
   final String audioAsset;

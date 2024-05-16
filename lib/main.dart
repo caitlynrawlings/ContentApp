@@ -39,6 +39,7 @@ class AppScreen extends StatefulWidget {
 
 class _AppScreenState extends State<AppScreen> {
   int selectedPageIndex = 0;  // tracks which page is being displayed. 0 is menu page and increments from that in order of pages added
+  int lastPageIndex = 0;
   String selectedLanguage = "";  // tracks current language and its directionality
   double _fontSizeFactor = 1.0; // Initial font size factor
   bool _lightMode = false;
@@ -134,6 +135,7 @@ class _AppScreenState extends State<AppScreen> {
                     icon: const Icon(Icons.menu, size: 35),
                     onPressed: () {
                       setState(() {
+                        lastPageIndex = selectedPageIndex;
                         selectedPageIndex = 0;
                       });
                     },
@@ -155,6 +157,7 @@ class _AppScreenState extends State<AppScreen> {
                       icon: const Icon(Icons.settings, size: 35),
                       onPressed: () {
                         setState(() {
+                          lastPageIndex = selectedPageIndex;
                           selectedPageIndex = -1;
                         });
                       },
@@ -177,6 +180,7 @@ class _AppScreenState extends State<AppScreen> {
                                   selectedLanguage: selectedLanguage,
                                   onSelectPage: (index) {
                                     setState(() {
+                                      lastPageIndex = selectedPageIndex;
                                       selectedPageIndex = index + 1;
                                     });
                                   },
@@ -184,6 +188,11 @@ class _AppScreenState extends State<AppScreen> {
                               )
                             : selectedPageIndex == -1 
                             ? Settings(
+                                onBack: () {
+                                  setState(() {
+                                    selectedPageIndex = lastPageIndex;
+                                  });
+                                },
                                 onChangeFontSize: _handleFontSizeChange, 
                                 onLightModeChange: _handleLightModeChange,
                                 fontSize: _fontSizeFactor,
@@ -195,6 +204,7 @@ class _AppScreenState extends State<AppScreen> {
                                 language: selectedLanguage,
                                 onChangePage: (pageId) {
                                     setState(() {
+                                      lastPageIndex = selectedPageIndex;
                                       selectedPageIndex = pageIds.indexOf(pageId) + 1;
                                     });
                                   },

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Settings extends StatelessWidget {
+  final Function() onBack;
   final Function(double) onChangeFontSize;
   final Function() onLightModeChange;
   final double fontSize;
@@ -10,6 +11,7 @@ class Settings extends StatelessWidget {
 
   const Settings({
     super.key,
+    required this.onBack,
     required this.onChangeFontSize, 
     required this.onLightModeChange, 
     required this.fontSize, 
@@ -22,6 +24,20 @@ class Settings extends StatelessWidget {
       padding: const EdgeInsets.all(10.0),
       child: ListView(
           children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 10.0,),
+              child: ElevatedButton(
+                onPressed: onBack, 
+                child: Padding(
+                  padding: const EdgeInsets.all(0),
+                  child: Icon(FontAwesomeIcons.arrowLeft, color: Theme.of(context).colorScheme.onBackground),
+                )
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 10.0),
+              child: Divider(),
+            ),
             FontSizeDropdown(value: fontSize, onChanged: onChangeFontSize,),
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 10.0),
@@ -147,14 +163,17 @@ class _LightModeSwitchState extends State<LightModeSwitch> {
     return Row(
       children: [
         Icon(Icons.sunny, color: Theme.of(context).colorScheme.onPrimary,),
-        Switch(
-          value: selectedValue,
-          onChanged: (value) {
-            setState(() {
-              widget.onChanged.call();
-              selectedValue = !selectedValue;
-          });
-        }),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 5.0),
+          child: Switch(
+            value: selectedValue,
+            onChanged: (value) {
+              setState(() {
+                widget.onChanged.call();
+                selectedValue = !selectedValue;
+            });
+          }),
+        ),
         Icon(FontAwesomeIcons.solidMoon, color: Theme.of(context).colorScheme.onPrimary,),
       ],
     );

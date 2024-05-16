@@ -95,6 +95,13 @@ class _CustomPageState extends State<CustomPage> {
             iconPath: 'assets/downloads/${value['path']}', 
             ),
         );
+      case 'Image':
+        return ImageWidget(
+          imagePath: value['path'],
+          altText: value['alt'] ?? 'No alt text provided',
+        caption: value['caption'],
+      );
+
       case 'Spacer':
         return value.runtimeType == String ? const SizedBox(height: 0) : SizedBox(key: ValueKey("spacer$value"), height: value.toDouble());
       case 'IconSubheading':

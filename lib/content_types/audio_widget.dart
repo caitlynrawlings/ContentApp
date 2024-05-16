@@ -1,50 +1,52 @@
-
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
+import '/toggle_widget.dart';
 
 class AudioWidget extends StatefulWidget {
   final String audioAsset;
-  const AudioWidget({super.key, required this.audioAsset});
+  final String transcript;
+  const AudioWidget({super.key, required this.audioAsset, required this.transcript});
+
   @override
   State<AudioWidget> createState() => _AudioWidgetState();
 }
 
 class _AudioWidgetState extends State<AudioWidget> {
-  final AudioPlayer player1 = AudioPlayer();
-  bool isPlaying1 = false;
+  final AudioPlayer player = AudioPlayer();
+  bool isPlaying = false;
 
   @override
   void dispose() {
+    player.dispose();
     super.dispose();
-    //releasing resources
-    player1.dispose();
   }
 
-  void _toggleAudio1() {
+  void toggleAudio() {
+    if (isPlaying) {
+      player.pause();
+    } else {
+      player.setAsset(widget.audioAsset);
+      player.play();
+    }
     setState(() {
-      if (isPlaying1) {
-        player1.pause();
-      } else {
-        //set it
-        player1.setAsset(widget.audioAsset);
-        player1.play();
-      }
-      setState(() {
-        isPlaying1 = !isPlaying1; // Toggle play state
-      });
+      isPlaying = !isPlaying;
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
-    return  IconButton(
-      icon: Image.asset(
-        "assets/audio.png",
-        width: 60,
-        height: 60,
-      ),
-      onPressed: () => _toggleAudio1(),
+    return Column(
+      children: [
+        IconButton(
+          icon: Image.asset(
+            "assets/audio.png",
+            width: 60,
+            height: 60,
+          ),
+          onPressed: toggleAudio,
+        ),
+        ToggleWidget(title: "Show Transcript", body: widget.transcript),
+      ],
     );
   }
 }

@@ -56,7 +56,7 @@ class Parser:
                 raise Exception(f"Provided sheet [{sheet}] doesn't include a title in all languages: {data[1][2:]} != {len(languages_page[0])} element(s)")
 
             json_data['pages'].append(
-                Parser.__convert_page_data(data, sheet).update({"hidden" : menu_page[i][1] == "TRUE"})
+                Parser.__convert_page_data(data, sheet) | {"hidden" : menu_page[i][1] == "TRUE"}
             )
 
         # 4. Save to file
@@ -100,7 +100,7 @@ class Parser:
             raise Exception(f"Type {content_type} not parseable")
 
         if len(row[2:]) < len(languages):
-            raise Exception(f"Missing translation on row {row_i + 3} of {title}")
+            raise Exception(f"Missing translation on row {row_i + 2} of {title}")
 
         def handle_parse(cell, title):
             parser_method = getattr(Parser, f"_parse_{content_type.lower()}", None)

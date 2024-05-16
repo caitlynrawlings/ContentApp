@@ -123,6 +123,14 @@ class _CustomPageState extends State<CustomPage> {
               widget.onChangePage(pageId);
             },
         );
+      case 'ImageText':
+        return ImageTextWidget(
+          imagePath: 'assets/downloads/${value['path']}',
+          altText: value['alt'] ?? 'No alt text provided',
+          caption: value['caption'] ?? '',
+          text: value['text'],
+          imagePlacement: value['imagePlacement'],
+       );
       default:
         return Text('Unsupported content type: $contentType');
     }

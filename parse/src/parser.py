@@ -56,7 +56,7 @@ class Parser:
                 raise Exception(f"Provided sheet [{sheet}] doesn't include a title in all languages: {data[1][2:]} != {len(languages_page[0])} element(s)")
 
             json_data['pages'].append(
-                Parser.__convert_page_data(data, sheet) | {"hidden" : menu_page[i][1] == "TRUE"}
+                dict(Parser.__convert_page_data(data, sheet), hidden=menu_page[i][1] == "TRUE")
             )
 
         # 4. Save to file

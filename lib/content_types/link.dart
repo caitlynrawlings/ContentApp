@@ -23,7 +23,7 @@ class Link extends StatelessWidget {
             onChangePage(linkedPageId);
           },
           style: ElevatedButton.styleFrom(
-            backgroundColor: Theme.of(context).cardColor,
+            backgroundColor: Theme.of(context).colorScheme.primary,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(4.0),
             ),

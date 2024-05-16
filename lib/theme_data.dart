@@ -51,11 +51,14 @@ class AppColorsSchemes {
   static const darkBlue = Color.fromARGB(255, 32, 32, 75);
   static const lightBlue = Color.fromARGB(255, 145, 145, 255);
 
+  static const offwhite = Color.fromARGB(255, 242, 242, 242);
+  static const offblack = Color.fromARGB(255, 62, 62, 62);
+
   static const ColorScheme darkScheme = ColorScheme.dark(
     primary: darkBlue,
     onPrimary: Colors.white,
-    secondary: lightBlue,
-    onSecondary: Colors.black,
+    secondary: offblack,
+    onSecondary: Colors.white,
     background: Colors.black,
     onBackground: Colors.white,
     surface: darkBlue,
@@ -68,8 +71,8 @@ class AppColorsSchemes {
   static const ColorScheme lightScheme = ColorScheme.light(
     primary: lightBlue,
     onPrimary: Colors.black,
-    secondary: darkBlue,
-    onSecondary: Colors.white,
+    secondary: offwhite,
+    onSecondary: Colors.black,
     background: Colors.white,
     onBackground: Colors.black,
     surface: lightBlue,

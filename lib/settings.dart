@@ -23,7 +23,10 @@ class Settings extends StatelessWidget {
       child: ListView(
           children: [
             FontSizeDropdown(value: fontSize, onChanged: onChangeFontSize,),
-            const SizedBox(height: 10,),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 10.0),
+              child: Divider(),
+            ),
             LightModeSwitch(value: lightMode, onChanged: onLightModeChange,),
         ]
       ),
@@ -63,8 +66,9 @@ class _FontSizeDropdownState extends State<FontSizeDropdown> {
         Text("Aa", style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: AppFontSizes.bodyLargeSize * 1.5)),
         const SizedBox(width: 5,),
         Text("Aa", style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: AppFontSizes.bodyLargeSize )),
-        const SizedBox(width: 10,),
+        const SizedBox(width: 20,),
         DropdownButton<double>(
+          dropdownColor: Theme.of(context).colorScheme.secondary,
           value: selectedValue,
           onChanged: (double? newSize) {
             if (newSize != null) {
@@ -78,6 +82,7 @@ class _FontSizeDropdownState extends State<FontSizeDropdown> {
             DropdownMenuItem(
               value: 1,
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text('x1', style: Theme.of(context).textTheme.labelLarge,),
                   const SizedBox(width: 5,),
@@ -88,6 +93,7 @@ class _FontSizeDropdownState extends State<FontSizeDropdown> {
             DropdownMenuItem(
               value: 1.5,
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text('x1.5', style: Theme.of(context).textTheme.labelLarge,),
                   const SizedBox(width: 5,),
@@ -98,6 +104,7 @@ class _FontSizeDropdownState extends State<FontSizeDropdown> {
             DropdownMenuItem(
               value: 2,
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text('x2', style: Theme.of(context).textTheme.labelLarge,),
                   const SizedBox(width: 5,),

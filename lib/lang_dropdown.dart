@@ -39,6 +39,7 @@ class LanguageDropdownState extends State<LanguageDropdown> {
             const Icon(Icons.language),
             const SizedBox(width: 5),
             DropdownButton<String>(
+              dropdownColor: Theme.of(context).colorScheme.secondary,
               value: widget.selectedLanguage,
               onChanged: (String? newLanguage) {
                 widget.onChanged(newLanguage ?? widget.languages[0]);

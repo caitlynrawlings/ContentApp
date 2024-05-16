@@ -9,6 +9,7 @@ import 'lang_dropdown.dart';
 
 void main(List<String> arguments) async {
   WidgetsFlutterBinding.ensureInitialized();
+  // Use ' flutter run --dart-define="FILE=<the file you want to load>" ' to load file other than pages
   const file = String.fromEnvironment("FILE", defaultValue: 'assets/pages.json');
   runApp(const MyApp(jsonFile: file));
 }
@@ -130,7 +131,7 @@ class _AppScreenState extends State<AppScreen> {
                   padding: const EdgeInsets.only(left: 6.0,),
                   child: IconButton(
                     // tooltip: "Menu",
-                    icon: const Icon(Icons.menu, size: 40),
+                    icon: const Icon(Icons.menu, size: 35),
                     onPressed: () {
                       setState(() {
                         selectedPageIndex = 0;
@@ -151,7 +152,7 @@ class _AppScreenState extends State<AppScreen> {
                     ),
                     const SizedBox(width: 4.0),
                     IconButton(
-                      icon: const Icon(Icons.settings, size: 40),
+                      icon: const Icon(Icons.settings, size: 35),
                       onPressed: () {
                         setState(() {
                           selectedPageIndex = -1;

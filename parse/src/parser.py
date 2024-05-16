@@ -33,10 +33,18 @@ class Parser:
             "pages": []
         }
 
+        # 3. Get data from sheets and parse in order of menu page
+        if "Menu" not in sheets:
+            raise Exception("Google Sheet missing 'Menu' page")
+
+        menu_page = Sheets.get_values(spreadsheet_id, "Menu!A:B")
+        for i in range(1, len(menu_page)):
+            sheet = menu_page[i][0]
+
         # 3. Get data and parse
-        for sheet in sheets:
-            if sheet in SKIPPED_SHEETS:
-                continue
+        # for sheet in sheets:
+            # if sheet in SKIPPED_SHEETS:
+            #     continue
 
             print(f"Parsing [{sheet}]")
             data = Sheets.get_values(spreadsheet_id, f"{sheet}!1:{MAX_ROWS}")
@@ -48,7 +56,7 @@ class Parser:
                 raise Exception(f"Provided sheet [{sheet}] doesn't include a title in all languages: {data[1][2:]} != {len(languages_page[0])} element(s)")
 
             json_data['pages'].append(
-                Parser.__convert_page_data(data, sheet)
+                Parser.__convert_page_data(data, sheet).update({"hidden" : menu_page[i][1] == "TRUE"})
             )
 
         # 4. Save to file

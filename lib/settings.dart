@@ -1,4 +1,6 @@
+import 'package:content_app/theme_data.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Settings extends StatelessWidget {
   final Function(double) onChangeFontSize;
@@ -16,19 +18,15 @@ class Settings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-        children: [
-          Row(
-            children: [
-              Text("Font Size Selector", style: Theme.of(context).textTheme.bodyLarge),
-              FontSizeDropdown(value: fontSize, onChanged: onChangeFontSize,)
-            ],
-          ),
-          ListTile(
-            title: const Text('Light Mode Selector'),
-            trailing: LightModeSwitch(value: lightMode, onChanged: onLightModeChange,),
-          ),
-      ]
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: ListView(
+          children: [
+            FontSizeDropdown(value: fontSize, onChanged: onChangeFontSize,),
+            const SizedBox(height: 10,),
+            LightModeSwitch(value: lightMode, onChanged: onLightModeChange,),
+        ]
+      ),
     );
   }
 }
@@ -58,28 +56,56 @@ class _FontSizeDropdownState extends State<FontSizeDropdown> {
 
   @override
   Widget build(BuildContext context) {
-    return DropdownButton<double>(
-      value: selectedValue,
-      onChanged: (double? newSize) {
-        if (newSize != null) {
-          setState(() {
-            selectedValue = newSize;
-          });
-          widget.onChanged?.call(newSize);
-        }
-      },
-      items: [
-        DropdownMenuItem(
-          value: 1,
-          child: Text('Small', style: Theme.of(context).textTheme.labelLarge,),
-        ),
-        DropdownMenuItem(
-          value: 1.5,
-          child: Text('Medium', style: Theme.of(context).textTheme.labelLarge,),
-        ),
-        DropdownMenuItem(
-          value: 2,
-          child: Text('Large', style: Theme.of(context).textTheme.labelLarge,),
+    return Row(
+      children: [
+        Text("Aa", style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: AppFontSizes.bodyLargeSize * 2)),
+        const SizedBox(width: 5,),
+        Text("Aa", style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: AppFontSizes.bodyLargeSize * 1.5)),
+        const SizedBox(width: 5,),
+        Text("Aa", style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: AppFontSizes.bodyLargeSize )),
+        const SizedBox(width: 10,),
+        DropdownButton<double>(
+          value: selectedValue,
+          onChanged: (double? newSize) {
+            if (newSize != null) {
+              setState(() {
+                selectedValue = newSize;
+              });
+              widget.onChanged?.call(newSize);
+            }
+          },
+          items: [
+            DropdownMenuItem(
+              value: 1,
+              child: Row(
+                children: [
+                  Text('x1', style: Theme.of(context).textTheme.labelLarge,),
+                  const SizedBox(width: 5,),
+                  Text("Aa ", style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: AppFontSizes.bodyLargeSize)),
+                ],
+              ),
+            ),
+            DropdownMenuItem(
+              value: 1.5,
+              child: Row(
+                children: [
+                  Text('x1.5', style: Theme.of(context).textTheme.labelLarge,),
+                  const SizedBox(width: 5,),
+                  Text("Aa ", style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: AppFontSizes.bodyLargeSize * 1.5)),
+                ],
+              ),
+            ),
+            DropdownMenuItem(
+              value: 2,
+              child: Row(
+                children: [
+                  Text('x2', style: Theme.of(context).textTheme.labelLarge,),
+                  const SizedBox(width: 5,),
+                  Text("Aa ", style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: AppFontSizes.bodyLargeSize * 2)),
+                ],
+              ),
+            ),
+          ],
         ),
       ],
     );
@@ -111,12 +137,19 @@ class _LightModeSwitchState extends State<LightModeSwitch> {
 
   @override
   Widget build(BuildContext context) {
-    return Switch(
-      value: selectedValue,
-      onChanged: (value) {
-        setState(() {
-          widget.onChanged.call();
-      });
-    });
+    return Row(
+      children: [
+        Icon(Icons.sunny, color: Theme.of(context).colorScheme.onPrimary,),
+        Switch(
+          value: selectedValue,
+          onChanged: (value) {
+            setState(() {
+              widget.onChanged.call();
+              selectedValue = !selectedValue;
+          });
+        }),
+        Icon(FontAwesomeIcons.solidMoon, color: Theme.of(context).colorScheme.onPrimary,),
+      ],
+    );
   }
 }

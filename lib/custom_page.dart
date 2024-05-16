@@ -6,7 +6,7 @@ import 'content_types/image_widget.dart';
 import 'content_types/audio_widget.dart';
 import 'content_types/callout_widget.dart';
 import 'content_types/link.dart';
-import 'toggle_widget.dart';
+import 'content_types/toggle_widget.dart';
 class CustomPage extends StatefulWidget {
   final List<dynamic> content;
   final Map<dynamic, dynamic> title;
@@ -31,41 +31,44 @@ class _CustomPageState extends State<CustomPage> {
   Widget build(BuildContext context) {
   return Scaffold(
     body: 
-        Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Focus(
-                child: Text(
-                  widget.title[widget.language] ?? "No title translation found",
-                  style: Theme.of(context).textTheme.displayLarge,
+        Container(
+          color: Theme.of(context).colorScheme.background,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Focus(
+                  child: Text(
+                    widget.title[widget.language] ?? "No title translation found",
+                    style: Theme.of(context).textTheme.displayLarge,
+                  ),
                 ),
               ),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 8.0),
-              child: Divider(
-                color: Color.fromARGB(255, 205, 205, 205), // Customize divider color as needed
-                height: 1, // Customize divider height as needed
-                thickness: 1, // Customize divider thickness as needed
-              ),
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                child: ListView(
-                  children: widget.content.map((item) {
-                    dynamic contentType = item["content-type"];
-                    dynamic content = item["content"];
-                    return Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Focus(child: _buildContentWidget(contentType, content[widget.language])),
-                    );
-                  }).toList(),
+              const Padding(
+                padding: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 8.0),
+                child: Divider(
+                  color: Color.fromARGB(255, 205, 205, 205), // Customize divider color as needed
+                  height: 1, // Customize divider height as needed
+                  thickness: 1, // Customize divider thickness as needed
                 ),
               ),
-            )
-          ],
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                  child: ListView(
+                    children: widget.content.map((item) {
+                      dynamic contentType = item["content-type"];
+                      dynamic content = item["content"];
+                      return Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: Focus(child: _buildContentWidget(contentType, content[widget.language])),
+                      );
+                    }).toList(),
+                  ),
+                ),
+              )
+            ],
+          ),
         )
   );
 }

@@ -21,7 +21,7 @@ class LanguageDropdownState extends State<LanguageDropdown> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-            color: Colors.white,
+            color: Theme.of(context).colorScheme.background,
             borderRadius: BorderRadius.circular(10.0),
             boxShadow: [
               BoxShadow(

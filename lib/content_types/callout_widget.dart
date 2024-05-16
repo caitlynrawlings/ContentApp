@@ -18,7 +18,7 @@ class CalloutWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
       decoration: BoxDecoration(
-        color: Colors.grey.shade200,
+        color: Theme.of(context).colorScheme.surface, //Colors.grey.shade200,
         borderRadius: BorderRadius.circular(10),
         border: Border.all(color: Colors.grey),
       ),

@@ -50,10 +50,10 @@ class PageButton extends StatelessWidget {
       children: [
         Container(
           width: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             border: Border(
               bottom: BorderSide(
-                color: Theme.of(context).colorScheme.onBackground,
+                color: Color.fromARGB(255, 205, 205, 205),
                 width: 1.0,
               ),
             ),
@@ -61,7 +61,7 @@ class PageButton extends StatelessWidget {
           child: TextButton(
             onPressed: onPressed,
             style: TextButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+                backgroundColor: Theme.of(context).colorScheme.background,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(0),
                 ),

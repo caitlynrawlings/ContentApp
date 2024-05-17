@@ -8,7 +8,6 @@ import 'content_types/callout_widget.dart';
 import 'content_types/link.dart';
 import 'content_types/toggle_widget.dart';
 import 'content_types/icon_subheading.dart';
-// ignore: unused_import
 import 'content_types/image_text.dart';
 
 class CustomPage extends StatefulWidget {
@@ -174,13 +173,33 @@ class _CustomPageState extends State<CustomPage> {
         }
       case 'Toggle':
         return ToggleWidget(title: value['title'], body: value['body']);
-      case 'Link':
-        return Link(
-            displayText: value['displayText'], 
-            linkedPageId: value['page'],
-            onChangePage: (pageId) {
-              widget.onChangePage(pageId);
-            },
+      case 'Links':
+        return Wrap(
+          children: value.map<Widget>((link) {
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Wrap(
+                direction: Axis.horizontal,
+                children: [
+                  Link(
+                    displayText: link['displayText'],
+                    linkedPageId: link['page'],
+                    onChangePage: (pageId) {
+                      widget.onChangePage(pageId);
+                    },
+                  ),
+                ],
+              ),
+            );
+          }).toList(),
+        );
+      case 'ImageText':
+        return ImageTextWidget(
+          imagePath: 'assets/downloads/${value['path']}',
+          altText: value['alt'] ?? 'No alt text provided',
+          caption: value['caption'] ?? '',
+          text: value['text'],
+          imagePlacement: value['imagePlacement'],
         );
       default:
         return Text(

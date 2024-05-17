@@ -16,6 +16,7 @@
   "pages": [
     {
       "id" : "Page 1",
+      "hidden" : false,
       "icon": "icon.png",
       "title": {
         "English": "English Title",

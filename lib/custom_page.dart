@@ -8,6 +8,7 @@ import 'content_types/callout_widget.dart';
 import 'content_types/link.dart';
 import 'content_types/toggle_widget.dart';
 import 'content_types/icon_subheading.dart';
+import 'content_types/image_text.dart';
 
 class CustomPage extends StatefulWidget {
   final List<dynamic> content;
@@ -153,6 +154,13 @@ class _CustomPageState extends State<CustomPage> {
             iconPath: 'assets/downloads/${value['path']}',
           ),
         );
+      case 'Image':
+        return ImageWidget(
+          imagePath: value['path'],
+          altText: value['alt'] ?? 'No alt text provided',
+        caption: value['caption'],
+      );
+
       case 'Spacer':
         return value.runtimeType == String ? const SizedBox(height: 0) : SizedBox(key: ValueKey("spacer$value"), height: value.toDouble());
       case 'IconSubheading':
@@ -167,25 +175,13 @@ class _CustomPageState extends State<CustomPage> {
         }
       case 'Toggle':
         return ToggleWidget(title: value['title'], body: value['body']);
-      case 'Links':
-        return Wrap(
-          children: value.map<Widget>((link) {
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Wrap(
-                direction: Axis.horizontal,
-                children: [
-                  Link(
-                    displayText: link['displayText'],
-                    linkedPageId: link['page'],
-                    onChangePage: (pageId) {
-                      widget.onChangePage(pageId);
-                    },
-                  ),
-                ],
-              ),
-            );
-          }).toList(),
+      case 'Link':
+        return Link(
+            displayText: value['displayText'], 
+            linkedPageId: value['page'],
+            onChangePage: (pageId) {
+              widget.onChangePage(pageId);
+            },
         );
       default:
         return Text(

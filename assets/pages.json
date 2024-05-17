@@ -171,26 +171,523 @@
                             "page": "Page 1"
                         }
                     }
+                }
+            ],
+            "hidden": false
+        },
+        {
+            "id": "Quiz",
+            "icon": "info-icon.png",
+            "title": {
+                "English": "What Birth Control is Right for me? Quiz",
+                "Dholuo": "Dholuo Title",
+                "Kiswahili": "Kiswahili Title"
+            },
+            "content": [
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "info-icon.png",
+                            "text": "Take this quiz to find out what birth control option suits your needs!"
+                        },
+                        "Dholuo": {
+                            "path": "info-icon.png",
+                            "text": "Take this quiz to find out what birth control option suits your needs!"
+                        },
+                        "Kiswahili": {
+                            "path": "info-icon.png",
+                            "text": "Take this quiz to find out what birth control option suits your needs!"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Spacer",
+                    "content": {
+                        "English": 20,
+                        "Dholuo": 20,
+                        "Kiswahili": 20
+                    }
                 },
                 {
                     "content-type": "Link",
                     "content": {
                         "English": {
-                            "displayText": "Summary - Implant",
-                            "page": "Summary - Implant"
+                            "displayText": "Take quiz",
+                            "page": "quizPage1"
                         },
                         "Dholuo": {
-                            "displayText": "",
-                            "page": ""
+                            "displayText": "Take quiz",
+                            "page": "quizPage1"
                         },
                         "Kiswahili": {
-                            "displayText": "",
-                            "page": ""
+                            "displayText": "Take quiz",
+                            "page": "quizPage1"
                         }
                     }
                 }
             ],
             "hidden": false
+        },
+        {
+            "id": "quizPage1",
+            "icon": "info-icon.png",
+            "title": {
+                "English": "Do you want birth control that prevent STDs?",
+                "Dholuo": "Do you want birth control that prevent STDs?",
+                "Kiswahili": "Do you want birth control that prevent STDs?"
+            },
+            "content": [
+                {
+                    "content-type": "Spacer",
+                    "content": {
+                        "English": 20,
+                        "Dholuo": 20,
+                        "Kiswahili": 20
+                    }
+                },
+                {
+                    "content-type": "Link",
+                    "content": {
+                        "English": {
+                            "displayText": "Yes",
+                            "page": "quizResultCondoms"
+                        },
+                        "Dholuo": {
+                            "displayText": "Yes",
+                            "page": "quizResultCondoms"
+                        },
+                        "Kiswahili": {
+                            "displayText": "Yes",
+                            "page": "quizResultCondoms"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Link",
+                    "content": {
+                        "English": {
+                            "displayText": "No",
+                            "page": "quizPage2"
+                        },
+                        "Dholuo": {
+                            "displayText": "No",
+                            "page": "quizPage2"
+                        },
+                        "Kiswahili": {
+                            "displayText": "No",
+                            "page": "quizPage2"
+                        }
+                    }
+                }
+            ],
+            "hidden": true
+        },
+        {
+            "id": "quizPage2",
+            "icon": "info-icon.png",
+            "title": {
+                "English": "How often do you want to have to think about birth control?",
+                "Dholuo": "How often do you want to have to think about birth control?",
+                "Kiswahili": "How often do you want to have to think about birth control?"
+            },
+            "content": [
+                {
+                    "content-type": "Spacer",
+                    "content": {
+                        "English": 20,
+                        "Dholuo": 20,
+                        "Kiswahili": 20
+                    }
+                },
+                {
+                    "content-type": "Link",
+                    "content": {
+                        "English": {
+                            "displayText": "Only when I have sex",
+                            "page": "quizResultsOnly"
+                        },
+                        "Dholuo": {
+                            "displayText": "Only when I have sex",
+                            "page": "quizResultsOnly"
+                        },
+                        "Kiswahili": {
+                            "displayText": "Only when I have sex",
+                            "page": "quizResultsOnly"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Link",
+                    "content": {
+                        "English": {
+                            "displayText": "Multiple times a year",
+                            "page": "quizResultsMany"
+                        },
+                        "Dholuo": {
+                            "displayText": "Multiple times a year",
+                            "page": "quizResultsMany"
+                        },
+                        "Kiswahili": {
+                            "displayText": "Multiple times a year",
+                            "page": "quizResultsMany"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Link",
+                    "content": {
+                        "English": {
+                            "displayText": "Once every few years",
+                            "page": "quizResultsRarely"
+                        },
+                        "Dholuo": {
+                            "displayText": "Once every few years",
+                            "page": "quizResultsRarely"
+                        },
+                        "Kiswahili": {
+                            "displayText": "Once every few years",
+                            "page": "quizResultsRarely"
+                        }
+                    }
+                }
+            ],
+            "hidden": true
+        },
+        {
+            "id": "quizResultsCondoms",
+            "icon": "info-icon.png",
+            "title": {
+                "English": "Quiz Results",
+                "Dholuo": "Quiz Results",
+                "Kiswahili": "Quiz Results"
+            },
+            "content": [
+                {
+                    "content-type": "Spacer",
+                    "content": {
+                        "English": 20,
+                        "Dholuo": 20,
+                        "Kiswahili": 20
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "info-icon.png",
+                            "text": "Condoms are the only form of birth control that prevent STDs"
+                        },
+                        "Dholuo": {
+                            "path": "info-icon.png",
+                            "text": "Condoms are the only form of birth control that prevent STDs"
+                        },
+                        "Kiswahili": {
+                            "path": "info-icon.png",
+                            "text": "Condoms are the only form of birth control that prevent STDs"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Link",
+                    "content": {
+                        "English": {
+                            "displayText": "Learn more about Male Condoms",
+                            "page": "Summary - Male Condoms"
+                        },
+                        "Dholuo": {
+                            "displayText": "Learn more about Male Condoms",
+                            "page": "Summary - Male Condoms"
+                        },
+                        "Kiswahili": {
+                            "displayText": "Learn more about Male Condoms",
+                            "page": "Summary - Male Condoms"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Link",
+                    "content": {
+                        "English": {
+                            "displayText": "Learn more about Female Condoms",
+                            "page": "Summary - Female Condoms"
+                        },
+                        "Dholuo": {
+                            "displayText": "Learn more about Female Condoms",
+                            "page": "Summary - Female Condoms"
+                        },
+                        "Kiswahili": {
+                            "displayText": "Learn more about Female Condoms",
+                            "page": "Summary - Female Condoms"
+                        }
+                    }
+                }
+            ],
+            "hidden": true
+        },
+        {
+            "id": "quizResultsOnly",
+            "icon": "info-icon.png",
+            "title": {
+                "English": "Quiz Results",
+                "Dholuo": "Quiz Results",
+                "Kiswahili": "Quiz Results"
+            },
+            "content": [
+                {
+                    "content-type": "Spacer",
+                    "content": {
+                        "English": 20,
+                        "Dholuo": 20,
+                        "Kiswahili": 20
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "info-icon.png",
+                            "text": "Condoms are a form of birth control that you only have to use when you have sex"
+                        },
+                        "Dholuo": {
+                            "path": "info-icon.png",
+                            "text": "Condoms are a form of birth control that you only have to use when you have sex"
+                        },
+                        "Kiswahili": {
+                            "path": "info-icon.png",
+                            "text": "Condoms are a form of birth control that you only have to use when you have sex"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Link",
+                    "content": {
+                        "English": {
+                            "displayText": "Learn more about Male Condoms",
+                            "page": "Summary - Male Condoms"
+                        },
+                        "Dholuo": {
+                            "displayText": "Learn more about Male Condoms",
+                            "page": "Summary - Male Condoms"
+                        },
+                        "Kiswahili": {
+                            "displayText": "Learn more about Male Condoms",
+                            "page": "Summary - Male Condoms"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Link",
+                    "content": {
+                        "English": {
+                            "displayText": "Learn more about Female Condoms",
+                            "page": "Summary - Female Condoms"
+                        },
+                        "Dholuo": {
+                            "displayText": "Learn more about Female Condoms",
+                            "page": "Summary - Female Condoms"
+                        },
+                        "Kiswahili": {
+                            "displayText": "Learn more about Female Condoms",
+                            "page": "Summary - Female Condoms"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "info-icon.png",
+                            "text": "Emergency pill only has to be taken after having sex, but this should not be used as a main source of birth control"
+                        },
+                        "Dholuo": {
+                            "path": "info-icon.png",
+                            "text": "Emergency pill only has to be taken after having sex, but this should not be used as a main source of birth control"
+                        },
+                        "Kiswahili": {
+                            "path": "info-icon.png",
+                            "text": "Emergency pill only has to be taken after having sex, but this should not be used as a main source of birth control"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Link",
+                    "content": {
+                        "English": {
+                            "displayText": "Learn more about Emergency Pills",
+                            "page": "Summary - Emergency Pills"
+                        },
+                        "Dholuo": {
+                            "displayText": "Learn more about Emergency Pills",
+                            "page": "Summary - Emergency Pills"
+                        },
+                        "Kiswahili": {
+                            "displayText": "Learn more about Emergency Pills",
+                            "page": "Summary - Emergency Pills"
+                        }
+                    }
+                }
+            ],
+            "hidden": true
+        },
+        {
+            "id": "quizResultsMany",
+            "icon": "info-icon.png",
+            "title": {
+                "English": "Quiz Results",
+                "Dholuo": "Quiz Results",
+                "Kiswahili": "Quiz Results"
+            },
+            "content": [
+                {
+                    "content-type": "Spacer",
+                    "content": {
+                        "English": 20,
+                        "Dholuo": 20,
+                        "Kiswahili": 20
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "info-icon.png",
+                            "text": "The pill has to be taken daily."
+                        },
+                        "Dholuo": {
+                            "path": "info-icon.png",
+                            "text": "The pill has to be taken daily."
+                        },
+                        "Kiswahili": {
+                            "path": "info-icon.png",
+                            "text": "The pill has to be taken daily."
+                        }
+                    }
+                },
+                {
+                    "content-type": "Link",
+                    "content": {
+                        "English": {
+                            "displayText": "Learn more about the pill",
+                            "page": "Summary - Pills"
+                        },
+                        "Dholuo": {
+                            "displayText": "Learn more about the pill",
+                            "page": "Summary - Pills"
+                        },
+                        "Kiswahili": {
+                            "displayText": "Learn more about the pill",
+                            "page": "Summary - Pills"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "info-icon.png",
+                            "text": "Injection is done multiple times in a year"
+                        },
+                        "Dholuo": {
+                            "path": "info-icon.png",
+                            "text": "Injection is done multiple times in a year"
+                        },
+                        "Kiswahili": {
+                            "path": "info-icon.png",
+                            "text": "Injection is done multiple times in a year"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Link",
+                    "content": {
+                        "English": {
+                            "displayText": "Learn more about Injection",
+                            "page": "Summary - Injection"
+                        },
+                        "Dholuo": {
+                            "displayText": "Learn more about Injection",
+                            "page": "Summary - Injection"
+                        },
+                        "Kiswahili": {
+                            "displayText": "Learn more about Injection",
+                            "page": "Summary - Injection"
+                        }
+                    }
+                }
+            ],
+            "hidden": true
+        },
+        {
+            "id": "quizResultsRarely",
+            "icon": "info-icon.png",
+            "title": {
+                "English": "Quiz Results",
+                "Dholuo": "Quiz Results",
+                "Kiswahili": "Quiz Results"
+            },
+            "content": [
+                {
+                    "content-type": "Spacer",
+                    "content": {
+                        "English": 20,
+                        "Dholuo": 20,
+                        "Kiswahili": 20
+                    }
+                },
+                {
+                    "content-type": "Callout",
+                    "content": {
+                        "English": {
+                            "path": "info-icon.png",
+                            "text": "IUCD and implant both work for many years"
+                        },
+                        "Dholuo": {
+                            "path": "info-icon.png",
+                            "text": "IUCD and implant both work for many years"
+                        },
+                        "Kiswahili": {
+                            "path": "info-icon.png",
+                            "text": "IUCD and implant both work for many years"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Link",
+                    "content": {
+                        "English": {
+                            "displayText": "Learn more about IUCD",
+                            "page": "Summary - IUCD"
+                        },
+                        "Dholuo": {
+                            "displayText": "Learn more about IUCD",
+                            "page": "Summary - IUCD"
+                        },
+                        "Kiswahili": {
+                            "displayText": "Learn more about IUCD",
+                            "page": "Summary - IUCD"
+                        }
+                    }
+                },
+                {
+                    "content-type": "Link",
+                    "content": {
+                        "English": {
+                            "displayText": "Learn more about implant",
+                            "page": "Summary - Implant"
+                        },
+                        "Dholuo": {
+                            "displayText": "Learn more about implant",
+                            "page": "Summary - Implant"
+                        },
+                        "Kiswahili": {
+                            "displayText": "Learn more about implant",
+                            "page": "Summary - Implant"
+                        }
+                    }
+                }
+            ],
+            "hidden": true
         },
         {
             "id": "What are my options?",

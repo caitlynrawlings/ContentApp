@@ -36,7 +36,7 @@ class ImageWidget extends StatelessWidget {
             padding: const EdgeInsets.only(top: 8.0),
             child: Text(
               caption,
-              style: Theme.of(context).textTheme.subtitle1,
+              style: Theme.of(context).textTheme.titleMedium,
               textAlign: TextAlign.center,
             ),
           ),

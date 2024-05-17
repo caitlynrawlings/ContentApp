@@ -8,6 +8,7 @@ import 'content_types/callout_widget.dart';
 import 'content_types/link.dart';
 import 'content_types/toggle_widget.dart';
 import 'content_types/icon_subheading.dart';
+// ignore: unused_import
 import 'content_types/image_text.dart';
 
 class CustomPage extends StatefulWidget {
@@ -139,8 +140,6 @@ class _CustomPageState extends State<CustomPage> {
         return Subheading(text: value);
       case 'Text':
         return BodyText(text: value);
-      case 'Image':
-        return ImageWidget(imagePath: value['path'], altText: value['alt'] ?? 'No alt text provided');
       case 'Audio':
         return AudioWidget(
           audioAsset: 'assets/downloads/${value['path']}',
@@ -171,7 +170,7 @@ class _CustomPageState extends State<CustomPage> {
             language: widget.language,
           );
         } else {
-          return Text("Incorrect data for IconSubheading");
+          return const Text("Incorrect data for IconSubheading");
         }
       case 'Toggle':
         return ToggleWidget(title: value['title'], body: value['body']);

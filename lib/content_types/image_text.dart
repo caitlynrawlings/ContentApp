@@ -50,7 +50,7 @@ class ImageTextWidget extends StatelessWidget {
           ),
         ),
       ),
-      Text(caption, style: Theme.of(context).textTheme.caption),
+      Text(caption, style: Theme.of(context).textTheme.bodySmall),
     ],
   );
 }

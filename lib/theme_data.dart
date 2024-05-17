@@ -48,8 +48,8 @@ class AppFontSizes {
 }
 
 class AppColorsSchemes {
-  static const darkBlue = Color.fromARGB(255, 32, 32, 75);
-  static const lightBlue = Color.fromARGB(255, 145, 145, 255);
+  static const darkBlue = Color.fromARGB(255, 36, 36, 91);
+  static const lightBlue = Color.fromARGB(255, 162, 201, 252);
 
   static const offwhite = Color.fromARGB(255, 242, 242, 242);
   static const offblack = Color.fromARGB(255, 75, 75, 75);

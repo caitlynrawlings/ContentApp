@@ -176,8 +176,8 @@
                     "content-type": "Link",
                     "content": {
                         "English": {
-                            "displayText": "This Page",
-                            "page": "Page 2"
+                            "displayText": "Summary - Implant",
+                            "page": "Summary - Implant"
                         },
                         "Dholuo": {
                             "displayText": "",

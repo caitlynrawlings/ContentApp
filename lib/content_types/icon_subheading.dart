@@ -6,11 +6,11 @@ class IconSubheading extends StatelessWidget {
     final String language;
 
     const IconSubheading({
-        Key? key,
+        super.key,
         required this.iconPath,
         required this.subheadingText,
         required this.language,
-    }) : super(key: key);
+    });
 
     @override
     Widget build(BuildContext context) {
@@ -24,13 +24,13 @@ class IconSubheading extends StatelessWidget {
                     effectivePath,
                     width: 30,
                     height: 30,
-                    errorBuilder: (context, error, stackTrace) => Icon(Icons.error),
+                    errorBuilder: (context, error, stackTrace) => const Icon(Icons.error),
                 ),
-                SizedBox(width: 8),
+                const SizedBox(width: 8),
                 Expanded(
                     child: Text(
                         effectiveText,
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                 ),
             ],

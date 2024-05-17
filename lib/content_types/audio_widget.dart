@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:just_audio/just_audio.dart';
-import '/toggle_widget.dart';
+import 'toggle_widget.dart';
 
 class AudioWidget extends StatefulWidget {
   final String audioAsset;
@@ -38,11 +39,13 @@ class _AudioWidgetState extends State<AudioWidget> {
     return Column(
       children: [
         IconButton(
-          icon: Image.asset(
-            "assets/audio.png",
-            width: 60,
-            height: 60,
-          ),
+          icon: Icon(FontAwesomeIcons.volumeUp, color: Theme.of(context).colorScheme.onBackground,),
+          // icon: Image.asset(
+          //   "assets/audio.png",
+          //   width: 60,
+          //   height: 60,
+          // ),
+          iconSize: 60,
           onPressed: toggleAudio,
         ),
         ToggleWidget(title: "Show Transcript", body: widget.transcript),

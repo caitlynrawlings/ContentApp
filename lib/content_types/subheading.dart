@@ -14,7 +14,7 @@ class Subheading extends StatelessWidget {
 
     return Text(
       text,
-      style: theme.textTheme.headlineMedium,
+      style: theme.textTheme.displaySmall,
     );
   }
 }

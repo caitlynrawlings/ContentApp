@@ -1,14 +1,15 @@
-// ignore_for_file: file_names
 import 'package:flutter/material.dart';
 
 class Menu extends StatelessWidget {
   final List<dynamic> pageTitles;
+  final List<dynamic> pageIds;
   final String selectedLanguage;
-  final Function(int) onSelectPage;
+  final Function(String) onSelectPage;
 
   const Menu({
     super.key,
     required this.pageTitles,
+    required this.pageIds,
     required this.onSelectPage, 
     required this.selectedLanguage,
   });
@@ -22,7 +23,7 @@ class Menu extends StatelessWidget {
           key: ValueKey("Page$index"),
           pageLabel: pageTitles[index][selectedLanguage] ?? "Page not available in $selectedLanguage",
           onPressed: () {
-            onSelectPage(index);
+            onSelectPage(pageIds[index]);
           },
         );
       },
@@ -43,8 +44,8 @@ class PageButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final textStyle = theme.textTheme.headlineSmall!.copyWith(
-      color: const Color.fromARGB(255, 0, 0, 0), // theme.colorScheme.onPrimary,
+    final textStyle = theme.textTheme.labelLarge!.copyWith(
+      color: theme.colorScheme.onBackground,
     );
 
     return Column(
@@ -54,17 +55,17 @@ class PageButton extends StatelessWidget {
           decoration: const BoxDecoration(
             border: Border(
               bottom: BorderSide(
-                color: Color.fromARGB(255, 205, 205, 205), // Specify border color here
-                width: 1.0, // Specify border width here
+                color: Color.fromARGB(255, 205, 205, 205),
+                width: 1.0,
               ),
             ),
           ),
           child: TextButton(
             onPressed: onPressed,
             style: TextButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+                backgroundColor: Theme.of(context).colorScheme.background,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(0), // Adjust the value as needed
+                  borderRadius: BorderRadius.circular(0),
                 ),
             ),
             child: Padding(

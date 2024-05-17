@@ -40,7 +40,7 @@ class _ToggleWidgetState extends State<ToggleWidget> {
               Expanded(
                 child: Text(
                   widget.title,
-                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  style: Theme.of(context).textTheme.headlineMedium,
                 ),
               ),
             ],
@@ -49,7 +49,7 @@ class _ToggleWidgetState extends State<ToggleWidget> {
         if (_isExpanded)
           Padding(
             padding: const EdgeInsets.only(left: 10, top: 8),
-            child: Text(widget.body, style: const TextStyle(fontSize: 16, color: Colors.black)),
+            child: Text(widget.body, style: Theme.of(context).textTheme.bodyLarge),
           ),
       ],
     );

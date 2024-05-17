@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class Heading extends StatelessWidget {
+class BodyText extends StatelessWidget {
   final String text;
 
-  const Heading({
+  const BodyText({
     super.key,
     required this.text,
   });
@@ -14,7 +14,7 @@ class Heading extends StatelessWidget {
 
     return Text(
       text,
-      style: theme.textTheme.displayMedium,
+      style: theme.textTheme.bodyLarge,
     );
   }
 }

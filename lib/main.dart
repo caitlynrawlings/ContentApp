@@ -1,4 +1,6 @@
 import 'package:content_app/menu.dart';
+import 'package:content_app/settings.dart';
+import 'package:content_app/theme_data.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
@@ -7,6 +9,7 @@ import 'lang_dropdown.dart';
 
 void main(List<String> arguments) async {
   WidgetsFlutterBinding.ensureInitialized();
+  // Use ' flutter run --dart-define="FILE=<the file you want to load>" ' to load file other than pages
   const file = String.fromEnvironment("FILE", defaultValue: 'assets/pages.json');
   runApp(const MyApp(jsonFile: file));
 }
@@ -20,28 +23,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Content App',
-      theme: ThemeData(
-        colorSchemeSeed: const Color.fromARGB(255, 97, 29, 157),
-        textTheme: const TextTheme(
-          displayLarge: TextStyle(
-            fontSize: 40,
-            fontWeight: FontWeight.bold,
-          ),
-          // ···
-          titleLarge: TextStyle(
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
-          ),
-          headlineLarge: TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
-          ),
-          headlineMedium: TextStyle(
-            fontSize: 15,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
       home: SelectionArea(child: AppScreen(jsonFile: jsonFile)),
     );
   }
@@ -58,10 +39,15 @@ class AppScreen extends StatefulWidget {
 
 class _AppScreenState extends State<AppScreen> {
   int selectedPageIndex = 0;  // tracks which page is being displayed. 0 is menu page and increments from that in order of pages added
+  int lastPageIndex = 0;
   String selectedLanguage = "";  // tracks current language and its directionality
+  double _fontSizeFactor = 1.0; // Initial font size factor
+  bool _lightMode = false;
 
   List<dynamic> pageIds = [];
   List<dynamic> pageTitles = [];
+  List<dynamic> menuPageIds = [];
+  List<dynamic> menuPageTitles = [];
   List<dynamic> pagesContents = [];
   Map<String, String> languages = {};
 
@@ -92,6 +78,10 @@ class _AppScreenState extends State<AppScreen> {
       for (dynamic page in pages) {
         pageIds += [page["id"]];
         pageTitles += [page["title"]];
+        if (!page["hidden"]) {
+          menuPageTitles += [page["title"]];
+          menuPageIds += [page["id"]];
+        }
         pagesContents += [page["content"]];
       }
     });
@@ -103,22 +93,55 @@ class _AppScreenState extends State<AppScreen> {
     });
   }
 
+  void _handleFontSizeChange(double factor) {
+    setState(() {
+      _fontSizeFactor = factor;
+    });
+  }
+
+  void _handleLightModeChange() {
+    setState(() {
+      _lightMode = !_lightMode;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return FocusScope(
-      child: LayoutBuilder(
-        builder: (context, constraints) {
-          return Scaffold(
+    final ThemeData baseTheme = Theme.of(context);
+
+    final ThemeData lightTheme = _lightMode 
+                                    ? AppThemes.darkTheme
+                                    : AppThemes.lightTheme;
+
+    final TextTheme textTheme = baseTheme.textTheme.copyWith(
+      displayLarge: lightTheme.textTheme.displayLarge?.copyWith(fontSize: AppFontSizes.displayLargeSize * _fontSizeFactor,),
+      displayMedium: lightTheme.textTheme.displayMedium?.copyWith(fontSize: AppFontSizes.displayMediumSize * _fontSizeFactor),
+      displaySmall: lightTheme.textTheme.displaySmall?.copyWith(fontSize: AppFontSizes.displaySmallSize * _fontSizeFactor),
+      headlineMedium: lightTheme.textTheme.headlineMedium?.copyWith(fontSize: AppFontSizes.headlineMediumSize * _fontSizeFactor),
+      bodyLarge: lightTheme.textTheme.bodyLarge?.copyWith(fontSize: AppFontSizes.bodyLargeSize * _fontSizeFactor),
+      bodySmall: lightTheme.textTheme.bodySmall?.copyWith(fontSize: AppFontSizes.bodySmallSize * _fontSizeFactor),
+      labelLarge: lightTheme.textTheme.labelLarge?.copyWith(fontSize: AppFontSizes.labelLargeSize * _fontSizeFactor),
+    ).apply(
+      displayColor: lightTheme.colorScheme.onBackground,
+      bodyColor: lightTheme.colorScheme.onBackground,
+    );
+
+    final ThemeData selectedTheme = lightTheme.copyWith(textTheme: textTheme);
+
+    return Theme(
+      data: selectedTheme,
+      child: Scaffold(
               appBar: AppBar(
-                backgroundColor: Theme.of(context).primaryColor,
+                backgroundColor: selectedTheme.colorScheme.primary,
                 toolbarHeight: 60,
                 leading: Padding(
                   padding: const EdgeInsets.only(left: 6.0,),
                   child: IconButton(
                     // tooltip: "Menu",
-                    icon: const Icon(Icons.menu, size: 40),
+                    icon: const Icon(Icons.menu, size: 35),
                     onPressed: () {
                       setState(() {
+                        lastPageIndex = selectedPageIndex;
                         selectedPageIndex = 0;
                       });
                     },
@@ -135,44 +158,70 @@ class _AppScreenState extends State<AppScreen> {
                         _handleLanguageChange(newLanguage);
                       },
                     ),
+                    const SizedBox(width: 4.0),
+                    IconButton(
+                      icon: const Icon(Icons.settings, size: 35),
+                      onPressed: () {
+                        setState(() {
+                          lastPageIndex = selectedPageIndex;
+                          selectedPageIndex = -1;
+                        });
+                      },
+                    )
                   ],
                 ),
               ),
               body: Directionality(
                 textDirection: languages[selectedLanguage] == "rtl" ? TextDirection.rtl : TextDirection.ltr,
                  child: 
-                Column(
-                  children: [
-                    Expanded(
-                      child: selectedPageIndex == 0
-                          ? Center(
-                              child: Menu(
-                                pageTitles: pageTitles,
-                                selectedLanguage: selectedLanguage,
-                                onSelectPage: (index) {
+                Container(
+                  color: selectedTheme.colorScheme.background,
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: selectedPageIndex == 0
+                            ? Center(
+                                child: Menu(
+                                  pageTitles: menuPageTitles,
+                                  pageIds: menuPageIds,
+                                  selectedLanguage: selectedLanguage,
+                                  onSelectPage: (pageId) {
+                                    setState(() {
+                                      lastPageIndex = selectedPageIndex;
+                                      selectedPageIndex = pageIds.indexOf(pageId) + 1;
+                                    });
+                                  },
+                                ),
+                              )
+                            : selectedPageIndex == -1 
+                            ? Settings(
+                                onBack: () {
                                   setState(() {
-                                    selectedPageIndex = index + 1;
+                                    selectedPageIndex = lastPageIndex;
                                   });
                                 },
+                                onChangeFontSize: _handleFontSizeChange, 
+                                onLightModeChange: _handleLightModeChange,
+                                fontSize: _fontSizeFactor,
+                                lightMode: _lightMode,
+                              )
+                            : CustomPage(
+                                content: pagesContents[selectedPageIndex - 1],
+                                title: pageTitles[selectedPageIndex - 1],
+                                language: selectedLanguage,
+                                onChangePage: (pageId) {
+                                    setState(() {
+                                      lastPageIndex = selectedPageIndex;
+                                      selectedPageIndex = pageIds.indexOf(pageId) + 1;
+                                    });
+                                  },
                               ),
-                            )
-                          : CustomPage(
-                              content: pagesContents[selectedPageIndex - 1],
-                              title: pageTitles[selectedPageIndex - 1],
-                              language: selectedLanguage,
-                              onChangePage: (pageId) {
-                                  setState(() {
-                                    selectedPageIndex = pageIds.indexOf(pageId) + 1;
-                                  });
-                                },
-                            ),
-                    ),
-                  ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
-          );
-        },
-      ),
-    );
+          ),
+        );
   }
 }

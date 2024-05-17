@@ -13,24 +13,24 @@ class Link extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final theme = Theme.of(context);
 
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        ElevatedButton(
-          onPressed: () {
-            onChangePage(linkedPageId);
-          },
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Theme.of(context).cardColor,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(4.0),
+    return 
+        Flexible(
+          child: ElevatedButton(
+            onPressed: () {
+              onChangePage(linkedPageId);
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Theme.of(context).colorScheme.primary,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(4.0),
+              ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Text(displayText, style: Theme.of(context).textTheme.labelLarge,),
             ),
           ),
-          child: Text(displayText),
-        ),
-      ]
-    );
+        );
   }
 }

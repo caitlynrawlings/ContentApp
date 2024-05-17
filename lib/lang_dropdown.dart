@@ -21,7 +21,7 @@ class LanguageDropdownState extends State<LanguageDropdown> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-            color: Colors.white,
+            color: Theme.of(context).colorScheme.background,
             borderRadius: BorderRadius.circular(10.0),
             boxShadow: [
               BoxShadow(
@@ -39,6 +39,7 @@ class LanguageDropdownState extends State<LanguageDropdown> {
             const Icon(Icons.language),
             const SizedBox(width: 5),
             DropdownButton<String>(
+              dropdownColor: Theme.of(context).colorScheme.secondary,
               value: widget.selectedLanguage,
               onChanged: (String? newLanguage) {
                 widget.onChanged(newLanguage ?? widget.languages[0]);
@@ -50,7 +51,7 @@ class LanguageDropdownState extends State<LanguageDropdown> {
                       value: language,
                       child: Row(
                         children: [
-                          Text(language),
+                          Text(language, style: Theme.of(context).textTheme.labelLarge,),
                         ],
                       ),
                     );

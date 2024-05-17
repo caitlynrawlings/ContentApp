@@ -177,23 +177,6 @@
                             "page": ""
                         }
                     }
-                },
-                {
-                    "content-type": "Link",
-                    "content": {
-                        "English": {
-                            "displayText": "Last Page2.............................................................................................................",
-                            "page": "Page 1"
-                        },
-                        "Dholuo": {
-                            "displayText": "",
-                            "page": ""
-                        },
-                        "Kiswahili": {
-                            "displayText": "",
-                            "page": ""
-                        }
-                    }
                 }
             ]
         }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class Link extends StatelessWidget {
   final String displayText;
@@ -15,9 +14,7 @@ class Link extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
+    return 
         Flexible(
           child: ElevatedButton(
             onPressed: () {
@@ -34,8 +31,6 @@ class Link extends StatelessWidget {
               child: Text(displayText, style: Theme.of(context).textTheme.labelLarge,),
             ),
           ),
-        ),
-      ]
-    );
+        );
   }
 }

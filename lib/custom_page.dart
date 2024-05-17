@@ -178,17 +178,12 @@ class _CustomPageState extends State<CustomPage> {
           children: value.map<Widget>((link) {
             return Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Wrap(
-                direction: Axis.horizontal,
-                children: [
-                  Link(
-                    displayText: link['displayText'],
-                    linkedPageId: link['page'],
-                    onChangePage: (pageId) {
-                      widget.onChangePage(pageId);
-                    },
-                  ),
-                ],
+              child: Link(
+                displayText: link['displayText'],
+                linkedPageId: link['page'],
+                onChangePage: (pageId) {
+                  widget.onChangePage(pageId);
+                },
               ),
             );
           }).toList(),

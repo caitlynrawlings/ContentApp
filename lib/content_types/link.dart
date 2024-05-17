@@ -15,22 +15,25 @@ class Link extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return 
-        Flexible(
-          child: ElevatedButton(
-            onPressed: () {
-              onChangePage(linkedPageId);
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Theme.of(context).colorScheme.primary,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(4.0),
+        Flex(
+          direction: Axis.horizontal,
+          children: [Flexible(
+            child: ElevatedButton(
+              onPressed: () {
+                onChangePage(linkedPageId);
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Theme.of(context).colorScheme.primary,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(4.0),
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Text(displayText, style: Theme.of(context).textTheme.labelLarge,),
               ),
             ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Text(displayText, style: Theme.of(context).textTheme.labelLarge,),
-            ),
-          ),
+          ),]
         );
   }
 }

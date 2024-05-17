@@ -42,7 +42,7 @@ class PageButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final textStyle = theme.textTheme.displayLarge!.copyWith(
+    final textStyle = theme.textTheme.labelLarge!.copyWith(
       color: theme.colorScheme.onBackground,
     );
 

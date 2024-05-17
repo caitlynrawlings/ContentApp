@@ -156,9 +156,8 @@ class _CustomPageState extends State<CustomPage> {
         return ImageWidget(
           imagePath: value['path'],
           altText: value['alt'] ?? 'No alt text provided',
-        caption: value['caption'],
-      );
-
+          caption: value['caption'],
+        );
       case 'Spacer':
         return value.runtimeType == String ? const SizedBox(height: 0) : SizedBox(key: ValueKey("spacer$value"), height: value.toDouble());
       case 'IconSubheading':
@@ -175,16 +174,16 @@ class _CustomPageState extends State<CustomPage> {
         return ToggleWidget(title: value['title'], body: value['body']);
       case 'Links':
         return Wrap(
+          direction: Axis.horizontal,
+          spacing: 8.0,
+          runSpacing: 8.0,
           children: value.map<Widget>((link) {
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Link(
-                displayText: link['displayText'],
-                linkedPageId: link['page'],
-                onChangePage: (pageId) {
-                  widget.onChangePage(pageId);
-                },
-              ),
+            return Link(
+              displayText: link['displayText'],
+              linkedPageId: link['page'],
+              onChangePage: (pageId) {
+                widget.onChangePage(pageId);
+              },
             );
           }).toList(),
         );

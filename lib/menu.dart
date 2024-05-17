@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 
 class Menu extends StatelessWidget {
   final List<dynamic> pageTitles;
+  final List<dynamic> pageIds;
   final String selectedLanguage;
-  final Function(int) onSelectPage;
+  final Function(String) onSelectPage;
 
   const Menu({
     super.key,
     required this.pageTitles,
+    required this.pageIds,
     required this.onSelectPage, 
     required this.selectedLanguage,
   });
@@ -21,7 +23,7 @@ class Menu extends StatelessWidget {
           key: ValueKey("Page$index"),
           pageLabel: pageTitles[index][selectedLanguage] ?? "Page not available in $selectedLanguage",
           onPressed: () {
-            onSelectPage(index);
+            onSelectPage(pageIds[index]);
           },
         );
       },

@@ -70,7 +70,6 @@ flutter:
   assets:
     - assets/
     - assets/downloads/
-    - assets/downloads/test/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

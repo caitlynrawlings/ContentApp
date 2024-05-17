@@ -46,6 +46,7 @@ class _AppScreenState extends State<AppScreen> {
 
   List<dynamic> pageIds = [];
   List<dynamic> pageTitles = [];
+  List<dynamic> menuPageIds = [];
   List<dynamic> menuPageTitles = [];
   List<dynamic> pagesContents = [];
   Map<String, String> languages = {};
@@ -79,6 +80,7 @@ class _AppScreenState extends State<AppScreen> {
         pageTitles += [page["title"]];
         if (!page["hidden"]) {
           menuPageTitles += [page["title"]];
+          menuPageIds += [page["id"]];
         }
         pagesContents += [page["content"]];
       }
@@ -181,11 +183,12 @@ class _AppScreenState extends State<AppScreen> {
                             ? Center(
                                 child: Menu(
                                   pageTitles: menuPageTitles,
+                                  pageIds: menuPageIds,
                                   selectedLanguage: selectedLanguage,
-                                  onSelectPage: (index) {
+                                  onSelectPage: (pageId) {
                                     setState(() {
                                       lastPageIndex = selectedPageIndex;
-                                      selectedPageIndex = index + 1;
+                                      selectedPageIndex = pageIds.indexOf(pageId) + 1;
                                     });
                                   },
                                 ),

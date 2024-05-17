@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class Link extends StatelessWidget {
   final String displayText;
@@ -17,17 +18,22 @@ class Link extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        ElevatedButton(
-          onPressed: () {
-            onChangePage(linkedPageId);
-          },
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Theme.of(context).colorScheme.primary,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(4.0),
+        Flexible(
+          child: ElevatedButton(
+            onPressed: () {
+              onChangePage(linkedPageId);
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Theme.of(context).colorScheme.primary,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(4.0),
+              ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Text(displayText, style: Theme.of(context).textTheme.labelLarge,),
             ),
           ),
-          child: Text(displayText, style: Theme.of(context).textTheme.labelLarge,),
         ),
       ]
     );

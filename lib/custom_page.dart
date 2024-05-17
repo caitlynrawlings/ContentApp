@@ -61,7 +61,7 @@ class _CustomPageState extends State<CustomPage> {
           dynamic nextItem = deepCopyMap(widget.content[j]);
           dynamic contentType = nextItem["content-type"];
           if ((contentType == "Link")) {
-            dynamic linkContent = item["content"];
+            dynamic linkContent = nextItem["content"];
             linkContent.forEach((languageKey, value) {
               dynamic linkArray = newContent[languageKey];
               linkArray += [value];
@@ -168,17 +168,20 @@ class _CustomPageState extends State<CustomPage> {
       case 'Toggle':
         return ToggleWidget(title: value['title'], body: value['body']);
       case 'Links':
-        if (value.length == 1) {
-          return Link(
-            displayText: value[0]['displayText'],
-            linkedPageId: value[0]['page'],
-            onChangePage: (pageId) {
-              widget.onChangePage(pageId);
-            },
-          );
-        } else {
-          return Text(value.toString());
-        }
+        return Wrap(
+          children: value.map<Widget>((link) {
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Link(
+                displayText: link['displayText'],
+                linkedPageId: link['page'],
+                onChangePage: (pageId) {
+                  widget.onChangePage(pageId);
+                },
+              ),
+            );
+          }).toList(),
+        );
       default:
         return Text(
           'Unsupported content type: $contentType',

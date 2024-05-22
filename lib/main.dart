@@ -45,6 +45,7 @@ class _AppScreenState extends State<AppScreen> {
   int selectedPageIndex = 0;  // tracks which page is being displayed. 0 is menu page and increments from that in order of pages added
   int lastPageIndex = 0;
   final List<int> undoStack = [];  // stores the page index of the pages 
+  final List<int> redoStack = [];
 
   String selectedLanguage = "";  // tracks current language and its directionality
   double _fontSizeFactor = 1.0; // Initial font size factor
@@ -115,8 +116,34 @@ class _AppScreenState extends State<AppScreen> {
     setState(() {
       if (undoStack.isNotEmpty) {
         lastPageIndex = selectedPageIndex;
-        selectedPageIndex = undoStack.removeLast();
+        redoStack.add(selectedPageIndex);
+        int lastPage = undoStack.removeLast();
+        selectedPageIndex = lastPage;
         SemanticsService.announce('Previous page restored', TextDirection.ltr);
+      }
+    });
+  }
+
+  void _onRedo() {
+    setState(() {
+      if (redoStack.isNotEmpty) {
+        lastPageIndex = selectedPageIndex;
+        undoStack.add(selectedPageIndex);
+        int nextPage = redoStack.removeLast();
+        selectedPageIndex = nextPage;
+        SemanticsService.announce('Next page restored', TextDirection.ltr);
+      }
+    });
+  }
+
+  void _updateRedo(int pageIndex) {
+    setState(() {
+      if (redoStack.isNotEmpty) {
+        if (redoStack.last == pageIndex) {
+          redoStack.removeLast();
+        } else {
+          redoStack.clear();
+        }
       }
     });
   }
@@ -161,6 +188,7 @@ class _AppScreenState extends State<AppScreen> {
                             lastPageIndex = selectedPageIndex;
                             undoStack.add(selectedPageIndex);
                             SemanticsService.announce('Menu page Loaded', TextDirection.ltr);
+                            _updateRedo(0);
                             selectedPageIndex = 0;
                           });
                         },
@@ -184,10 +212,9 @@ class _AppScreenState extends State<AppScreen> {
                         setState(() {
                           if (selectedPageIndex != -1) {
                             lastPageIndex = selectedPageIndex;
-                            undoStack.add(selectedPageIndex);
                             SemanticsService.announce('Settings page Loaded', TextDirection.ltr);
-                          }
-                          selectedPageIndex = -1;
+                            selectedPageIndex = -1;
+                          } 
                         });
                       },
                     )
@@ -241,7 +268,7 @@ class _AppScreenState extends State<AppScreen> {
           children: [
             Row(
               children: [
-                NavArrows(leftOnPressed: _onUndo,),
+                NavArrows(leftOnPressed: _onUndo, rightOnPressed: _onRedo,),
                 const Expanded(child: SizedBox()),
               ],
             ),
@@ -255,7 +282,10 @@ class _AppScreenState extends State<AppScreen> {
                     lastPageIndex = selectedPageIndex;
                     undoStack.add(selectedPageIndex);
                     SemanticsService.announce('New page Loaded', TextDirection.ltr);
-                    selectedPageIndex = pageIds.indexOf(pageId) + 1;
+                    int newPageIndex = pageIds.indexOf(pageId) + 1;
+                    print(newPageIndex);
+                    _updateRedo(newPageIndex);
+                    selectedPageIndex = newPageIndex;
                   });
                 },
               )
@@ -267,7 +297,7 @@ class _AppScreenState extends State<AppScreen> {
           children: [
             Row(
               children: [
-                NavArrows(leftOnPressed: _onUndo,),
+                NavArrows(leftOnPressed: _onUndo, rightOnPressed: _onRedo,),
                 const Expanded(child: SizedBox()),
               ],
             ),
@@ -281,7 +311,9 @@ class _AppScreenState extends State<AppScreen> {
                       lastPageIndex = selectedPageIndex;
                       undoStack.add(selectedPageIndex);
                       SemanticsService.announce('New page Loaded', TextDirection.ltr);
-                      selectedPageIndex = pageIds.indexOf(pageId) + 1;
+                      int newPageIndex = pageIds.indexOf(pageId) + 1;
+                      _updateRedo(newPageIndex);
+                      selectedPageIndex = newPageIndex;
                     });
                   },
               ),

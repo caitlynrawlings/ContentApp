@@ -28,9 +28,12 @@ class Settings extends StatelessWidget {
               padding: const EdgeInsets.only(top: 10.0,),
               child: ElevatedButton(
                 onPressed: onBack, 
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Theme.of(context).colorScheme.primary,
+                ),
                 child: Padding(
                   padding: const EdgeInsets.all(0),
-                  child: Icon(FontAwesomeIcons.arrowLeft, color: Theme.of(context).colorScheme.onBackground),
+                  child: Icon(FontAwesomeIcons.arrowLeft, color: Theme.of(context).colorScheme.onSurface),
                 )
               ),
             ),
@@ -167,6 +170,7 @@ class _LightModeSwitchState extends State<LightModeSwitch> {
           padding: const EdgeInsets.symmetric(horizontal: 5.0),
           child: Switch(
             value: selectedValue,
+            inactiveTrackColor: Theme.of(context).colorScheme.primary,
             onChanged: (value) {
               setState(() {
                 widget.onChanged.call();

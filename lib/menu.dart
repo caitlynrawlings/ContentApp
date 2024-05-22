@@ -45,7 +45,7 @@ class PageButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textStyle = theme.textTheme.labelLarge!.copyWith(
-      color: theme.colorScheme.onBackground,
+      color: theme.colorScheme.onSurface,
     );
 
     return Column(
@@ -63,7 +63,7 @@ class PageButton extends StatelessWidget {
           child: TextButton(
             onPressed: onPressed,
             style: TextButton.styleFrom(
-                backgroundColor: Theme.of(context).colorScheme.background,
+                backgroundColor: Theme.of(context).colorScheme.surface,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(0),
                 ),

@@ -48,7 +48,7 @@ class AppFontSizes {
 }
 
 class AppColorsSchemes {
-  static const darkBlue = Color.fromARGB(255, 36, 36, 91);
+  static const darkBlue = Color.fromARGB(255, 32, 32, 136);
   static const lightBlue = Color.fromARGB(255, 162, 201, 252);
 
   static const offwhite = Color.fromARGB(255, 242, 242, 242);
@@ -59,9 +59,7 @@ class AppColorsSchemes {
     onPrimary: Colors.white,
     secondary: offblack,
     onSecondary: Colors.white,
-    background: Color.fromARGB(255, 44, 44, 44),
-    onBackground: Colors.white,
-    surface: darkBlue,
+    surface: Color.fromARGB(255, 44, 44, 44),
     onSurface: Colors.white,
     error: Colors.red,
     onError: Colors.white,
@@ -73,9 +71,7 @@ class AppColorsSchemes {
     onPrimary: Colors.black,
     secondary: offwhite,
     onSecondary: Colors.black,
-    background: Colors.white,
-    onBackground: Colors.black,
-    surface: lightBlue,
+    surface: Colors.white,
     onSurface: Colors.black,
     error: Colors.red,
     onError: Colors.white,

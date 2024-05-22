@@ -39,7 +39,7 @@ class _AudioWidgetState extends State<AudioWidget> {
     return Column(
       children: [
         IconButton(
-          icon: Icon(FontAwesomeIcons.volumeUp, color: Theme.of(context).colorScheme.onBackground,),
+          icon: Icon(FontAwesomeIcons.volumeUp, color: Theme.of(context).colorScheme.onSurface,),
           // icon: Image.asset(
           //   "assets/audio.png",
           //   width: 60,

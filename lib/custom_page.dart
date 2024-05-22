@@ -88,7 +88,7 @@ class _CustomPageState extends State<CustomPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Theme.of(context).colorScheme.background,
+        color: Theme.of(context).colorScheme.surface,
         child: Column(
           children: [
             Padding(

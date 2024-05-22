@@ -2,6 +2,7 @@ import 'package:content_app/menu.dart';
 import 'package:content_app/settings.dart';
 import 'package:content_app/theme_data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'custom_page.dart';
@@ -122,8 +123,8 @@ class _AppScreenState extends State<AppScreen> {
       bodySmall: lightTheme.textTheme.bodySmall?.copyWith(fontSize: AppFontSizes.bodySmallSize * _fontSizeFactor),
       labelLarge: lightTheme.textTheme.labelLarge?.copyWith(fontSize: AppFontSizes.labelLargeSize * _fontSizeFactor),
     ).apply(
-      displayColor: lightTheme.colorScheme.onBackground,
-      bodyColor: lightTheme.colorScheme.onBackground,
+      displayColor: lightTheme.colorScheme.onSurface,
+      bodyColor: lightTheme.colorScheme.onSurface,
     );
 
     final ThemeData selectedTheme = lightTheme.copyWith(textTheme: textTheme);
@@ -137,15 +138,17 @@ class _AppScreenState extends State<AppScreen> {
                 leading: Padding(
                   padding: const EdgeInsets.only(left: 6.0,),
                   child: IconButton(
-                    // tooltip: "Menu",
-                    icon: const Icon(Icons.menu, size: 35),
-                    onPressed: () {
-                      setState(() {
-                        lastPageIndex = selectedPageIndex;
-                        selectedPageIndex = 0;
-                      });
-                    },
-                  ),
+                    icon: Semantics( 
+                      label: 'menu', 
+                      child: const Icon(Icons.menu, size: 35)),
+                        onPressed: () {
+                          setState(() {
+                            lastPageIndex = selectedPageIndex;
+                            SemanticsService.announce('Menu page Loaded', TextDirection.ltr);
+                            selectedPageIndex = 0;
+                          });
+                        },
+                      ),
                 ),
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -160,11 +163,12 @@ class _AppScreenState extends State<AppScreen> {
                     ),
                     const SizedBox(width: 4.0),
                     IconButton(
-                      icon: const Icon(Icons.settings, size: 35),
+                      icon: Semantics(label: 'Settings', child: const Icon(Icons.settings, size: 35)),
                       onPressed: () {
                         setState(() {
                           if (selectedPageIndex != -1) {
                             lastPageIndex = selectedPageIndex;
+                            SemanticsService.announce('Settings page Loaded', TextDirection.ltr);
                           }
                           selectedPageIndex = -1;
                         });
@@ -177,7 +181,7 @@ class _AppScreenState extends State<AppScreen> {
                 textDirection: languages[selectedLanguage] == "rtl" ? TextDirection.rtl : TextDirection.ltr,
                  child: 
                 Container(
-                  color: selectedTheme.colorScheme.background,
+                  color: selectedTheme.colorScheme.surface,
                   child: Column(
                     children: [
                       Expanded(
@@ -190,6 +194,7 @@ class _AppScreenState extends State<AppScreen> {
                                   onSelectPage: (pageId) {
                                     setState(() {
                                       lastPageIndex = selectedPageIndex;
+                                      SemanticsService.announce('New page Loaded', TextDirection.ltr);
                                       selectedPageIndex = pageIds.indexOf(pageId) + 1;
                                     });
                                   },
@@ -199,6 +204,7 @@ class _AppScreenState extends State<AppScreen> {
                             ? Settings(
                                 onBack: () {
                                   setState(() {
+                                    SemanticsService.announce('Settings page Loaded', TextDirection.ltr);
                                     selectedPageIndex = lastPageIndex;
                                   });
                                 },
@@ -214,6 +220,7 @@ class _AppScreenState extends State<AppScreen> {
                                 onChangePage: (pageId) {
                                     setState(() {
                                       lastPageIndex = selectedPageIndex;
+                                      SemanticsService.announce('New page Loaded', TextDirection.ltr);
                                       selectedPageIndex = pageIds.indexOf(pageId) + 1;
                                     });
                                   },

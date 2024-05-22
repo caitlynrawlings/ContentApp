@@ -15,16 +15,18 @@ class ChangePageArrow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 10.0,),
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-            backgroundColor: Theme.of(context).colorScheme.primary,
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(0),
-          child: icon,
-        )
+      padding: const EdgeInsets.only(top: 10.0),
+      child: Row(
+        children: [
+          ElevatedButton(
+            onPressed: onPressed,
+            style: ElevatedButton.styleFrom(
+                backgroundColor: Theme.of(context).colorScheme.primary,
+            ),
+            child: icon
+          ),
+          const Expanded(child: SizedBox()),
+        ],
       ),
     );
   }

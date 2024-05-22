@@ -163,7 +163,9 @@ class _AppScreenState extends State<AppScreen> {
                       icon: const Icon(Icons.settings, size: 35),
                       onPressed: () {
                         setState(() {
-                          lastPageIndex = selectedPageIndex;
+                          if (selectedPageIndex != -1) {
+                            lastPageIndex = selectedPageIndex;
+                          }
                           selectedPageIndex = -1;
                         });
                       },

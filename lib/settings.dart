@@ -25,9 +25,14 @@ class Settings extends StatelessWidget {
       padding: const EdgeInsets.all(10.0),
       child: ListView(
           children: [
-            ChangePageArrow( 
-              onPressed: onBack,
-              icon: Icon(FontAwesomeIcons.arrowLeft, color: Theme.of(context).colorScheme.onSurface), 
+            Row(
+              children: [
+                ChangePageArrow( 
+                  onPressed: onBack,
+                  icon: Icon(FontAwesomeIcons.arrowLeft, color: Theme.of(context).colorScheme.onSurface), 
+                ),
+                const Expanded(child: SizedBox()),
+              ],
             ),
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 10.0),

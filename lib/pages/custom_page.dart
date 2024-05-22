@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'content_types/body_text.dart';
-import 'content_types/heading.dart';
-import 'content_types/subheading.dart';
-import 'content_types/image_widget.dart';
-import 'content_types/audio_widget.dart';
-import 'content_types/callout_widget.dart';
-import 'content_types/link.dart';
-import 'content_types/toggle_widget.dart';
-import 'content_types/icon_subheading.dart';
-import 'content_types/image_text.dart';
+import '../content_types/body_text.dart';
+import '../content_types/heading.dart';
+import '../content_types/subheading.dart';
+import '../content_types/image_widget.dart';
+import '../content_types/audio_widget.dart';
+import '../content_types/callout_widget.dart';
+import '../content_types/link.dart';
+import '../content_types/toggle_widget.dart';
+import '../content_types/icon_subheading.dart';
+import '../content_types/image_text.dart';
 
 class CustomPage extends StatefulWidget {
   final List<dynamic> content;

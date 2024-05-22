@@ -1,10 +1,8 @@
-import 'package:content_app/change_page_arrow.dart';
 import 'package:content_app/theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Settings extends StatelessWidget {
-  final dynamic onBack;
   final Function(double) onChangeFontSize;
   final Function() onLightModeChange;
   final double fontSize;
@@ -12,7 +10,6 @@ class Settings extends StatelessWidget {
 
   const Settings({
     super.key,
-    required this.onBack,
     required this.onChangeFontSize, 
     required this.onLightModeChange, 
     required this.fontSize, 
@@ -25,15 +22,6 @@ class Settings extends StatelessWidget {
       padding: const EdgeInsets.all(10.0),
       child: ListView(
           children: [
-            Row(
-              children: [
-                ChangePageArrow( 
-                  onPressed: onBack,
-                  icon: Icon(FontAwesomeIcons.arrowLeft, color: Theme.of(context).colorScheme.onSurface), 
-                ),
-                const Expanded(child: SizedBox()),
-              ],
-            ),
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 10.0),
               child: Divider(),

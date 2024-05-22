@@ -1,11 +1,14 @@
-import 'package:content_app/menu.dart';
-import 'package:content_app/settings.dart';
+import 'package:content_app/change_page_arrow.dart';
+import 'package:content_app/nav_arrows.dart';
+import 'package:content_app/pages/menu.dart';
+import 'package:content_app/pages/settings.dart';
 import 'package:content_app/theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
-import 'custom_page.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'pages/custom_page.dart';
 import 'lang_dropdown.dart'; 
 
 void main(List<String> arguments) async {
@@ -41,6 +44,8 @@ class AppScreen extends StatefulWidget {
 class _AppScreenState extends State<AppScreen> {
   int selectedPageIndex = 0;  // tracks which page is being displayed. 0 is menu page and increments from that in order of pages added
   int lastPageIndex = 0;
+  final List<int> undoStack = [];  // stores the page index of the pages 
+
   String selectedLanguage = "";  // tracks current language and its directionality
   double _fontSizeFactor = 1.0; // Initial font size factor
   bool _lightMode = false;
@@ -106,6 +111,16 @@ class _AppScreenState extends State<AppScreen> {
     });
   }
 
+  void _onUndo() {
+    setState(() {
+      if (undoStack.isNotEmpty) {
+        lastPageIndex = selectedPageIndex;
+        selectedPageIndex = undoStack.removeLast();
+        SemanticsService.announce('Previous page restored', TextDirection.ltr);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final ThemeData baseTheme = Theme.of(context);
@@ -144,6 +159,7 @@ class _AppScreenState extends State<AppScreen> {
                         onPressed: () {
                           setState(() {
                             lastPageIndex = selectedPageIndex;
+                            undoStack.add(selectedPageIndex);
                             SemanticsService.announce('Menu page Loaded', TextDirection.ltr);
                             selectedPageIndex = 0;
                           });
@@ -168,6 +184,7 @@ class _AppScreenState extends State<AppScreen> {
                         setState(() {
                           if (selectedPageIndex != -1) {
                             lastPageIndex = selectedPageIndex;
+                            undoStack.add(selectedPageIndex);
                             SemanticsService.announce('Settings page Loaded', TextDirection.ltr);
                           }
                           selectedPageIndex = -1;
@@ -182,55 +199,95 @@ class _AppScreenState extends State<AppScreen> {
                  child: 
                 Container(
                   color: selectedTheme.colorScheme.surface,
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: selectedPageIndex == 0
-                            ? Center(
-                                child: Menu(
-                                  pageTitles: menuPageTitles,
-                                  pageIds: menuPageIds,
-                                  selectedLanguage: selectedLanguage,
-                                  onSelectPage: (pageId) {
-                                    setState(() {
-                                      lastPageIndex = selectedPageIndex;
-                                      SemanticsService.announce('New page Loaded', TextDirection.ltr);
-                                      selectedPageIndex = pageIds.indexOf(pageId) + 1;
-                                    });
-                                  },
-                                ),
-                              )
-                            : selectedPageIndex == -1 
-                            ? Settings(
-                                onBack: () {
-                                  setState(() {
-                                    SemanticsService.announce('Settings page Loaded', TextDirection.ltr);
-                                    selectedPageIndex = lastPageIndex;
-                                  });
-                                },
-                                onChangeFontSize: _handleFontSizeChange, 
-                                onLightModeChange: _handleLightModeChange,
-                                fontSize: _fontSizeFactor,
-                                lightMode: _lightMode,
-                              )
-                            : CustomPage(
-                                content: pagesContents[selectedPageIndex - 1],
-                                title: pageTitles[selectedPageIndex - 1],
-                                language: selectedLanguage,
-                                onChangePage: (pageId) {
-                                    setState(() {
-                                      lastPageIndex = selectedPageIndex;
-                                      SemanticsService.announce('New page Loaded', TextDirection.ltr);
-                                      selectedPageIndex = pageIds.indexOf(pageId) + 1;
-                                    });
-                                  },
-                              ),
-                      ),
-                    ],
-                  ),
+                  child: _buildPage(selectedPageIndex)
                 ),
               ),
           ),
         );
+  }
+
+
+  Widget _buildPage(int pageIndex) {
+    switch (pageIndex) {
+      case -1:
+        return Column(
+          children: [
+            Row(
+              children: [
+                ChangePageArrow( 
+                  onPressed: () {
+                    setState(() {
+                      SemanticsService.announce('Settings page Loaded', TextDirection.ltr);
+                      selectedPageIndex = lastPageIndex;
+                    });
+                  },
+                  icon: Icon(FontAwesomeIcons.arrowLeft, color: Theme.of(context).colorScheme.onSurface), 
+                ),
+                const Expanded(child: SizedBox()),
+              ],
+            ),
+            Expanded(
+              child: Settings(
+                onChangeFontSize: _handleFontSizeChange, 
+                onLightModeChange: _handleLightModeChange,
+                fontSize: _fontSizeFactor,
+                lightMode: _lightMode,
+              )
+            )
+          ]
+        );
+      case 0:
+        return Column(
+          children: [
+            Row(
+              children: [
+                NavArrows(leftOnPressed: _onUndo,),
+                const Expanded(child: SizedBox()),
+              ],
+            ),
+            Expanded(
+              child: Menu(
+                pageTitles: menuPageTitles,
+                pageIds: menuPageIds,
+                selectedLanguage: selectedLanguage,
+                onSelectPage: (pageId) {
+                  setState(() {
+                    lastPageIndex = selectedPageIndex;
+                    undoStack.add(selectedPageIndex);
+                    SemanticsService.announce('New page Loaded', TextDirection.ltr);
+                    selectedPageIndex = pageIds.indexOf(pageId) + 1;
+                  });
+                },
+              )
+            )
+          ]
+        );
+      default:
+        return Column(
+          children: [
+            Row(
+              children: [
+                NavArrows(leftOnPressed: _onUndo,),
+                const Expanded(child: SizedBox()),
+              ],
+            ),
+            Expanded(
+              child: CustomPage(
+                content: pagesContents[selectedPageIndex - 1],
+                title: pageTitles[selectedPageIndex - 1],
+                language: selectedLanguage,
+                onChangePage: (pageId) {
+                    setState(() {
+                      lastPageIndex = selectedPageIndex;
+                      undoStack.add(selectedPageIndex);
+                      SemanticsService.announce('New page Loaded', TextDirection.ltr);
+                      selectedPageIndex = pageIds.indexOf(pageId) + 1;
+                    });
+                  },
+              ),
+            )
+          ]
+        );
+    }
   }
 }

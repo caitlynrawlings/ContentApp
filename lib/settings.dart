@@ -1,9 +1,10 @@
+import 'package:content_app/change_page_arrow.dart';
 import 'package:content_app/theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Settings extends StatelessWidget {
-  final Function() onBack;
+  final dynamic onBack;
   final Function(double) onChangeFontSize;
   final Function() onLightModeChange;
   final double fontSize;
@@ -24,18 +25,9 @@ class Settings extends StatelessWidget {
       padding: const EdgeInsets.all(10.0),
       child: ListView(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 10.0,),
-              child: ElevatedButton(
-                onPressed: onBack, 
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Theme.of(context).colorScheme.primary,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(0),
-                  child: Icon(FontAwesomeIcons.arrowLeft, color: Theme.of(context).colorScheme.onSurface),
-                )
-              ),
+            ChangePageArrow( 
+              onPressed: onBack,
+              icon: Icon(FontAwesomeIcons.arrowLeft, color: Theme.of(context).colorScheme.onSurface), 
             ),
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 10.0),

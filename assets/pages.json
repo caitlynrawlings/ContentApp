@@ -120,7 +120,7 @@
                     }
                 }
             ],
-            "hidden": true
+            "hidden": false
         },
         {
             "id": "quizPage2",
@@ -538,20 +538,11 @@
             },
             "content": [
                 {
-                    "content-type": "IconSubheading",
+                    "content-type": "Heading",
                     "content": {
-                        "English": {
-                            "path": "noun-contraceptive-implant-2860656.svg",
-                            "subheading": "Implant"
-                        },
-                        "Dholuo": {
-                            "path": "noun-contraceptive-implant-2860656.svg",
-                            "subheading": "Implant"
-                        },
-                        "Kiswahili": {
-                            "path": "noun-contraceptive-implant-2860656.svg",
-                            "subheading": "Implant"
-                        }
+                        "English": "Implant",
+                        "Dholuo": "Implant",
+                        "Kiswahili": "Implant"
                     }
                 },
                 {

@@ -51,6 +51,7 @@ class _AppScreenState extends State<AppScreen> {
   List<dynamic> menuPageTitles = [];
   List<dynamic> pagesContents = [];
   Map<String, String> languages = {};
+  List<String> icons = [];
 
   @override
   void initState() {
@@ -79,6 +80,8 @@ class _AppScreenState extends State<AppScreen> {
       for (dynamic page in pages) {
         pageIds += [page["id"]];
         pageTitles += [page["title"]];
+        String iconPath = page["icon"] != null ? "assets/downloads/${page["icon"]}" : "";
+        icons.add(iconPath);
         if (!page["hidden"]) {
           menuPageTitles += [page["title"]];
           menuPageIds += [page["id"]];
@@ -216,6 +219,7 @@ class _AppScreenState extends State<AppScreen> {
                             : CustomPage(
                                 content: pagesContents[selectedPageIndex - 1],
                                 title: pageTitles[selectedPageIndex - 1],
+                              iconPath: icons[selectedPageIndex - 1],
                                 language: selectedLanguage,
                                 onChangePage: (pageId) {
                                     setState(() {

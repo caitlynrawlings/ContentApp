@@ -15,6 +15,7 @@ class CustomPage extends StatefulWidget {
   final Map<dynamic, dynamic> title;
   final String language;
   final dynamic onChangePage;
+  final String iconPath;
 
   const CustomPage({
     super.key,
@@ -22,6 +23,7 @@ class CustomPage extends StatefulWidget {
     required this.title,
     required this.language,
     required this.onChangePage,
+    this.iconPath = '',
   });
 
   @override
@@ -87,19 +89,44 @@ class _CustomPageState extends State<CustomPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // appBar: AppBar(
+      //   title: Row(
+      //     mainAxisAlignment: MainAxisAlignment.start,
+      //     children: [
+      //       if (widget.iconPath.isNotEmpty)  // Check if icon path is not empty
+      //         Image.asset(widget.iconPath, height: 20),  // Display the icon
+      //       const SizedBox(width: 8),  // Space between icon and text
+      //       Text(widget.title[widget.language] ?? "No title translation found"),  // Display the title
+      //     ],
+      //   ),
+      // ),
+      appBar: AppBar(
+  title: Row(
+    mainAxisAlignment: MainAxisAlignment.start,
+    children: [
+      if (widget.iconPath.isNotEmpty)  
+        Image.asset(widget.iconPath, height: 20),  
+      const SizedBox(width: 8),  
+      Text(
+        widget.title[widget.language] ?? "No title translation found",  
+        style: TextStyle(fontWeight: FontWeight.bold),  // Make title bold
+      ),
+    ],
+  ),
+),
       body: Container(
         color: Theme.of(context).colorScheme.surface,
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Focus(
-                child: Text(
-                  widget.title[widget.language] ?? "No title translation found",
-                  style: Theme.of(context).textTheme.displayLarge,
-                ),
-              ),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.all(10.0),
+            //   child: Focus(
+            //     child: Text(
+            //       widget.title[widget.language] ?? "No title translation found",
+            //       style: Theme.of(context).textTheme.displayLarge,
+            //     ),
+            //   ),
+            // ),
             const Padding(
               padding: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 8.0),
               child: Divider(

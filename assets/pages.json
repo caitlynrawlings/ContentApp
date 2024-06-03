@@ -15,167 +15,6 @@
     ],
     "pages": [
         {
-            "id": "Page 1",
-            "icon": "info-icon.png",
-            "title": {
-                "English": "English Title 1.0",
-                "Dholuo": "Dholuo Title",
-                "Kiswahili": "Kiswahili Title"
-            },
-            "content": [
-                {
-                    "content-type": "Subheading",
-                    "content": {
-                        "English": "How it works",
-                        "Dholuo": "How it works",
-                        "Kiswahili": "How it works"
-                    }
-                },
-                {
-                    "content-type": "Text",
-                    "content": {
-                        "English": "Your period will most likely become lighter, and might not come on a usual schedule. You might stop having periods all together while you are using depo. This is normal and healthy while using depo, because of the way the method works with your body. If your periods are usually heavy, this might be a good thing.",
-                        "Dholuo": "Rembi mar dwe biro bedo matin, kendo samoro ok bi biro kaka ochan. Inyalo weyo bedo gi remb dwe chutho ekinde ma itiyo gi Depo. Ma en gima timore kendo gima ber ekinde ma itiyo gi Depo, nikech kaka yor komo nyuol tiyo e dendi. Ka rembi mar dwe biro ga mang'eny, ma nyalo bedo gima ber.",
-                        "Kiswahili": "Kuna uwezekano mkubwa kwamba damu yako ya hedhi kitapungua, na huenda kisije kwa ratiba ya kawaida. Unaweza kuacha kupata hedhi wakati unatumia depo. Hii ni kawaida na yenye afya wakati wa kutumia depo, kwa sababu ya jinsi njia inavyofanya kazi na mwili wako. Ikiwa hedhi yako ni nzito, hii inaweza kuwa jambo zuri."
-                    }
-                },
-                {
-                    "content-type": "Image",
-                    "content": {
-                        "English": {
-                            "path": "cow.gif",
-                            "alt": "Alt Text",
-                            "caption": "Caption"
-                        },
-                        "Dholuo": {
-                            "path": "cow.gif",
-                            "alt": "Alt Text",
-                            "caption": ""
-                        },
-                        "Kiswahili": {
-                            "path": "cow.gif",
-                            "alt": "Alt Text",
-                            "caption": ""
-                        }
-                    }
-                },
-                {
-                    "content-type": "Callout",
-                    "content": {
-                        "English": {
-                            "path": "info-icon.png",
-                            "text": "Important information that we want to stand out"
-                        },
-                        "Dholuo": {
-                            "path": "info-icon.png",
-                            "text": "Important information that we want to stand out"
-                        },
-                        "Kiswahili": {
-                            "path": "info-icon.png",
-                            "text": "Important information that we want to stand out"
-                        }
-                    }
-                },
-                {
-                    "content-type": "Audio",
-                    "content": {
-                        "English": {
-                            "path": "heyThis_HIV_STI_E.mp3",
-                            "caption": "this is the transcript"
-                        },
-                        "Dholuo": {
-                            "path": "heyThis_HIV_STI_L.mp3",
-                            "caption": "Dholuo transcript"
-                        },
-                        "Kiswahili": {
-                            "path": "heyThis_HIV_STI_K.mp3",
-                            "caption": "Kiswahili transcript"
-                        }
-                    }
-                },
-                {
-                    "content-type": "Toggle",
-                    "content": {
-                        "English": {
-                            "title": "Title",
-                            "body": "How does this work (E)"
-                        },
-                        "Dholuo": {
-                            "title": "Title",
-                            "body": "How does this work (L)"
-                        },
-                        "Kiswahili": {
-                            "title": "Title",
-                            "body": "How does this work (K)"
-                        }
-                    }
-                },
-                {
-                    "content-type": "Text",
-                    "content": {
-                        "English": "Test",
-                        "Dholuo": "Test",
-                        "Kiswahili": "Test"
-                    }
-                }
-            ],
-            "hidden": false
-        },
-        {
-            "id": "Page 2",
-            "icon": "info-icon.png",
-            "title": {
-                "English": "English Title 2",
-                "Dholuo": "Dholuo Title 2",
-                "Kiswahili": "Kiswahili Title 2"
-            },
-            "content": [
-                {
-                    "content-type": "Heading",
-                    "content": {
-                        "English": "Heading",
-                        "Dholuo": "Heading",
-                        "Kiswahili": "Heading"
-                    }
-                },
-                {
-                    "content-type": "Toggle",
-                    "content": {
-                        "English": {
-                            "title": "Learn More",
-                            "body": "Info (E)"
-                        },
-                        "Dholuo": {
-                            "title": "Learn More (L)",
-                            "body": "Info (L)"
-                        },
-                        "Kiswahili": {
-                            "title": "Learn More (K)",
-                            "body": "Info (K)"
-                        }
-                    }
-                },
-                {
-                    "content-type": "Link",
-                    "content": {
-                        "English": {
-                            "displayText": "Next Page (E)",
-                            "page": "Page 1"
-                        },
-                        "Dholuo": {
-                            "displayText": "Next Page (L)",
-                            "page": "Page 1"
-                        },
-                        "Kiswahili": {
-                            "displayText": "Next Page (K)",
-                            "page": "Page 1"
-                        }
-                    }
-                }
-            ],
-            "hidden": false
-        },
-        {
             "id": "Quiz",
             "icon": "info-icon.png",
             "title": {
@@ -251,15 +90,15 @@
                     "content": {
                         "English": {
                             "displayText": "Yes",
-                            "page": "quizResultCondoms"
+                            "page": "quizResultsCondoms"
                         },
                         "Dholuo": {
                             "displayText": "Yes",
-                            "page": "quizResultCondoms"
+                            "page": "quizResultsCondoms"
                         },
                         "Kiswahili": {
                             "displayText": "Yes",
-                            "page": "quizResultCondoms"
+                            "page": "quizResultsCondoms"
                         }
                     }
                 },
@@ -699,11 +538,20 @@
             },
             "content": [
                 {
-                    "content-type": "Heading",
+                    "content-type": "IconSubheading",
                     "content": {
-                        "English": "Implant",
-                        "Dholuo": "Implant",
-                        "Kiswahili": "Implant"
+                        "English": {
+                            "path": "noun-contraceptive-implant-2860656.svg",
+                            "subheading": "Implant"
+                        },
+                        "Dholuo": {
+                            "path": "noun-contraceptive-implant-2860656.svg",
+                            "subheading": "Implant"
+                        },
+                        "Kiswahili": {
+                            "path": "noun-contraceptive-implant-2860656.svg",
+                            "subheading": "Implant"
+                        }
                     }
                 },
                 {
@@ -2251,15 +2099,15 @@
                     "content": {
                         "English": {
                             "path": "noun-female-condom-5959600.png",
-                            "subheading": ""
+                            "subheading": "(female condom)"
                         },
                         "Dholuo": {
                             "path": "noun-female-condom-5959600.png",
-                            "subheading": ""
+                            "subheading": "(female condom)"
                         },
                         "Kiswahili": {
                             "path": "noun-female-condom-5959600.png",
-                            "subheading": ""
+                            "subheading": "(female condom)"
                         }
                     }
                 },

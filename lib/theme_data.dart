@@ -38,10 +38,10 @@ class AppTextThemes {
 }
 
 class AppFontSizes {
-  static const displayLargeSize = 40.0; // page title
-  static const displayMediumSize = 30.0; // heading
-  static const displaySmallSize = 25.0; // subheading
-  static const headlineMediumSize = 18.0; // preview text for dropdown
+  static const displayLargeSize = 30.0; // page title
+  static const displayMediumSize = 25.0; // heading
+  static const displaySmallSize = 20.0; // subheading
+  static const headlineMediumSize = 18.0; // preview text for toggle and menu
   static const bodyLargeSize = 12.0; // body text
   static const bodySmallSize = 10.0; // caption
   static const labelLargeSize = 15.0; // button and dropdown

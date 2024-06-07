@@ -14,7 +14,7 @@ class Parser:
     @staticmethod
     def parse_to_json(spreadsheet_link):
         """
-        TODO
+        Parses the given Google Sheet and saves the content to JSON format
         """
         # 1. Get all sheets
         spreadsheet_id = Sheets.get_id_from_link(spreadsheet_link)
@@ -40,11 +40,6 @@ class Parser:
         menu_page = Sheets.get_values(spreadsheet_id, "Menu!A:B")
         for i in range(1, len(menu_page)):
             sheet = menu_page[i][0]
-
-        # 3. Get data and parse
-        # for sheet in sheets:
-            # if sheet in SKIPPED_SHEETS:
-            #     continue
 
             print(f"Parsing [{sheet}]")
             data = Sheets.get_values(spreadsheet_id, f"{sheet}!1:{MAX_ROWS}")
@@ -73,7 +68,7 @@ class Parser:
     @staticmethod
     def __convert_page_data(data, title):
         """
-        TODO
+        Converts the data on a content page into to JSON format
         """
         languages = data[0][2:]
         page_info = {
@@ -95,6 +90,9 @@ class Parser:
 
     @staticmethod
     def parse_row(languages, row, row_i, title):
+        '''
+        Parses a row of a content page into JSON format, depending on the content type
+        '''
         content_type = row[0]
         if content_type not in VALID_CONTENT_TYPES:
             raise Exception(f"Type {content_type} not parseable")
@@ -209,10 +207,10 @@ class Parser:
 
     @staticmethod
     def __download_file(link):
+        '''
+        Downloads the given google drive file
+        '''
         file_name = Drive.get_file_name(link=link)
-
-        # Uncomment if you want unique per-page/language naming:
-        # file_name = f"{title}-{language}-{name}"
 
         path = os.path.join(UPDATE_DIR, file_name)
         Drive.download_file_link(link, path)

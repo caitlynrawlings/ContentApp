@@ -8,14 +8,14 @@ class Sheets:
     @staticmethod
     def get_id_from_link(link):
         """
-        TODO
+        Parses the given google drive link and returns the file id
         """
         return link.split('/')[-2]
 
     @staticmethod
     def set_creds(creds):
         """
-        TODO
+        Sets the credentials for the Sheets API
         """
         Sheets.service = build("sheets", "v4", credentials=creds)
 

@@ -3,7 +3,6 @@ import os
 # Spreadsheet
 SPREADSHEET_LINK = "https://docs.google.com/spreadsheets/d/1tu5G4pl6Wn2uOx3CbrUiJHEZy2e_8F2bPn8Ry6HJYJ4/edit?usp=sharing"
 
-
 # Directories & Files
 STORAGE_DIR = os.path.join(os.getcwd(), 'assets')
 DOWNLOADS_DIR = os.path.join(STORAGE_DIR, 'downloads')

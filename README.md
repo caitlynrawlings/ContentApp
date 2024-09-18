@@ -1,4 +1,6 @@
 # Content App
+This repository is linked to a Google Sheet that on running the syncing workflow, will update the data that the Flutter app displays to reflect that information in the Google Sheet. The app can be previewed on [this repository's GitHub pages](https://caitlynrawlings.github.io/ContentApp/).
+
 ## Setup
 #### Google API
 In order to interface properly with the necessary Google APIs, you'll have to create a service account. Below are steps detailing how to do so:
